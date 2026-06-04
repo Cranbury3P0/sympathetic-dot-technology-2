@@ -1,0 +1,97 @@
+{
+  "slug": "gunslinger-ll-99",
+  "name": "GUNSLINGER\nMODEL LL-99",
+  "subtitle": "FRONTIER WRITING MACHINE",
+  "collection": "COLLECTION 05: TERRITORIAL NARRATIVES",
+  "divisions": ["AMERICANA DIVISION"],
+  "serialCode": "NSD / 1977 / 099",
+  "footerWarning": "DO NOT GALLOP.",
+
+  "status": "DISCONTINUED",
+  "isArchival": false,
+  "notForSale": false,
+
+  "deck": "Named after legendary author Louis L'Amour, the LL-99 sought to answer a question that nobody had ever asked: what if you could write an entire novel on horseback, or in a saloon, or from a rickety chair on a wooden boardwalk during a gruesome duel to the death.",
+
+  "metadata": [
+    { "label": "COLLECTION", "value": "05: TERRITORIAL NARRATIVES" },
+    { "label": "MANUFACTURED", "value": "1977" },
+    { "label": "DISCONTINUED", "value": "1982" }
+  ],
+
+  "features": [
+    "Western Novels",
+    "Railroad Histories",
+    "Cattle Reports",
+    "Borderland Correspondence",
+    "Dime Store Adventures",
+    "Frontier Mythologies",
+    "Desert Memoirs"
+  ],
+
+  "technicalSpecs": [
+    { "label": "Assembly", "value": "Mechanical Typewriter Assembly" },
+    { "label": "Keyboard", "value": "Dust-Sealed Keyboard" },
+    { "label": "Illumination", "value": "Integrated Lantern Illumination System" },
+    { "label": "Carry", "value": "Leather Carrying Handle" },
+    { "label": "Housing", "value": "Weather Resistant Housing" },
+    { "label": "Margins", "value": "Expanded Margin Controls" },
+    { "label": "Power", "value": "No Electricity Required" }
+  ],
+
+  "specialAccessory": {
+    "name": "THE HORSEBACK ADAPTER",
+    "description": [
+      "Officially known as the Mounted Composition Stabilization Kit, the accessory remains one of the most controversial products in company history.",
+      "The kit consisted of:"
+    ],
+    "components": [
+      "Saddle mounting bracket",
+      "Spring-loaded vibration dampeners",
+      "Leather paper retention straps",
+      "Reinforced ribbon housing",
+      "Emergency manuscript tether"
+    ],
+    "fieldReport": "While technically possible to compose on horseback, most operators reported that the resulting manuscripts contained excessive punctuation, erratic spacing, and an unusually high number of exclamation marks.",
+    "bulletin": {
+      "text": "\"Continuous composition is not recommended above a trot.\"",
+      "note": "The bulletin was ignored."
+    }
+  },
+
+  "approvedMounts": {
+    "approved": ["Quarter Horse", "Mustang", "Mule", "Draft Horse"],
+    "notApproved": ["Camels", "Ostriches", "Snowmobiles"],
+    "notApprovedLabel": "Not approved for:"
+  },
+
+  "documentation": [
+    "Frontier Operations Manual",
+    "Horseback Composition Handbook",
+    "Dust Storm Procedures",
+    "Emergency Campfire Repairs"
+  ],
+
+  "consumables": [
+    "Territorial Manuscript Paper",
+    "Frontier Carbon Ribbon",
+    "Saddle Oil",
+    "Coffee"
+  ],
+
+  "historyLeft": [
+    "The LL-99 was a commercial failure and a literary triumph.",
+    "Named after legendary author Louis L'Amour, the LL-99 sought to answer a question that nobody had ever asked: what if you could write an entire novel on horseback, or in a saloon, or from a rickety chair on a wooden boardwalk during a gruesome duel to the death."
+  ],
+
+  "historyRight": [
+    "Released in 1977 by the Frontier Narratives Division, the machine was originally marketed to western novelists, regional historians, rodeo journalists, and government land surveyors. Sales never exceeded 2,000 units, but surviving examples remain highly sought after by collectors of obsolete literary equipment."
+  ],
+
+  "warranty": [
+    "2 YEAR LIMITED WARRANTY",
+    "30 DAY RETURN POLICY",
+    "REPAIR SERVICES AVAILABLE",
+    "REPLACEMENT PARTS AVAILABLE"
+  ]
+}

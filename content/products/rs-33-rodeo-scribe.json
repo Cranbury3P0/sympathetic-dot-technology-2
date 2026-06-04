@@ -1,0 +1,106 @@
+{
+  "slug": "rs-33-rodeo-scribe",
+  "name": "RS-33 RODEO SCRIBE",
+  "subtitle": "SEMI-PORTABLE PORTAL WRITING DEVICE",
+  "collection": "COLLECTION 03: FRONTIER NARRATIVES",
+  "divisions": ["AMERICANA DIVISION", "FRONTIER NARRATIVES DIVISION"],
+  "serialCode": "NSD / 1978 / 033",
+  "footerWarning": "DO NOT ATTEMPT TO OPERATE",
+
+  "status": "DEVELOPMENT CANCELLED",
+  "statusDetail": "NO UNITS WERE EVER PRODUCED FOR SALE",
+  "isArchival": true,
+  "notForSale": true,
+
+  "deck": "A specialized composition platform designed for rodeo journalists and the bullfighting memoir market in Spain and parts of Mediterranean Europe.",
+
+  "metadata": [
+    { "label": "PROJECT DATES", "value": "1978 – 1980" },
+    { "label": "PROJECT CODE", "value": "FN-RS-33" }
+  ],
+
+  "projectDates": "1978 – 1980",
+  "projectCode": "FN-RS-33",
+
+  "intendedUse": "Continuous literary composition while mounted on mechanical bulls and other high-activity livestock.",
+
+  "targetMarkets": [
+    "Rodeo Journalists",
+    "Livestock Correspondents",
+    "Bullfighting Memoirists",
+    "Sensationalist Columnists"
+  ],
+
+  "prototypeSpecs": [
+    "Semi-Portal Typewriter Assembly",
+    "High-Impact Shock Mount (Prototype)",
+    "Gyroscopic Stabilization Frame",
+    "Reinforced Ribbon Housing",
+    "Leather Restraint System",
+    "Quick-Release Safety Clutch",
+    "No Electrical Power Required",
+    "Estimated Weight: 28.4 lbs"
+  ],
+
+  "testingOutcomes": {
+    "narrative": [
+      "While the machine itself performed within expected operational parameters, test operators consistently failed to maintain meaningful narrative coherence beyond approximately twelve seconds of continuous operation."
+    ],
+    "results": [
+      "Multiple dental injuries",
+      "One shattered femur",
+      "Several regrettable pelvic ailments",
+      "Significant ribbon feed failures",
+      "Repeated manuscript ejections",
+      "One fractured cranium (see below)"
+    ],
+    "engineeringConclusion": "\"The limitations observed appear to be primarily biological rather than mechanical.\""
+  },
+
+  "archivalNotes": {
+    "paragraphs": [
+      "Testing oversight was provided by Wyatt McSmith, former competitive rider and safety consultant, who had lost his right hand in a mechanical bull incident several years earlier.",
+      "McSmith's review of the RS-33 program is archived in Sympathetic Safety Report WR-79-17."
+    ],
+    "pullQuote": {
+      "text": "\"IT AIN'T THE MACHINE. IT'S WHAT'S BETWEEN THE STIRRUPS.\"",
+      "attribution": "– WYATT McSMITH"
+    }
+  },
+
+  "incidentReports": [
+    {
+      "id": "INCIDENT REPORT: TEST OPERATOR #14",
+      "date": "04.17.1979",
+      "paragraphs": [
+        "On 04.17.1979, aspiring novelist Marilyn Bradley was ejected from the mechanical bull at 00:00:09.7 of the test cycle.",
+        "Sustained a fractured cranium.",
+        "Recovered fully.",
+        "Subsequently abandoned Western fiction in favor of romantic fantasy, where she achieved significant commercial success."
+      ],
+      "subject": {
+        "name": "MARILYN BRADLEY",
+        "role": "TEST OPERATOR #14"
+      }
+    }
+  ],
+
+  "historyLeft": [
+    "The modest success of the LL-99 Gunslinger and its Mounted Composition Stabilization Kit generated optimism within the Frontier Narratives Division. By late 1978, management approved development of the RS-33 Rodeo Scribe.",
+    "Several engineers objected.",
+    "Meeting notes from November 1978 contain the handwritten observation: \"Horseback writing and mechanical bull writing appear to be different activities.\" The observation was not adopted."
+  ],
+
+  "historyRight": [
+    "The resulting testing program generated multiple injuries, several lawsuits, and substantial negative press coverage.",
+    "Development was discontinued in early 1980. No production units were ever completed.",
+    "Several claims against the company continued into the mid-1980s."
+  ],
+
+  "warnings": [
+    {
+      "level": "IMPORTANT",
+      "text": "The RS-33 Rodeo Scribe was never approved for any form of consumer use. This archival record is provided for historical and research purposes only."
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "slug": "vonnegut-4-11",
+  "name": "VONNEGUT 4-11",
+  "subtitle": "LITERARY COMPOSITION SYSTEM",
+  "collection": "COLLECTION 07: LITERARY OPERATIONS",
+  "divisions": ["LITERARY OPERATIONS DIVISION"],
+  "serialCode": "NSD / 1984 / 411",
+  "footerWarning": "DO NOT PHONE YOUR EX.",
+
+  "status": "IN PRODUCTION",
+  "isArchival": false,
+  "notForSale": false,
+
+  "heroImage": "/V-4-11-FINAL.png",
+  "heroImageAlt": "Vonnegut 4-11 Literary Composition System — full system with all accessories",
+
+  "deck": "The Vonnegut 4-11 is a dedicated literary composition system engineered for the production of long-form prose under conditions of sustained cognitive and emotional load.",
+
+  "metadata": [
+    { "label": "MANUFACTURED", "value": "1984" },
+    { "label": "STATUS", "value": "IN PRODUCTION" },
+    { "label": "UNITS PRODUCED", "value": "127,893+\n(AND COUNTING)" }
+  ],
+
+  "features": [
+    "Integrated Rejection Letter Disposal System",
+    "Editorial Disappointment Alarm",
+    "Existential Reflection Timer",
+    "Multi-Year Project Counter",
+    "Ashtray Stabilization Platform",
+    "Prize Acceptance Simulation Module",
+    "Self-Doubt Amplification Circuit",
+    "Botanical Morale Management System",
+    "Coil-Corded Author Communication Phone",
+    "External Bi-Directional Hand Unit"
+  ],
+
+  "technicalSpecs": [
+    { "label": "Keyboard", "value": "Dust-Sealed, Extended Travel" },
+    { "label": "Display", "value": "Fluorescent Year Counter" },
+    { "label": "Storage", "value": "Internal Solid-State Manuscript Buffer" },
+    { "label": "Power", "value": "115 VAC, 60 Hz" },
+    { "label": "Weight", "value": "68.2 lbs (System Base)" },
+    { "label": "Dimensions", "value": "24.6\" W x 17.3\" D x 9.8\" H" },
+    { "label": "Operating Environment", "value": "50–95°F" },
+    { "label": "Humidity", "value": "20–80% (non-condensing)" },
+    { "label": "Acoustic Output", "value": "42 dBA (typical)" }
+  ],
+
+  "includes": [
+    "Literary Composition Unit",
+    "Rejection Letter Disposal System",
+    "Botanical Morale Management System",
+    "Coil-Corded Communication Phone",
+    "External Bi-Directional Hand Unit",
+    "Task Illumination Lamp",
+    "Operator Documentation Set",
+    "Welcome to the Long Game (Booklet)"
+  ],
+
+  "components": [
+    {
+      "name": "INTEGRATED REJECTION",
+      "nameLine2": "LETTER DISPOSAL SYSTEM",
+      "description": [
+        "Automatically destroys unsolicited correspondence prior to operator exposure. Internal studies showed a 14% increase in daily word counts."
+      ]
+    },
+    {
+      "name": "EXISTENTIAL REFLECTION",
+      "nameLine2": "& PROJECT COUNTER",
+      "description": [
+        "Prompts reflection every 45 minutes.",
+        "Tracks the passage of time without providing context."
+      ]
+    },
+    {
+      "name": "ASHTRAY STABILIZATION",
+      "nameLine2": "PLATFORM",
+      "description": [
+        "Designed to stabilize small metal objects.",
+        "Other applications are noted in field reports."
+      ]
+    },
+    {
+      "name": "BOTANICAL MORALE",
+      "nameLine2": "MANAGEMENT SYSTEM",
+      "description": [
+        "Temperature-controlled botanical support system. Operator refillable. 500 mL capacity."
+      ]
+    },
+    {
+      "name": "EXTERNAL BI-DIRECTIONAL",
+      "nameLine2": "HAND UNIT",
+      "description": [
+        "Maintains operator posture during extended composition sessions.",
+        "Compatible with: Chin, Forehead, Left Temple, Right Temple."
+      ]
+    },
+    {
+      "name": "COIL-CORDED AUTHOR",
+      "nameLine2": "COMMUNICATION PHONE",
+      "description": [
+        "Two preprogrammed contacts.",
+        "Setting 1: Literary Agent",
+        "Setting 2: Local Sandwich Shop (delivers)"
+      ]
+    }
+  ],
+
+  "historyLeft": [
+    "Released in 1984, the Vonnegut 4-11 remains the best-selling machine in the history of the Literary Operations Division. Critics argued that the device encouraged unhealthy writing habits. Operators argued that it encouraged writing.",
+    "The 4-11 was developed in response to field research involving serious literary writers who reported that traditional writing environments did not adequately support the demands of long-form composition.",
+    "Early prototypes omitted the cranial support arm. Test subjects repeatedly attempted to install their own. The revision was adopted."
+  ],
+
+  "historyRight": [
+    "The Vonnegut 4-11 has been used in the production of thousands of memoirs, essays, and unfinished manuscripts.",
+    "It is not a typewriter.\nIt is not a word processor.\nIt is a long-term literary survival system."
+  ],
+
+  "warranty": [
+    "2 YEAR LIMITED WARRANTY",
+    "30 DAY RETURN POLICY",
+    "REPAIR SERVICES AVAILABLE",
+    "REPLACEMENT PARTS AVAILABLE"
+  ]
+}
