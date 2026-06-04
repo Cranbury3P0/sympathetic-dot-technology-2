@@ -1,6 +1,7 @@
 "use client";
 
 import { AccessGate } from "@/components/AccessGate";
+import { FitTitleLines } from "@/components/FitTitleLines";
 import type { AccessType } from "@/lib/access";
 
 /* ── TYPES ── */
@@ -258,18 +259,8 @@ function FieldNoteArticleTemplate({ article }: { article: ArticleData }) {
           {/* ── HERO ── */}
           <div className="fn-article-hero">
             <div className="fn-article-hero-text">
-              <h1 style={{
-                fontFamily: CONDENSED,
-                fontWeight: 900,
-                fontSize: "clamp(3.5rem, 11vw, 15rem)",
-                letterSpacing: "-0.02em",
-                textTransform: "uppercase",
-                lineHeight: 0.88,
-                margin: 0,
-              }}>
-                {article.titleLines.map((line, i) => (
-                  <span key={i} style={{ display: "block", whiteSpace: "nowrap" }}>{line}</span>
-                ))}
+              <h1>
+                <FitTitleLines lines={article.titleLines} />
               </h1>
             </div>
             <div className="fn-article-hero-img">

@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
+import { FitTitleLines } from "@/components/FitTitleLines";
 
 /* ── FIT TEXT ── */
 function FitText({ text, style }: { text: string; style: React.CSSProperties }) {
@@ -182,13 +183,9 @@ function Hero({ entry }: { entry: (typeof ENTRIES)[0] }) {
             {entry.id}
           </div>
         </div>
-        {/* Title — ON the photograph, bottom anchored */}
-        <div style={{ position: "absolute", bottom: "3.5rem", left: "1.5rem", zIndex: 2 }}>
-          <h2 style={{ fontFamily: CONDENSED, fontWeight: 900, fontSize: "clamp(3rem, 10vw, 13rem)", letterSpacing: "-0.02em", textTransform: "uppercase", lineHeight: 0.88, margin: 0 }}>
-            {entry.titleLines.map((line, i) => (
-              <span key={i} style={{ display: "block" }}>{line}</span>
-            ))}
-          </h2>
+        {/* Title — contained to the photograph column */}
+        <div className="fn-hero-title">
+          <FitTitleLines lines={entry.titleLines} />
         </div>
         {/* Arrow */}
         <div style={{ position: "absolute", bottom: "1.5rem", right: "1.5rem", zIndex: 2, fontFamily: BARLOW, fontWeight: 300, fontSize: "1.1rem", transform: hovered ? "translateX(4px)" : "translateX(0)", transition: "transform 0.15s ease" }}>
@@ -270,10 +267,8 @@ function SpreadCard({ entry }: { entry: (typeof ENTRIES)[0] }) {
           <div style={{ fontFamily: BARLOW, fontWeight: 300, fontSize: "0.875rem", marginBottom: "1rem" }}>—</div>
           {/* Headline: each line is display:block + white-space:nowrap */}
           {/* Lines wider than the text column bleed into the photograph */}
-          <h2 style={{ fontFamily: CONDENSED, fontWeight: 900, fontSize: "clamp(2.5rem, 6vw, 7.5rem)", letterSpacing: "-0.02em", textTransform: "uppercase", lineHeight: 0.88, margin: "0 0 1.25rem" }}>
-            {entry.titleLines.map((line, i) => (
-              <span key={i} style={{ display: "block", whiteSpace: "nowrap" }}>{line}</span>
-            ))}
+          <h2 style={{ margin: "0 0 1.25rem" }}>
+            <FitTitleLines lines={entry.titleLines} />
           </h2>
           <p style={{ fontFamily: BARLOW, fontWeight: 300, fontSize: "13px", lineHeight: 1.6, margin: 0, maxWidth: "28ch" }}>
             {entry.excerpt}
