@@ -448,7 +448,7 @@ body {
 /* HERO */
 .fn-hero {
   display: grid;
-  grid-template-columns: 38% 1fr;
+  grid-template-columns: minmax(280px, 38%) 1fr;
   border-bottom: 1px solid #0A0A0A;
   min-height: 85vh;
   overflow: hidden;
@@ -460,6 +460,7 @@ body {
   padding: 1.5rem;
   position: relative;
   z-index: 2;
+  min-width: 280px;
 }
 .fn-hero-right {
   position: relative;

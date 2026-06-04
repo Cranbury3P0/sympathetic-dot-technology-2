@@ -45,7 +45,7 @@ const article: ArticleData = {
   tags: ["AI Strategy", "Governance", "Canada", "Adoption", "Trust", "Sovereignty"],
   featuredImage: "/frame-within-a-frame-cover.png",
   featuredImagePosition: "center center",
-  deck: "It is a circle that contains circles. There is an inadvertent hypnosis to it, arrows curling around the inner ring and not quite agreeing on which way to turn. Weird vibes. Don't blame the bureaucrats for that. They were doing their best with a hard brief, and the picture they landed on is more honest than they probably intended.",
+  deck: "The diagram is a circle that contains circles, wheels within wheels. There is an inadvertent hypnotic effect to the design, arrows curling around the inner ring and not quite agreeing on which way to turn. Weird vibes but don't blame the bureaucrats for that. They were doing their best with a hard brief, and the core diagram that they landed on to distill the very essence of this strategy may provide more questions than answers.",
   body: [
     <>
       Today Evan Solomon, the minister in charge of Canada&apos;s AI file, released{" "}
@@ -59,23 +59,51 @@ const article: ArticleData = {
       </a>
       : AI for All. It is a large document that touches a lot of ground, and it will take slow, careful reading over the next few weeks to do it justice.
     </>,
-    "I'm planning a series of essays on the parts that sit closest to my work. In no particular order: the case for sovereign AI, especially in healthcare, and how the strategy speaks to it; the commitment, or the lack of one, to Canadian writers, artists, filmmakers, and other creators, and whether copyright has quietly been abandoned; and what the future of work looks like for people who have no interest in jumping into the hype, or whose jobs get cut by executives using AI as the reason. There will be other thoughts too.",
-    "But let's start where the document starts, with a diagram.",
-    "Here is what it shows. The outermost ring holds the six pillars, from protecting Canadians to building global alliances. Inside that ring sit three words: trust, opportunity, sovereignty.",
+    "I\u2019m planning a series of essays on the parts that sit closest to my work.",
+    <>
+      In no particular order:
+      <ul style={{ marginTop: "1em", marginBottom: "1em", paddingLeft: "1.5em", listStyleType: "disc" }}>
+        <li>the case for sovereign AI, especially in healthcare, and how the strategy speaks to it;</li>
+        <li>the commitment, or the lack of one, to Canadian writers, artists, filmmakers, and other creators, and whether copyright has quietly been abandoned;</li>
+        <li>and what the future of work looks like for people who have no interest in jumping into the hype, or whose jobs get cut by executives using AI as the reason.</li>
+      </ul>
+      There will be other thoughts too.
+    </>,
+    "But let\u2019s start where the document starts, with a diagram.",
+    "Here is what it shows. It\u2019s a circle and circles are easy to understand. After all the wheel, that greatest of all inventions, is also a wheel.",
+    "And this diagram which is a circle contains wheels within wheels.",
+    "The outermost ring holds the six pillars, from protecting Canadians to building global alliances. Inside that ring sit three words: trust, opportunity, sovereignty.",
     "Inside that, the part that actually moves, written three times and chased by those confused little arrows, is adoption.",
-    "And in the dark center, still, not spinning, are the words \"AI for All.\"",
+    "And in the dark center, still, not spinning, are the words \u201cAI for All.\u201d",
     "The slogan sits at the calm middle. The engine is one ring out, and the engine is adoption.",
-    "The introduction says the same thing in plain sentences. Canadians benefit from AI only if they use it, the document reasons, and they will use it only if they trust it. Then: \"Trust makes adoption possible. Opportunity and sovereignty ensure adoption creates benefits.\"",
+    "The introduction to the strategy says the same thing in plain sentences. Canadians benefit from AI only if they use it and they will use it only if they trust it.",
+    <>
+      <em style={{ fontStyle: "italic" }}>&ldquo;Trust makes adoption possible. Opportunity and sovereignty ensure adoption creates benefits.&rdquo;</em>
+      <br />
+      This is the logic. It\u2019s easy to follow.
+    </>,
     "Trust, opportunity, and sovereignty are framing around a verb. The whole apparatus exists to get Canadians adopting.",
-    "Here's the money quote: \"Trust is the north star of this strategy. Prosperity and sovereignty in this era belong to nations that can leverage trust to adopt, build, and govern AI on their own terms.\"",
-    "Trust is a lever. You pull it to make the wheel go. Whether the systems have earned anyone's trust is a different question, and the diagram has no ring for that.",
-    "And what exactly are we saying when we deploy the words \"Prosperity and sovereignty in this era\u2026\"? There seems to be something happening in that sentence that goes beyond a simple \"we're adapting to modern innovations and cultural change\" and into another place. What is it implying about future geopolitical relationships, future battlefields, the future of territorial rights?",
-    "This is where the frames go all the way down. Watch what happens to the people who decline to participate.",
-    "Statistics Canada finds that 78 percent of firms not using AI say they don't see how it helps the goods or services they sell. The strategy cannot let that stand as a judgment on the products, so it reframes it: \"a translation problem,\" and, to be safe, \"not resistance.\" A clear no becomes a vocabulary gap. Open that frame and there is another one behind it, the one where the customer was never allowed to be right.",
-    "I have studied AI and I read widely across several channels and as many points of view as I can stomach (note: not all AI POVs are digestible). Adoption is a thing that comes up a lot.",
-    "It is a common place that a person reaches after AI does something useful or interesting against a real problem. You try it again and get a similar result. Try it again and it hallucinates. Trust comes and goes.",
-    "Canada's AI strategy runs the logic backward. It sets a target, sixty percent of businesses using AI by 2034, up from twelve today, and then asks what trust and literacy it will take to hit the number. Once adoption is the figure you're optimizing, everything else gets tuned to produce it, including the value you just called your north star.",
-    "So: frames within frames. The pillars frame the values, the values frame adoption, adoption frames a slogan that doesn't move. Keep opening them, expecting to reach the thing the strategy is finally for, and you arrive at the still point in the middle that says \"AI for All\" and tells you nothing about who, or on whose terms. The bureaucrats drew an honest picture. The center is a frame too.",
+    "And so the trust piece is where a lot of people are having trouble right now. Skepticism is a completely valid response to the full court press that industry, media, and now the government, are putting on people without ever being asked.",
+    "How can you trust something that the leaders of the AI industry have gleefully claimed will steal your job?",
+    "What if you\u2019re a creator and it stole your work without asking and definitely without payment?",
+    "What if it hallucinates every time you use it?",
+    "What if the people who are the greatest advocates for AI are the people in your community that you trust the least?",
+    "Here\u2019s the money quote: \u201cTrust is the north star of this strategy. Prosperity and sovereignty in this era belong to nations that can leverage trust to adopt, build, and govern AI on their own terms.\u201d",
+    "Trust is a lever. You pull it to make the wheel go. Whether AI has done the work to earn anyone\u2019s trust is another question, and the diagram has no ring for that.",
+    "And what exactly are we saying when we deploy the words \u201cProsperity and sovereignty in this era\u2026\u201d? There seems to be something happening in that sentence that goes beyond a simple \u201cwe\u2019re adapting to modern innovations and cultural change\u201d and into another, maybe darker, place.",
+    "What is it implying about future geopolitical relationships, future battlefields, or the future of territorial rights?",
+    "This is where the frames start going all the way down. Watch what happens to the people who decline to participate.",
+    "Watch what happens to the people who throw themselves on the gears of this machination.",
+    "Statistics Canada finds that 78 percent of firms not using AI say they don\u2019t see how it helps the goods or services they sell. The strategy cannot let that stand as a judgment on the products, so it reframes it: \u201ca translation problem,\u201d and, to be safe, \u201cnot resistance.\u201d",
+    "A clear no becomes a vocabulary gap.",
+    "Open that frame and there is another one behind it, the one where the customer is surely allowed to be right but as a consequence, no longer relevant to the economy.",
+    "I have studied AI and I read widely across several channels and as many points of view as I can stomach (note: not all AI POVs are digestible nor worth your time). Adoption is a thing that comes up a lot.",
+    "It is a common place that a person reaches after AI does something useful or interesting against a real problem or question. You try AI again and get a similar result. Try it again and it hallucinates.",
+    "Trust comes and goes.",
+    "Canada\u2019s AI strategy runs the logic backward. It sets a target, sixty percent of businesses using AI by 2034, up from twelve today, and then asks what trust and literacy it will take to hit the number. Once adoption is the figure you\u2019re optimizing, everything else gets tuned to produce it, including the value you just called your north star.",
+    "So: frames within frames. The pillars frame the values, the values frame adoption, adoption frames a slogan that doesn\u2019t move.",
+    "Keep opening them, expecting to reach the thing the strategy is finally for, and you arrive at the still point in the middle that says \u201cAI for All\u201d and tells you nothing about who, or on whose terms. The bureaucrats drew an honest picture.",
+    "The center is a frame too.",
   ],
   pullQuote: "The center is a frame too.",
   supportingImages: [

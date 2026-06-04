@@ -183,10 +183,10 @@ function Hero({ entry }: { entry: (typeof ENTRIES)[0] }) {
           </div>
         </div>
         {/* Title — ON the photograph, bottom anchored */}
-        <div style={{ position: "absolute", bottom: "3.5rem", left: "1.5rem", right: "1.5rem", zIndex: 2, overflow: "hidden" }}>
-          <h2 style={{ fontFamily: CONDENSED, fontWeight: 900, fontSize: "clamp(3rem, 10vw, 13rem)", letterSpacing: "-0.02em", textTransform: "uppercase", lineHeight: 0.88, margin: 0 }}>
+        <div style={{ position: "absolute", bottom: "3.5rem", left: "1.5rem", right: "1.5rem", zIndex: 2 }}>
+          <h2 style={{ fontFamily: CONDENSED, fontWeight: 900, letterSpacing: "-0.02em", textTransform: "uppercase", lineHeight: 0.88, margin: 0 }}>
             {entry.titleLines.map((line, i) => (
-              <span key={i} style={{ display: "block", whiteSpace: "nowrap" }}>{line}</span>
+              <FitText key={i} text={line} style={{ fontFamily: CONDENSED, fontWeight: 900, letterSpacing: "-0.02em", textTransform: "uppercase", color: "#0A0A0A" }} />
             ))}
           </h2>
         </div>
