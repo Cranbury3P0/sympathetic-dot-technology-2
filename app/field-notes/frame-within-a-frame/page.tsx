@@ -20,6 +20,7 @@ type ArticleData = {
   tags: string[];
   featuredImage: string;
   featuredImagePosition?: string;
+  featuredImageCredit?: string;
   deck: string;
   body: ReactNode[];
   pullQuote?: string;
@@ -43,7 +44,7 @@ const article: ArticleData = {
   author: "Sean Cranbury",
   readingTime: "7 min",
   tags: ["AI Strategy", "Governance", "Canada", "Adoption", "Trust", "Sovereignty"],
-  featuredImage: "/frame-within-a-frame-cover.png",
+  featuredImage: "/filip-kominik.jpg",
   featuredImagePosition: "center center",
   deck: "The diagram is a circle that contains circles, wheels within wheels. There is an inadvertent hypnotic effect to the design, arrows curling around the inner ring and not quite agreeing on which way to turn. Weird vibes but don't blame the bureaucrats for that. They were doing their best with a hard brief, and the core diagram that they landed on to distill the very essence of this strategy may provide more questions than answers.",
   body: [
@@ -106,6 +107,7 @@ const article: ArticleData = {
     "The center is a frame too.",
   ],
   pullQuote: "The center is a frame too.",
+  featuredImageCredit: "Photo: Filip Kominik.",
   supportingImages: [
     {
       src: "/canada-ai-strategy-diagram.png",
@@ -119,6 +121,7 @@ const article: ArticleData = {
     { id: "038", title: "Introducing Controlled Intelligence", href: "/field-notes/introducing-controlled-intelligence" },
   ],
   previousObservation: { title: "The Pope Has Entered the Chat", href: "/field-notes/the-pope-has-entered-the-chat" },
+  nextObservation: { title: "Who Trains AI on Your Posts?", href: "/field-notes/who-trains-ai-on-your-posts" },
   access: "public",
 };
 
@@ -282,9 +285,19 @@ function FieldNoteArticleTemplate({ article }: { article: ArticleData }) {
                 ))}
               </h1>
             </div>
-            <div className="fn-article-hero-img">
+            <div className="fn-article-hero-img" style={{ position: "relative" }}>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={article.featuredImage} alt={article.title} style={{ objectPosition: article.featuredImagePosition ?? "center center" }} />
+              {article.featuredImageCredit && (
+                <div style={{
+                  position: "absolute", bottom: "0.5rem", right: "0.75rem",
+                  fontFamily: BARLOW, fontWeight: 300, fontSize: "10px",
+                  letterSpacing: "0.04em", color: "#F0EDE6", opacity: 0.55,
+                  pointerEvents: "none",
+                }}>
+                  {article.featuredImageCredit}
+                </div>
+              )}
             </div>
           </div>
 

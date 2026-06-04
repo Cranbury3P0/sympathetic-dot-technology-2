@@ -42,7 +42,7 @@ const ENTRIES = [
     excerpt: "A circle that contains circles. On what Canada's National AI Strategy diagram reveals about adoption, trust, and frames all the way down.",
     category: "AI Strategy & Governance",
     date: "June 4, 2026",
-    image: "/frame-within-a-frame-cover.png",
+    image: "/filip-kominik.jpg",
     imagePosition: "center center",
     href: "/field-notes/frame-within-a-frame",
   },
