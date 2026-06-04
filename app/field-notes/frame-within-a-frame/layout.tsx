@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const title = "Canada's AI Strategy: It's frames all the way down";
+const title = "Canada's AI Strategy: Frame after frame";
 const description =
   "It is a circle that contains circles. On what Canada's National AI Strategy diagram reveals about adoption, trust, and frames all the way down.";
 

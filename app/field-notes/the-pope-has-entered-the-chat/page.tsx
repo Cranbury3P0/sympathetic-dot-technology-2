@@ -22,7 +22,6 @@
 ───────────────────────────────────────────────────────────── */
 
 import { AccessGate } from "@/components/AccessGate";
-import { FitTitleLines } from "@/components/FitTitleLines";
 import type { AccessType } from "@/lib/access";
 
 /* ── TYPES ── */
@@ -112,13 +111,13 @@ const article: ArticleData = {
     },
   ],
   relatedObservations: [
-    { id: "042", title: "Canada's AI Strategy: It's frames all the way down", href: "/field-notes/frame-within-a-frame" },
+    { id: "042", title: "Canada's AI Strategy: Frame after frame", href: "/field-notes/frame-within-a-frame" },
     { id: "040", title: "A New Cultural Embassy", href: "/field-notes/a-new-cultural-embassy" },
     { id: "039", title: "Time for Vancouver to Come Clean About AI", href: "/field-notes/time-for-vancouver-to-come-clean-about-ai" },
     { id: "038", title: "Introducing Controlled Intelligence", href: "/field-notes/introducing-controlled-intelligence" },
   ],
   previousObservation: { title: "A New Cultural Embassy", href: "/field-notes/a-new-cultural-embassy" },
-  nextObservation: { title: "Canada's AI Strategy: It's frames all the way down", href: "/field-notes/frame-within-a-frame" },
+  nextObservation: { title: "Canada's AI Strategy: Frame after frame", href: "/field-notes/frame-within-a-frame" },
   /* ── access ── */
   access: "paid",
   allowPreviewParagraphs: 1,
@@ -313,8 +312,18 @@ function FieldNoteArticleTemplate({ article }: { article: ArticleData }) {
 
             {/* Title zone: paper background, z-index 2, overflow visible */}
             <div className="fn-article-hero-text">
-              <h1>
-                <FitTitleLines lines={article.titleLines} />
+              <h1 style={{
+                fontFamily: CONDENSED,
+                fontWeight: 900,
+                fontSize: "clamp(3.5rem, 11vw, 15rem)",
+                letterSpacing: "-0.02em",
+                textTransform: "uppercase",
+                lineHeight: 0.88,
+                margin: 0,
+              }}>
+                {article.titleLines.map((line, i) => (
+                  <span key={i} style={{ display: "block", whiteSpace: "nowrap" }}>{line}</span>
+                ))}
               </h1>
             </div>
 

@@ -2,7 +2,6 @@
 
 import type { ReactNode } from "react";
 import { AccessGate } from "@/components/AccessGate";
-import { FitTitleLines } from "@/components/FitTitleLines";
 import type { AccessType } from "@/lib/access";
 
 /* ── TYPES ── */
@@ -36,8 +35,8 @@ type ArticleData = {
 const STRATEGY_URL = "https://ised-isde.canada.ca/site/ised/en/canadas-national-artificial-intelligence-strategy-ai-all";
 
 const article: ArticleData = {
-  title: "Canada's AI Strategy: It's frames all the way down",
-  titleLines: ["CANADA'S AI", "STRATEGY", "IT'S FRAMES", "ALL THE WAY DOWN"],
+  title: "Canada's AI Strategy: Frame after frame",
+  titleLines: ["CANADA'S AI", "STRATEGY", "FRAME AFTER FRAME"],
   observationNumber: "042",
   date: "June 4, 2026",
   category: "AI Strategy & Governance",
@@ -249,8 +248,10 @@ function FieldNoteArticleTemplate({ article }: { article: ArticleData }) {
 
           <div className="fn-article-hero">
             <div className="fn-article-hero-text">
-              <h1>
-                <FitTitleLines lines={article.titleLines} />
+              <h1 style={{ fontFamily: CONDENSED, fontWeight: 900, fontSize: "clamp(3.5rem, 11vw, 15rem)", letterSpacing: "-0.02em", textTransform: "uppercase", lineHeight: 0.88, margin: 0 }}>
+                {article.titleLines.map((line, i) => (
+                  <span key={i} style={{ display: "block", whiteSpace: "nowrap" }}>{line}</span>
+                ))}
               </h1>
             </div>
             <div className="fn-article-hero-img">

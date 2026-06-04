@@ -336,7 +336,6 @@ body {
   min-height: 74vh;
   position: relative;
   border-bottom: 1px solid #0A0A0A;
-  overflow: hidden;
 }
 /* Title zone: paper bg, z-index 2, overflow visible — title bleeds right into image */
 .fn-article-hero-text {
@@ -348,15 +347,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  min-width: 0;
-}
-.fn-article-hero-text h1 {
-  margin: 0;
-  width: 100%;
-  max-width: 100%;
-}
-.fn-article-hero-text .fit-title-line {
-  overflow: visible;
 }
 /* Image zone: z-index 1, overflow hidden — clips image, title renders on top */
 .fn-article-hero-img {
@@ -432,9 +422,6 @@ body {
     padding: 1.5rem 1rem 1.5rem;
     justify-content: flex-start;
   }
-  .fn-article-hero-text .fit-title-line {
-    overflow: hidden;
-  }
   .fn-article-hero-img { height: 62vw; }
   .fn-article-deck { padding: 1.75rem 1rem; }
   .fn-article-body { grid-template-columns: 1fr; }
@@ -473,26 +460,10 @@ body {
   padding: 1.5rem;
   position: relative;
   z-index: 2;
-  min-width: 0;
 }
 .fn-hero-right {
   position: relative;
   overflow: hidden;
-  min-width: 0;
-  isolation: isolate;
-}
-.fn-hero-title {
-  position: absolute;
-  bottom: 3.5rem;
-  left: 1.5rem;
-  right: 1.5rem;
-  z-index: 2;
-  overflow: hidden;
-}
-.fit-title-line {
-  width: 100%;
-  overflow: hidden;
-  line-height: 0.88;
 }
 .fn-hero-right img {
   position: absolute;
@@ -545,15 +516,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-width: 0;
-}
-.fn-spread-text h2 {
-  margin: 0 0 1.25rem;
-  width: 100%;
-  max-width: 100%;
-}
-.fn-spread-text .fit-title-line {
-  overflow: visible;
 }
 /* Image column: z-index 1, overflow hidden — clips image to its own box */
 /* Title from the adjacent column renders on top of this */
@@ -591,17 +553,8 @@ body {
 /* ── MOBILE ── */
 @media (max-width: 768px) {
   .fn-hero { grid-template-columns: 1fr; min-height: unset; }
-  .fn-hero-right { min-height: 72vw; height: auto; }
+  .fn-hero-right { height: 60vw; }
   .fn-hero-left { overflow: hidden; }
-  .fn-hero-title {
-    bottom: 1.25rem;
-    left: 1rem;
-    right: 1rem;
-  }
-  .fn-article-hero-text .fit-title-line,
-  .fn-spread-text .fit-title-line {
-    overflow: hidden;
-  }
   .fn-index-row { grid-template-columns: 3rem 1fr 2rem; gap: 1rem; padding: 0.75rem 1rem; }
   .fn-index-col-category, .fn-index-col-date { display: none; }
   .fn-spread-grid { grid-template-columns: 1fr; }
