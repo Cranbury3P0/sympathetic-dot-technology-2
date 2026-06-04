@@ -37,8 +37,8 @@ const NAV_ITEMS = ["SYSTEMS", "FIELD NOTES", "WORK", "VERBATIM", "ABOUT", "CONTA
 const ENTRIES = [
   {
     id: "042",
-    titleLines: ["CANADA'S AI", "STRATEGY", "FRAME AFTER FRAME"],
-    title: "Canada's AI Strategy: Frame after frame",
+    titleLines: ["CANADA'S AI", "STRATEGY 01", "FRAME AFTER FRAME"],
+    title: "Canada's AI Strategy 01 Frame after Frame",
     excerpt: "A circle that contains circles. On what Canada's National AI Strategy diagram reveals about adoption, trust, and frames all the way down.",
     category: "AI Strategy & Governance",
     date: "June 4, 2026",

@@ -111,13 +111,13 @@ const article: ArticleData = {
     },
   ],
   relatedObservations: [
-    { id: "042", title: "Canada's AI Strategy: Frame after frame", href: "/field-notes/frame-within-a-frame" },
+    { id: "042", title: "Canada's AI Strategy 01 Frame after Frame", href: "/field-notes/frame-within-a-frame" },
     { id: "040", title: "A New Cultural Embassy", href: "/field-notes/a-new-cultural-embassy" },
     { id: "039", title: "Time for Vancouver to Come Clean About AI", href: "/field-notes/time-for-vancouver-to-come-clean-about-ai" },
     { id: "038", title: "Introducing Controlled Intelligence", href: "/field-notes/introducing-controlled-intelligence" },
   ],
   previousObservation: { title: "A New Cultural Embassy", href: "/field-notes/a-new-cultural-embassy" },
-  nextObservation: { title: "Canada's AI Strategy: Frame after frame", href: "/field-notes/frame-within-a-frame" },
+  nextObservation: { title: "Canada's AI Strategy 01 Frame after Frame", href: "/field-notes/frame-within-a-frame" },
   /* ── access ── */
   access: "paid",
   allowPreviewParagraphs: 1,

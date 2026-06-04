@@ -35,8 +35,8 @@ type ArticleData = {
 const STRATEGY_URL = "https://ised-isde.canada.ca/site/ised/en/canadas-national-artificial-intelligence-strategy-ai-all";
 
 const article: ArticleData = {
-  title: "Canada's AI Strategy: Frame after frame",
-  titleLines: ["CANADA'S AI", "STRATEGY", "FRAME AFTER FRAME"],
+  title: "Canada's AI Strategy 01 Frame after Frame",
+  titleLines: ["CANADA'S AI", "STRATEGY 01", "FRAME AFTER FRAME"],
   observationNumber: "042",
   date: "June 4, 2026",
   category: "AI Strategy & Governance",
