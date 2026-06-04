@@ -70,7 +70,7 @@ const article: ArticleData = {
       There will be other thoughts too.
     </>,
     "But let\u2019s start where the document starts, with a diagram.",
-    "Here is what it shows. It\u2019s a circle and circles are easy to understand. After all the wheel, that greatest of all inventions, is also a wheel.",
+    "Here is what it shows. It\u2019s a circle and circles are easy to understand. After all the wheel, that greatest of all inventions, is also a circle.",
     "And this diagram which is a circle contains wheels within wheels.",
     "The outermost ring holds the six pillars, from protecting Canadians to building global alliances. Inside that ring sit three words: trust, opportunity, sovereignty.",
     "Inside that, the part that actually moves, written three times and chased by those confused little arrows, is adoption.",

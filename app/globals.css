@@ -383,6 +383,9 @@ body {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  position: sticky;
+  top: 1.5rem;
+  align-self: start;
 }
 .fn-article-pull-quote {
   border-top: 1px solid #0A0A0A;
