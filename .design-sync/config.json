@@ -1,0 +1,17 @@
+{
+  "projectId": "586320e8-67e1-4a53-867b-c6bca54aa04c",
+  "shape": "package",
+  "pkg": "sympathetic-ds",
+  "buildCmd": "npm run build --workspace=sympathetic-ds",
+  "tokensPkg": "sympathetic-ds",
+  "tokensGlob": "src/*.css",
+  "docsDir": "../../.design-sync/docs-stubs",
+  "componentSrcMap": {
+    "FitText": "src/Heading.tsx"
+  },
+  "readmeHeader": ".design-sync/conventions.md",
+  "overrides": {
+    "LegalBar": { "cardMode": "column", "viewport": "1300x220" },
+    "Nav": { "cardMode": "column", "viewport": "1300x220" }
+  }
+}

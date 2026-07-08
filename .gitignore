@@ -44,3 +44,10 @@ next-env.d.ts
 
 # claude code (personal, machine-specific)
 .claude/settings.local.json
+
+# design-sync (regenerated converter/build output; not durable state)
+.ds-sync/
+ds-bundle/
+.design-sync/.cache/
+.design-sync/learnings/
+.design-sync/node_modules

@@ -1,0 +1,127 @@
+/**
+ * Layout rules for classNames the components render but don't style
+ * inline (Nav, LegalBar, Breadcrumb, PrevNext, BookSpread's responsive
+ * overrides). These are duplicated from app/globals.css so the package
+ * renders correctly on its own (e.g. in claude.ai/design or any other
+ * host app) — app/globals.css remains the source the live site imports.
+ * Keep both in sync when these rules change.
+ */
+
+/* Nav */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+/* Legal bar */
+.legal-bar {
+  border-top: 1px solid #0A0A0A;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+}
+.legal-links {
+  display: flex;
+  gap: 2rem;
+}
+
+/* Field-notes article breadcrumb */
+.fn-article-breadcrumb {
+  border-bottom: 1px solid #0A0A0A;
+  padding: 0.75rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Field-notes article prev/next */
+.fn-article-prevnext {
+  border-top: 1px solid #0A0A0A;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  align-items: center;
+}
+
+/* ── TABLET ── */
+@media (min-width: 769px) and (max-width: 1100px) {
+  .nav-links {
+    gap: 1.25rem;
+  }
+}
+
+/* ── MOBILE ── */
+@media (max-width: 1024px) {
+  .nav-links {
+    display: none;
+  }
+  .nav-mobile-icon {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .fn-article-prevnext {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1.25rem 1rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .legal-bar {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem;
+    align-items: flex-start;
+  }
+  .legal-links {
+    gap: 1.25rem;
+  }
+}
+
+/* BookSpread responsive shell (see app/globals.css for the full comment) */
+@media (max-width: 768px) {
+  .book-spread-outer {
+    box-shadow:
+       0  6px 24px rgba(30,20,10,0.16),
+       0 -1px  6px rgba(30,20,10,0.05) !important;
+  }
+  .book-spread-pages {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .book-spread-left,
+  .book-spread-right {
+    width: 100% !important;
+    min-height: 0 !important;
+    padding: 48px 28px 72px !important;
+    background-image: none !important;
+  }
+  .book-spread-right {
+    border-top: 1px solid rgba(70,55,30,0.18);
+  }
+}
+
+@media print {
+  .book-spread-outer {
+    box-shadow: none !important;
+    overflow: visible !important;
+  }
+  .book-spread-pages {
+    display: block !important;
+  }
+  .book-spread-left,
+  .book-spread-right {
+    width: 100% !important;
+    min-height: 100vh !important;
+    page-break-after: always;
+    background-image: none !important;
+  }
+  .book-spread-outer > div[aria-hidden="true"] {
+    display: none !important;
+  }
+}

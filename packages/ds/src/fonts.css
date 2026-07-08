@@ -3,7 +3,13 @@
  * (e.g. a design agent rendering this package standalone, where
  * next/font's build-time self-hosting isn't available).
  * The live site itself uses next/font/google for Barlow/Barlow Condensed
- * (see app/layout.tsx) — this file only covers fonts a component
- * loads on its own, currently EB Garamond for BookSpread.
+ * (see app/layout.tsx, which self-hosts these same families/weights via
+ * next/font) — this file provides the same families from Google Fonts'
+ * CDN, plus EB Garamond for BookSpread, for any host that isn't Next.js.
  */
-@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Barlow:wght@300;400&family=Barlow+Condensed:wght@300;400;900&display=swap");
+
+:root {
+  --font-barlow-condensed: "Barlow Condensed", sans-serif;
+  --font-barlow: "Barlow", sans-serif;
+}
