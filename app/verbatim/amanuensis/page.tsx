@@ -15,7 +15,8 @@ import {
   bookExtractStyle,
   bookHeadingStyle,
   bookSignatureStyle,
-} from "@/components/BookSpread";
+  Nav,
+} from "sympathetic-ds";
 
 const ebGaramond = EB_Garamond({
   subsets: ["latin"],
@@ -134,6 +135,7 @@ function FrontMatterSpread() {
 
   return (
     <BookSpread
+      fontFamily={GARAMOND}
       leftPageNumber="xiii"
       rightPageNumber="xiv"
       leftContent={
@@ -223,25 +225,7 @@ export default function AmanuensisPage() {
     <div style={{ background: BG, minHeight: "100vh", fontFamily: BARLOW }}>
 
       {/* ── NAV ── */}
-      <nav style={{ borderBottom: RULE, padding: "0 1.5rem", display: "flex", alignItems: "center", justifyContent: "space-between", height: "44px" }}>
-        <Link href="/" style={{ ...NAV_STYLE, fontWeight: 700, letterSpacing: "0.06em" }}>
-          SYMPATHETIC TECHNOLOGY
-        </Link>
-        <div className="nav-links">
-          {NAV_ITEMS.map((item) => {
-            const href =
-              item === "SYSTEMS" ? "/systems" :
-              item === "FIELD NOTES" ? "/field-notes" :
-              item === "VERBATIM" ? "/verbatim" :
-              item === "CLIENT LOGIN" ? "/client" : "#";
-            return (
-              <Link key={item} href={href} style={{ ...NAV_STYLE, fontWeight: item === "VERBATIM" ? 700 : 500, borderBottom: item === "VERBATIM" ? RULE : "none", paddingBottom: item === "VERBATIM" ? "2px" : "0" }}>
-                {item}
-              </Link>
-            );
-          })}
-        </div>
-      </nav>
+      <Nav variant="verbatim" activeItem="VERBATIM" logoHref="/" />
 
       {/* ── BREADCRUMB ── */}
       <div style={{ borderBottom: RULE, padding: "0.6rem 1.5rem", display: "flex", gap: "0.5rem", alignItems: "center" }}>

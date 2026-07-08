@@ -4,22 +4,20 @@
 // Spelling, punctuation, and line breaks in leftContent / rightContent
 // are the responsibility of the caller. This component does not correct
 // or normalise any text it receives.
-
-"use client";
+//
+// Purely presentational (no hooks/state) on its own — the package as a
+// whole ships "use client" via tsup.config.ts's banner (see that file for
+// why: per-module directives don't survive this single-file bundle).
 
 import React from "react";
-import { EB_Garamond } from "next/font/google";
-
-const ebGaramond = EB_Garamond({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  style: ["normal", "italic"],
-  display: "swap",
-});
 
 /* ── Typography tokens ─────────────────────────────────── */
+// Default typeface is plain "EB Garamond" — loaded via ./fonts.css
+// (a remote @import). Host apps that use next/font/google should pass
+// an explicit `fontFamily` prop with their own self-hosted instance
+// instead of relying on this default (see app/verbatim/amanuensis).
 
-const GARAMOND = `${ebGaramond.style.fontFamily}, "Hoefler Text", "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif`;
+const GARAMOND = `"EB Garamond", "Hoefler Text", "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif`;
 
 /* ── Paper palette ─────────────────────────────────────── */
 

@@ -1,12 +1,5 @@
 @import "tailwindcss";
-
-@theme {
-  --color-paper: #F0EDE6;
-  --color-ink: #0A0A0A;
-  --color-rule: #0A0A0A;
-  --font-display: var(--font-barlow-condensed);
-  --font-body: var(--font-barlow);
-}
+@import "sympathetic-ds/tokens.css";
 
 *,
 *::before,

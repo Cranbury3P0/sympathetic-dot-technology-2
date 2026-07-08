@@ -2,6 +2,7 @@
 
 import { AccessGate } from "@/components/AccessGate";
 import type { AccessType } from "@/lib/access";
+import { Nav, Breadcrumb, PrevNext } from "sympathetic-ds";
 
 /* ── TYPES ── */
 
@@ -162,25 +163,7 @@ function FieldNoteArticleTemplate({ article }: { article: ArticleData }) {
     <main style={{ backgroundColor: PAPER, color: INK, margin: 0, minHeight: "100vh" }}>
 
       {/* ── NAV ── */}
-      <nav style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "1.125rem 1.5rem", borderBottom: RULE }}>
-        <a href="/" style={{ ...NAV_STYLE, textDecoration: "none" }}>SYMPATHETIC.TECHNOLOGY</a>
-        <div className="nav-links">
-          {NAV_ITEMS.map((item) => (
-            <a key={item} href={
-              item === "SYSTEMS" ? "/systems" :
-              item === "FIELD NOTES" ? "/field-notes" :
-              item === "VERBATIM" ? "/verbatim" : item === "CLIENT LOGIN" ? "/client" : "#"
-            } style={{
-              ...NAV_STYLE,
-              ...(item === "FIELD NOTES" ? { textDecoration: "underline", textUnderlineOffset: "4px" } : {}),
-            }}>
-              {item}
-            </a>
-          ))}
-          <span style={{ border: RULE, width: "1.5rem", height: "1.5rem", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, fontSize: "0.6rem" }}>◉</span>
-        </div>
-        <span className="nav-mobile-icon" style={{ border: RULE, width: "1.5rem", height: "1.5rem", display: "none", alignItems: "center", justifyContent: "center", fontSize: "0.6rem" }}>◉</span>
-      </nav>
+      <Nav activeItem="FIELD NOTES" logoHref="/" />
 
       {/* ── OUTER GRID: rail | main ── */}
       <div className="fn-article-outer">
@@ -269,14 +252,7 @@ function FieldNoteArticleTemplate({ article }: { article: ArticleData }) {
         <div className="fn-article-main">
 
           {/* Breadcrumb */}
-          <div className="fn-article-breadcrumb">
-            <span style={{ fontFamily: BARLOW, fontWeight: 600, fontSize: "11px", letterSpacing: "0.12em", textTransform: "uppercase" }}>
-              FIELD NOTES / {article.observationNumber}
-            </span>
-            <a href="/field-notes" style={{ fontFamily: BARLOW, fontWeight: 300, fontSize: "11px", letterSpacing: "0.08em", textTransform: "uppercase", textDecoration: "none", color: INK, opacity: 0.6 }}>
-              ← ALL FIELD NOTES
-            </a>
-          </div>
+          <Breadcrumb observationNumber={article.observationNumber} />
 
           {/* ── HERO ── */}
           <div className="fn-article-hero">
@@ -396,33 +372,7 @@ function FieldNoteArticleTemplate({ article }: { article: ArticleData }) {
           })()}
 
           {/* ── PREVIOUS / NEXT ── */}
-          <nav className="fn-article-prevnext">
-            <div>
-              {article.previousObservation && (
-                <a href={article.previousObservation.href} style={{ textDecoration: "none", color: INK }}>
-                  <div style={{ ...LABEL, marginBottom: "0.4rem", opacity: 0.5 }}>← PREVIOUS</div>
-                  <div style={{ fontFamily: BARLOW, fontWeight: 400, fontSize: "14px", lineHeight: 1.3 }}>
-                    {article.previousObservation.title}
-                  </div>
-                </a>
-              )}
-            </div>
-            <div style={{ textAlign: "center" }}>
-              <a href="/field-notes" style={{ ...LABEL, fontSize: "11px", textDecoration: "none", color: INK, opacity: 0.5 }}>
-                ALL FIELD NOTES
-              </a>
-            </div>
-            <div style={{ textAlign: "right" }}>
-              {article.nextObservation && (
-                <a href={article.nextObservation.href} style={{ textDecoration: "none", color: INK }}>
-                  <div style={{ ...LABEL, marginBottom: "0.4rem", opacity: 0.5 }}>NEXT →</div>
-                  <div style={{ fontFamily: BARLOW, fontWeight: 400, fontSize: "14px", lineHeight: 1.3 }}>
-                    {article.nextObservation.title}
-                  </div>
-                </a>
-              )}
-            </div>
-          </nav>
+          <PrevNext previous={article.previousObservation} next={article.nextObservation} />
 
         </div>{/* end .fn-article-main */}
       </div>{/* end .fn-article-outer */}

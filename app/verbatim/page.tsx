@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { Nav } from "sympathetic-ds";
 
 /* ── FIT TEXT ── */
 
@@ -205,43 +206,7 @@ export default function VerbatimPage() {
     <div style={{ background: "#F0EDE6", minHeight: "100vh", fontFamily: BARLOW }}>
 
       {/* ── NAV ── */}
-      <nav
-        style={{
-          borderBottom: RULE,
-          padding: "0 1.5rem",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          height: "44px",
-        }}
-      >
-        <Link href="/" style={{ ...NAV_STYLE, fontWeight: 700, letterSpacing: "0.06em" }}>
-          SYMPATHETIC TECHNOLOGY
-        </Link>
-        <div className="nav-links">
-          {NAV_ITEMS.map((item) => {
-            const href =
-              item === "SYSTEMS" ? "/systems" :
-              item === "FIELD NOTES" ? "/field-notes" :
-              item === "VERBATIM" ? "/verbatim" :
-              item === "CLIENT LOGIN" ? "/client" : "#";
-            return (
-              <Link
-                key={item}
-                href={href}
-                style={{
-                  ...NAV_STYLE,
-                  fontWeight: item === "VERBATIM" ? 700 : 500,
-                  borderBottom: item === "VERBATIM" ? "1px solid #0A0A0A" : "none",
-                  paddingBottom: item === "VERBATIM" ? "2px" : "0",
-                }}
-              >
-                {item}
-              </Link>
-            );
-          })}
-        </div>
-      </nav>
+      <Nav variant="verbatim" activeItem="VERBATIM" logoHref="/" />
 
       {/* ── VERBATIM TITLE ── */}
       <div style={{ borderBottom: RULE, padding: "0.5rem 1.5rem 0.4rem" }}>

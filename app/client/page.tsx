@@ -1,5 +1,7 @@
 "use client";
 
+import { Nav } from "sympathetic-ds";
+
 /* ─────────────────────────────────────────────────────────────
    CLIENT PORTAL — /client
    Placeholder portal for Sympathetic Technology clients.
@@ -191,29 +193,7 @@ export default function ClientPortalPage() {
     <main style={{ backgroundColor: PAPER, color: INK, minHeight: "100vh", margin: 0 }}>
 
       {/* ── NAV ── */}
-      <nav style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "1.125rem 1.5rem", borderBottom: RULE }}>
-        <a href="/" style={{ ...NAV_STYLE, textDecoration: "none" }}>SYMPATHETIC.TECHNOLOGY</a>
-        <div className="nav-links">
-          {NAV_ITEMS.map((item) => (
-            <a
-              key={item}
-              href={
-                item === "SYSTEMS" ? "/systems" :
-                item === "FIELD NOTES" ? "/field-notes" :
-                item === "VERBATIM" ? "/verbatim" : item === "CLIENT LOGIN" ? "/client" : "#"
-              }
-              style={{
-                ...NAV_STYLE,
-                ...(item === "CLIENT LOGIN" ? { textDecoration: "underline", textUnderlineOffset: "4px" } : {}),
-              }}
-            >
-              {item}
-            </a>
-          ))}
-          <span style={{ border: RULE, width: "1.5rem", height: "1.5rem", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, fontSize: "0.6rem" }}>◉</span>
-        </div>
-        <span className="nav-mobile-icon" style={{ border: RULE, width: "1.5rem", height: "1.5rem", display: "none", alignItems: "center", justifyContent: "center", fontSize: "0.6rem" }}>◉</span>
-      </nav>
+      <Nav activeItem="CLIENT LOGIN" logoHref="/" />
 
       {/* ── OUTER GRID: rail | main ── */}
       <div style={{ display: "grid", gridTemplateColumns: "176px 1fr", borderTop: RULE, minHeight: "calc(100vh - 3rem)" }} className="client-outer">

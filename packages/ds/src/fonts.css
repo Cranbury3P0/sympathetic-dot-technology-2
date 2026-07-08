@@ -1,0 +1,9 @@
+/**
+ * Brand fonts for components that need them outside the Next.js app
+ * (e.g. a design agent rendering this package standalone, where
+ * next/font's build-time self-hosting isn't available).
+ * The live site itself uses next/font/google for Barlow/Barlow Condensed
+ * (see app/layout.tsx) — this file only covers fonts a component
+ * loads on its own, currently EB Garamond for BookSpread.
+ */
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap");

@@ -1,0 +1,12 @@
+/**
+ * Sympathetic Technology design tokens (Tailwind v4 @theme block).
+ * Single source of truth — consumed by the site via app/globals.css
+ * and available to any host app that imports this package.
+ */
+@theme {
+  --color-paper: #F0EDE6;
+  --color-ink: #0A0A0A;
+  --color-rule: #0A0A0A;
+  --font-display: var(--font-barlow-condensed);
+  --font-body: var(--font-barlow);
+}

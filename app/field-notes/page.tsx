@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
+import { Nav, LegalBar } from "sympathetic-ds";
 
 /* ── FIT TEXT ── */
 function FitText({ text, style }: { text: string; style: React.CSSProperties }) {
@@ -301,19 +302,7 @@ export default function FieldNotesPage() {
     <main style={{ backgroundColor: "#F0EDE6", color: "#0A0A0A", fontFamily: BARLOW, minHeight: "100vh", margin: 0 }}>
 
       {/* NAV */}
-      <nav style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "1.125rem 1.5rem", borderBottom: RULE }}>
-        <a href="/" style={{ ...NAV_STYLE, textDecoration: "none" }}>SYMPATHETIC.TECHNOLOGY</a>
-        <div className="nav-links">
-          {NAV_ITEMS.map((item) => (
-            <a key={item} href={item === "SYSTEMS" ? "/systems" : item === "FIELD NOTES" ? "/field-notes" : item === "VERBATIM" ? "/verbatim" : item === "CLIENT LOGIN" ? "/client" : "#"}
-              style={{ ...NAV_STYLE, ...(item === "FIELD NOTES" ? { textDecoration: "underline", textUnderlineOffset: "4px" } : {}) }}>
-              {item}
-            </a>
-          ))}
-          <span style={{ border: RULE, width: "1.5rem", height: "1.5rem", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, fontSize: "0.6rem" }}>◉</span>
-        </div>
-        <span className="nav-mobile-icon" style={{ border: RULE, width: "1.5rem", height: "1.5rem", display: "none", alignItems: "center", justifyContent: "center", fontSize: "0.6rem" }}>◉</span>
-      </nav>
+      <Nav activeItem="FIELD NOTES" logoHref="/" />
 
       {/* SECTION 1 — HERO */}
       <Hero entry={ENTRIES[0]} />
@@ -351,19 +340,7 @@ export default function FieldNotesPage() {
       </div>
 
       {/* LEGAL */}
-      <div className="legal-bar">
-        <span style={{ fontFamily: BARLOW, fontWeight: 300, fontSize: "0.5625rem", letterSpacing: "0.1em", textTransform: "uppercase" }}>
-          © SYMPATHETIC TECHNOLOGY INC.
-        </span>
-        <div className="legal-links">
-          {["PRIVACY", "TERMS", "ACCESSIBILITY"].map((item) => (
-            <a key={item} href="#" style={{ ...NAV_STYLE, fontSize: "0.5625rem" }}>{item}</a>
-          ))}
-        </div>
-        <span style={{ fontFamily: BARLOW, fontWeight: 300, fontSize: "0.5625rem", letterSpacing: "0.1em", textTransform: "uppercase" }}>
-          SITE BY SYMPATHETIC
-        </span>
-      </div>
+      <LegalBar />
     </main>
   );
 }
