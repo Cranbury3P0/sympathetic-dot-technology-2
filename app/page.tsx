@@ -12,6 +12,14 @@ type GeoState = {
   ready: boolean;
 };
 
+type LocationState = {
+  city: string;
+  country: string;
+} | null;
+
+const DEFAULT_LAT = 49.2827;
+const DEFAULT_LNG = -123.1207;
+
 function formatCoord(deg: number, pos: string, neg: string): string {
   const dir = deg >= 0 ? pos : neg;
   return `${Math.abs(deg).toFixed(4)}° ${dir}`;
@@ -19,27 +27,45 @@ function formatCoord(deg: number, pos: string, neg: string): string {
 
 function useGeoAndTime() {
   const [geo, setGeo] = useState<GeoState>({
-    lat: 49.2827,
-    lng: -123.1207,
+    lat: DEFAULT_LAT,
+    lng: DEFAULT_LNG,
     timezone: "America/Vancouver",
     ready: false,
   });
+  const [location, setLocation] = useState<LocationState>(null);
   const [time, setTime] = useState("");
 
   useEffect(() => {
     const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
+    function resolveLocation(lat: number, lng: number) {
+      fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}&localityLanguage=en`)
+        .then((res) => res.json())
+        .then((data) => {
+          const admin: Array<{ name: string; adminLevel?: number }> | undefined = data.localityInfo?.administrative;
+          const cityLevel = admin?.find((a) => a.adminLevel === 8)?.name;
+          const city = cityLevel || data.city || data.locality;
+          const country = data.countryName;
+          if (city && country) setLocation({ city, country });
+        })
+        .catch(() => {});
+    }
+
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (pos) => {
-          setGeo({ lat: pos.coords.latitude, lng: pos.coords.longitude, timezone: tz, ready: true });
+          const { latitude, longitude } = pos.coords;
+          setGeo({ lat: latitude, lng: longitude, timezone: tz, ready: true });
+          resolveLocation(latitude, longitude);
         },
         () => {
           setGeo((g) => ({ ...g, timezone: tz, ready: true }));
+          resolveLocation(DEFAULT_LAT, DEFAULT_LNG);
         }
       );
     } else {
       setGeo((g) => ({ ...g, timezone: tz, ready: true }));
+      resolveLocation(DEFAULT_LAT, DEFAULT_LNG);
     }
   }, []);
 
@@ -62,7 +88,7 @@ function useGeoAndTime() {
     return () => clearInterval(id);
   }, [geo.ready, geo.timezone]);
 
-  return { geo, time };
+  return { geo, time, location };
 }
 
 /* ── FIT TEXT ── */
@@ -105,9 +131,9 @@ function FitText({ text, style }: { text: string; style: React.CSSProperties }) 
 const NAV_ITEMS = ["SYSTEMS", "FIELD NOTES", "WORK", "VERBATIM", "ABOUT", "CONTACT", "CLIENT LOGIN"];
 
 const SECTIONS = [
-  { label: "A", title: "SYSTEMS", descriptor: "Public-interest systems and infrastructure for a complex world." },
+  { label: "A", title: "WORK", descriptor: "Selected projects in research, strategy, infrastructure, and design." },
   { label: "B", title: "FIELD NOTES", descriptor: "Essays and observations on technology, governance, publishing, and cultural change." },
-  { label: "C", title: "WORK", descriptor: "Selected projects in research, strategy, infrastructure, and design." },
+  { label: "C", title: "MERIDIAN FRAMEWORK", descriptor: "Architecture for Organizational Intelligence" },
   { label: "D", title: "VERBATIM", descriptor: "A speculative archive of product systems, institutions, and fictions." },
 ];
 
@@ -147,7 +173,7 @@ const META_VALUE: React.CSSProperties = {
 /* ── COMPONENT ── */
 
 export default function Home() {
-  const { geo, time } = useGeoAndTime();
+  const { geo, time, location } = useGeoAndTime();
 
   const tzLabel = geo.ready
     ? new Intl.DateTimeFormat("en", { timeZoneName: "short", timeZone: geo.timezone })
@@ -168,7 +194,7 @@ export default function Home() {
           <br />
           Vancouver, Canada
           <br />
-          RESEARCH / ORGANIZATIONAL DEVELOPMENT / SYSTEMS DESIGN / PUBLISHING
+          ORGANIZATIONAL DEVELOPMENT | KNOWLEDGE ARCHITECTURE | BOOKS & PUBLISHING
           <br />
           EST. 2009
           <br />
@@ -204,13 +230,20 @@ export default function Home() {
         </div>
 
         <div>
+          <div style={META_LABEL}>BEARING</div>
+          <div style={META_VALUE}>312°</div>
+        </div>
+
+        <div>
           <div style={META_LABEL}>DESTINATION</div>
           <div style={META_VALUE}>CLEAR</div>
         </div>
 
         <div>
-          <div style={META_LABEL}>LAST UPDATED</div>
-          <div style={META_VALUE}>MAY 29, 2026</div>
+          <div style={META_LABEL}>LOCATION</div>
+          <div style={META_VALUE}>
+            {location ? `${location.city.toUpperCase()}, ${location.country.toUpperCase()}` : "—"}
+          </div>
           <div style={{ fontWeight: 300, fontSize: "0.75rem", marginTop: "0.25rem" }}>—</div>
         </div>
 
@@ -244,8 +277,8 @@ export default function Home() {
         <div style={{ position: "relative", zIndex: 1 }}>
           {SECTIONS.map((sec) => (
             <a key={sec.label} className="section-row" href={
-              sec.title === "SYSTEMS" ? "/systems" :
               sec.title === "FIELD NOTES" ? "/field-notes" :
+              sec.title === "MERIDIAN FRAMEWORK" ? "/meridian" :
               sec.title === "VERBATIM" ? "/verbatim" : "#"
             } style={{ textDecoration: "none", color: "inherit", display: "grid" }}>
               <div>

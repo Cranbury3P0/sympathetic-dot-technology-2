@@ -5,6 +5,7 @@ export const DEFAULT_NAV_ITEMS = [
   "SYSTEMS",
   "FIELD NOTES",
   "WORK",
+  "MERIDIAN",
   "VERBATIM",
   "ABOUT",
   "CONTACT",
@@ -18,6 +19,8 @@ export function defaultHrefFor(item: string): string {
       return "/systems";
     case "FIELD NOTES":
       return "/field-notes";
+    case "MERIDIAN":
+      return "/meridian";
     case "VERBATIM":
       return "/verbatim";
     case "CLIENT LOGIN":

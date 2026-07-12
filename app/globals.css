@@ -29,6 +29,16 @@ body {
   html, body { background-color: #F0EDE6; color: #0A0A0A; }
 }
 
+/* Respect reduced-motion preference site-wide */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* ── RESPONSIVE LAYOUT CLASSES ── */
 
 /* Nav */
@@ -70,7 +80,7 @@ body {
 .footer-grid {
   border-top: 1px solid #0A0A0A;
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(7, 1fr);
   padding: 1.5rem;
   gap: 1rem;
 }
@@ -1054,5 +1064,136 @@ body {
   /* Hide all decorative overlay divs when printing */
   .book-spread-outer > div[aria-hidden="true"] {
     display: none !important;
+  }
+}
+
+/* ── MERIDIAN FRAMEWORK PAGE ── */
+/* Editorial/architectural register: asymmetric two-column composition,
+   left alignment throughout, thin rules instead of card boxes, and a
+   full-bleed uncropped hero image rather than a boxed illustration. */
+
+.meridian-cta {
+  transition: opacity 0.15s ease;
+}
+.meridian-cta:hover {
+  opacity: 0.75;
+}
+
+.meridian-hero {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  align-items: center;
+}
+.meridian-hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 4.5rem 3rem 4.5rem 1.5rem;
+}
+.meridian-hero-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 944 / 1024;
+  overflow: hidden;
+}
+
+.meridian-section-1,
+.meridian-section-2,
+.meridian-closing {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 4.5rem;
+  align-items: start;
+  padding: 5rem 1.5rem;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+/* Section 2 ring/axis diagram: three stroked ellipses on a vertical line,
+   a star at the celestial end — the Armillary and Gnomon, drawn. */
+.meridian-diagram {
+  position: relative;
+  max-width: 420px;
+  padding-top: 1rem;
+}
+.meridian-diagram-axis {
+  position: absolute;
+  left: 66px;
+  top: 8px;
+  bottom: 16px;
+  width: 1px;
+  background: #cfc9be;
+}
+.meridian-diagram-star {
+  position: absolute;
+  left: 66px;
+  top: -8px;
+  transform: translateX(-50%);
+  font-size: 14px;
+  line-height: 1;
+  color: #B8924A;
+}
+.meridian-diagram-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  min-height: 108px;
+}
+
+.meridian-engine-head {
+  max-width: 1600px;
+  margin: 0 auto 3rem;
+}
+.meridian-engine-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: #d8d2c6;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+.meridian-engine-cell {
+  background: #F0EDE6;
+  padding: 2rem 1.75rem;
+}
+
+@media (max-width: 1024px) {
+  .meridian-hero {
+    grid-template-columns: 1fr;
+  }
+  .meridian-hero-text {
+    padding: 3rem 1.5rem 2.5rem;
+  }
+  .meridian-section-1,
+  .meridian-section-2,
+  .meridian-closing {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 3.5rem 1.5rem;
+  }
+  .meridian-engine-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .meridian-hero-text {
+    padding: 2.5rem 1.25rem 2rem;
+  }
+  .meridian-section-1,
+  .meridian-section-2,
+  .meridian-closing {
+    padding: 2.75rem 1.25rem;
+    gap: 2.5rem;
+  }
+  .meridian-engine-head {
+    margin-bottom: 2.5rem;
+  }
+  .meridian-engine-grid {
+    grid-template-columns: 1fr;
+  }
+  .meridian-engine-cell {
+    padding: 1.5rem 1.25rem;
   }
 }
