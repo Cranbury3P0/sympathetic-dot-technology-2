@@ -194,7 +194,7 @@ export default function Home() {
           <br />
           Vancouver, Canada
           <br />
-          ORGANIZATIONAL DEVELOPMENT | KNOWLEDGE ARCHITECTURE | BOOKS & PUBLISHING
+          ORGANIZATIONAL DEVELOPMENT | KNOWLEDGE ARCHITECTURE | COMMUNICATIONS | BOOKS & PUBLISHING
           <br />
           EST. 2009
           <br />
@@ -241,8 +241,8 @@ export default function Home() {
 
         <div>
           <div style={META_LABEL}>LOCATION</div>
-          <div style={META_VALUE}>
-            {location ? `${location.city.toUpperCase()}, ${location.country.toUpperCase()}` : "—"}
+          <div style={{ ...META_VALUE, lineHeight: 1.4 }}>
+            {location ? <>{location.city.toUpperCase()},<br />{location.country.toUpperCase()}</> : "—"}
           </div>
           <div style={{ fontWeight: 300, fontSize: "0.75rem", marginTop: "0.25rem" }}>—</div>
         </div>
