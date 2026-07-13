@@ -300,23 +300,29 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── FOUR-COLUMN STATEMENT ROW ── */}
-      <section className="four-col" style={{ borderTop: RULE, borderBottom: RULE }}>
+      {/* ── PROCESS TICKER ── */}
+      <section className="ticker-row" style={{ borderTop: RULE, borderBottom: RULE }}>
+        <div className="ticker-track">
+          <span className="ticker-item" style={{ fontFamily: CONDENSED }}>RESEARCH. CREATIVITY. STRATEGY. COLLABORATION. ITERATION. REPEAT.&nbsp;</span>
+          <span className="ticker-item" style={{ fontFamily: CONDENSED }} aria-hidden="true">RESEARCH. CREATIVITY. STRATEGY. COLLABORATION. ITERATION. REPEAT.&nbsp;</span>
+        </div>
+      </section>
+
+      {/* ── THREE-COLUMN STATEMENT ROW ── */}
+      <section className="three-col" style={{ borderBottom: RULE }}>
         {[
-          { body: "Technology changes.\nInstitutions change.\nPeople change.\n\nThe path through is sometimes hard to find.\n\nBut it's there.", isProcess: false },
-          { body: "We can control the process of adaptation without losing institutional memory, purpose, or direction.", isProcess: false },
-          { body: "RESEARCH.\nCREATIVITY.\nSTRATEGY.\nCOLLABORATION.\nITERATION.\nREPEAT.", isProcess: true },
-          { body: "Embracing and shaping change comes from maintaining a strong vision, allowing for ambiguity, and a clear persistence toward the goal.", footer: "—", isProcess: false },
+          { body: "We build systems, platforms, and strategies for individuals and organizations that embrace the complexity of today.\n\nGrounded in values of trust, transparency, and equity our work embeds client support and self-sufficiency over lock-in.\n\nWe speak a common language as we look to the future." },
+          { body: "One of the strengths of the agentic and generative tools available today is reclamation and reintegration of institutional and/or cultural memory.\n\nOverwhelming quantities of documents and other information going back decades can be retrieved, organized, and understood in ways that were previously too exhausting to even contemplate.\n\nTake the knowledge and wisdom of the leaders who came before you and reintroduce them to the working knowledge of your organization today." },
+          { body: "Clarity and originality of language is the ground floor of how we operate: listening carefully, speaking clearly, and approach each project with a spirit of curiosity helps us deliver high quality results for clients.\n\nThe world changes so quickly but some things never change: clarity, trust, and collaboration always get us through.", footer: "—" },
         ].map((col, i) => (
-          <div key={i} className="four-col-cell">
+          <div key={i} className="three-col-cell">
             <p style={{
               fontFamily: BARLOW,
-              fontWeight: col.isProcess ? 500 : 300,
-              fontSize: col.isProcess ? "20px" : "clamp(16px, 2vw, 26px)",
-              lineHeight: col.isProcess ? 1.7 : 1.25,
+              fontWeight: 300,
+              fontSize: "clamp(17px, 2.1vw, 27px)",
+              lineHeight: 1.4,
               margin: 0,
               whiteSpace: "pre-line",
-              textTransform: col.isProcess ? "uppercase" : "none",
             }}>
               {col.body}
             </p>
