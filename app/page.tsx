@@ -134,7 +134,9 @@ const SECTIONS = [
   { label: "A", title: "WORK", descriptor: "Selected projects in research, strategy, infrastructure, and design." },
   { label: "B", title: "FIELD NOTES", descriptor: "Essays and observations on technology, governance, publishing, and cultural change." },
   { label: "C", title: "MERIDIAN FRAMEWORK", descriptor: "Architecture for Organizational Intelligence" },
-  { label: "D", title: "VERBATIM", descriptor: "A speculative archive of product systems, institutions, and fictions." },
+  { label: "D", title: "RESONANCE", descriptor: "Process architecture for continuity in creative work." },
+  { label: "E", title: "VERBATIM", descriptor: "A speculative archive of product systems, institutions, and fictions." },
+  { label: "F", title: "ABOUT", descriptor: "Background, philosophy, and the studio behind the work." },
 ];
 
 /* ── SHARED STYLE TOKENS ── */
@@ -279,6 +281,7 @@ export default function Home() {
             <a key={sec.label} className="section-row" href={
               sec.title === "FIELD NOTES" ? "/field-notes" :
               sec.title === "MERIDIAN FRAMEWORK" ? "/meridian" :
+              sec.title === "RESONANCE" ? "/resonance" :
               sec.title === "VERBATIM" ? "/verbatim" : "#"
             } style={{ textDecoration: "none", color: "inherit", display: "grid" }}>
               <div>
