@@ -108,11 +108,17 @@ body {
   gap: 1rem;
 }
 
-/* Bottom teaser strip */
-.teaser-grid {
+/* Bottom Resonance teaser */
+.resonance-teaser-grid {
   border-top: 1px solid #0A0A0A;
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 0.45fr 0.55fr;
+}
+.resonance-teaser-copy {
+  border-left: 1px solid #0A0A0A;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* Legal bar */
@@ -196,20 +202,17 @@ body {
     padding: 1.25rem 1rem;
   }
 
-  /* Teaser strip: stack vertically */
-  .teaser-grid {
+  /* Resonance teaser: stack vertically */
+  .resonance-teaser-grid {
     grid-template-columns: 1fr;
   }
-  .teaser-img-left,
-  .teaser-img-right {
-    min-height: 12rem;
+  .resonance-teaser-img {
+    min-height: 14rem;
     width: 100%;
   }
-  .teaser-copy {
-    border-left: none !important;
-    border-right: none !important;
+  .resonance-teaser-copy {
+    border-left: none;
     border-top: 1px solid #0A0A0A;
-    border-bottom: 1px solid #0A0A0A;
   }
 
   /* Legal bar: stack */
@@ -1214,5 +1217,197 @@ body {
   }
   .meridian-engine-cell {
     padding: 1.5rem 1.25rem;
+  }
+}
+
+/* ── RESONANCE LANDING PAGE ── */
+/* Standalone institutional identity: strict left alignment (per the
+   Perkins Visual Design Standard — "Resonance never centers text"),
+   hairline rules instead of cards, 8px-multiple spacing throughout. */
+
+.resonance-nav-links {
+  display: flex;
+  gap: 2.5rem;
+}
+.resonance-link {
+  transition: opacity 0.15s ease;
+}
+.resonance-link:hover {
+  opacity: 0.6;
+}
+.resonance-cta {
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+.resonance-cta:hover {
+  background-color: #96754A;
+  color: #F5F2EC;
+}
+
+.resonance-hero {
+  display: grid;
+  grid-template-columns: 0.42fr 0.58fr;
+  align-items: center;
+}
+.resonance-hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 5rem 3rem 5rem 3rem;
+}
+.resonance-hero-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.resonance-philosophy {
+  display: grid;
+  grid-template-columns: 0.42fr 0.58fr;
+  gap: 4rem;
+  align-items: center;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 6rem 3rem;
+}
+
+/* Five-stage process diagram: cascading translucent panels + leader-line labels */
+.resonance-process-diagram {
+  display: flex;
+  align-items: center;
+  gap: 3.5rem;
+}
+.resonance-process-panels {
+  position: relative;
+  flex-shrink: 0;
+  width: 200px;
+  height: 340px;
+}
+.resonance-process-panel {
+  position: absolute;
+  width: 150px;
+  height: 84px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.55), rgba(255,255,255,0.15));
+  border: 1px solid rgba(150,117,74,0.35);
+  box-shadow: 0 6px 18px rgba(42,40,35,0.06);
+}
+.resonance-process-labels {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  flex: 1;
+  min-width: 0;
+}
+.resonance-process-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+}
+.resonance-process-line {
+  width: 32px;
+  height: 1px;
+  background: #D9D2C3;
+  margin: 0.4rem 0.75rem 0 0.5rem;
+  flex-shrink: 0;
+}
+
+.resonance-section {
+  display: grid;
+  grid-template-columns: 0.4fr 0.6fr;
+  gap: 4rem;
+  align-items: start;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 5rem 3rem;
+}
+
+.resonance-terms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #D9D2C3;
+}
+
+.resonance-principle-row {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 1.5rem;
+  padding: 1.75rem 0;
+  border-top: 1px solid #D9D2C3;
+}
+.resonance-principle-row:first-child {
+  padding-top: 0;
+  border-top: none;
+}
+
+.resonance-footer {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 2rem 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .resonance-nav {
+    padding: 1.25rem 1.5rem !important;
+  }
+  .resonance-nav-links {
+    display: none;
+  }
+  .resonance-hero {
+    grid-template-columns: 1fr;
+  }
+  .resonance-hero-text {
+    padding: 3rem 1.5rem 2.5rem;
+  }
+  .resonance-philosophy {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 4rem 1.5rem;
+  }
+  .resonance-process-diagram {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2.5rem;
+  }
+  .resonance-section {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    padding: 3.5rem 1.5rem;
+  }
+  .resonance-footer {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .resonance-hero-text {
+    padding: 2.5rem 1.25rem 2rem;
+  }
+  .resonance-philosophy {
+    padding: 3rem 1.25rem;
+  }
+  .resonance-process-panels {
+    width: 160px;
+    height: 280px;
+  }
+  .resonance-process-panel {
+    width: 120px;
+    height: 68px;
+  }
+  .resonance-section {
+    padding: 2.75rem 1.25rem;
+  }
+  .resonance-principle-row {
+    grid-template-columns: 2rem 1fr;
+    gap: 1rem;
+  }
+  .resonance-footer {
+    padding: 1.25rem;
+    gap: 1rem;
   }
 }

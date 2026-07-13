@@ -335,25 +335,24 @@ export default function Home() {
         ))}
       </section>
 
-      {/* ── BOTTOM TEASER STRIP ── */}
-      <div className="teaser-grid">
+      {/* ── RESONANCE FOOTER TEASER ── */}
+      <div className="resonance-teaser-grid">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img className="teaser-img-left" src="/CHUNX_BOTTOM.png" alt="" aria-hidden style={{ width: "100%", height: "100%", minHeight: "14rem", objectFit: "cover", objectPosition: "center top", display: "block" }} />
-        <div className="teaser-copy" style={{ padding: "1.5rem 2rem", borderLeft: RULE, borderRight: RULE }}>
-          <div style={{ fontFamily: BARLOW, fontWeight: 500, fontSize: "11px", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "0.25rem" }}>
-            VERBATIM COLLECTION
+        <img className="resonance-teaser-img" src="/RESONANCE_QUARTZ_LENS.jpg" alt="" aria-hidden style={{ width: "100%", height: "100%", minHeight: "18rem", objectFit: "cover", objectPosition: "center center", display: "block" }} />
+        <div className="resonance-teaser-copy" style={{ padding: "2.5rem" }}>
+          <div style={{ fontFamily: BARLOW, fontWeight: 500, fontSize: "11px", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "0.75rem" }}>
+            RESONANCE
           </div>
-          <div style={{ fontFamily: CONDENSED, fontWeight: 900, fontSize: "1.25rem", marginBottom: "0.5rem" }}>04</div>
-          <div style={{ fontSize: "1rem", marginBottom: "0.75rem" }}>✦</div>
-          <p style={{ fontFamily: BARLOW, fontWeight: 300, fontSize: "0.875rem", lineHeight: 1.55, margin: "0 0 1rem" }}>
-            Exploring cultural analysis through product systems, institutional aesthetics, and designed fictions.
+          <h2 style={{ fontFamily: CONDENSED, fontWeight: 900, fontSize: "clamp(2.25rem, 5vw, 4rem)", lineHeight: 1.02, letterSpacing: "-0.01em", textTransform: "uppercase", margin: "0 0 1rem" }}>
+            Experience Resonance
+          </h2>
+          <p style={{ fontFamily: BARLOW, fontWeight: 300, fontSize: "clamp(15px, 1.4vw, 19px)", lineHeight: 1.55, margin: "0 0 1.5rem", maxWidth: "40ch" }}>
+            The customizable platform for distraction-free creative process.
           </p>
-          <a href="/verbatim" style={{ ...NAV_STYLE, display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
-            ENTER THE ARCHIVE →
+          <a href="/resonance" style={{ ...NAV_STYLE, display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
+            ENTER RESONANCE →
           </a>
         </div>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img className="teaser-img-right" src="/Sympathetic_Oat_Milk.png" alt="" aria-hidden style={{ width: "100%", height: "100%", minHeight: "14rem", objectFit: "cover", objectPosition: "center center", display: "block" }} />
       </div>
 
       {/* ── LEGAL BAR ── */}
