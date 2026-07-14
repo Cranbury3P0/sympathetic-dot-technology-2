@@ -1,6 +1,6 @@
 "use client";
 
-import { Nav, LegalBar } from "sympathetic-ds";
+import { Nav, LegalBar, FitText } from "sympathetic-ds";
 
 /* ── STYLE TOKENS ── */
 
@@ -264,6 +264,21 @@ export default function VerbatimPage() {
 
       {/* ── NAV ── */}
       <Nav variant="verbatim" activeItem="VERBATIM" logoHref="/" />
+
+      {/* ── VERBATIM TITLE ── */}
+      <div style={{ borderBottom: RULE, padding: "0.5rem 1.5rem 0.4rem" }}>
+        <FitText
+          text="VERBATIM"
+          style={{
+            fontFamily: CONDENSED,
+            fontWeight: 900,
+            lineHeight: 0.88,
+            letterSpacing: "-0.02em",
+            color: "#0A0A0A",
+            textTransform: "uppercase",
+          }}
+        />
+      </div>
 
       {/* ── INSTRUMENT READOUT STRIP ── */}
       <div style={{ borderBottom: RULE, overflowX: "auto" }}>
