@@ -608,62 +608,61 @@ body {
   }
 }
 
-/* ── VERBATIM PAGE ── */
+/* ── VERBATIM PAGE (Speaking & Workshops) ── */
 
-.verbatim-descriptor {
-  border-bottom: 1px solid #0A0A0A;
+.vb-readouts {
+  display: flex;
+  gap: 48px;
+  padding: 14px 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.vb-header {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 72px 32px 56px;
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr 300px;
+  gap: 32px;
   align-items: start;
 }
-.verbatim-descriptor-left {
-  border-right: 1px solid #0A0A0A;
-  padding: 1.25rem 1.5rem;
-}
-.verbatim-descriptor-right {
-  padding: 1.25rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  align-items: flex-end;
-  min-width: 240px;
-}
-.verbatim-grid {
+
+.vb-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8px 32px 64px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  border-bottom: 1px solid #0A0A0A;
+  grid-template-columns: 64px 1fr;
+  gap: 0;
 }
-.verbatim-registry {
+.vb-section-body {
+  padding: 40px 0 40px 40px;
+}
+
+.vb-card-grid {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin: 0 0 32px;
+  max-width: 100%;
 }
 
 @media (max-width: 900px) {
-  .verbatim-descriptor {
+  .vb-header {
     grid-template-columns: 1fr;
   }
-  .verbatim-descriptor-left {
-    border-right: none;
-    border-bottom: 1px solid #0A0A0A;
+  .vb-section {
+    grid-template-columns: 24px 1fr;
   }
-  .verbatim-descriptor-right {
-    align-items: flex-start;
-    min-width: unset;
-  }
-  .verbatim-grid {
-    grid-template-columns: 1fr;
-  }
-  .verbatim-grid > div {
-    border-right: none !important;
-  }
-  .verbatim-registry {
-    grid-template-columns: repeat(4, 1fr);
+  .vb-section-body {
+    padding-left: 24px;
   }
 }
 
 @media (max-width: 600px) {
-  .verbatim-registry {
-    grid-template-columns: 1fr 1fr;
+  .vb-card-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   }
 }
 

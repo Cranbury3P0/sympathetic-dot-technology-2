@@ -135,7 +135,7 @@ const SECTIONS = [
   { label: "B", title: "FIELD NOTES", descriptor: "Essays and observations on technology, governance, publishing, and cultural change." },
   { label: "C", title: "MERIDIAN FRAMEWORK", descriptor: "Architecture for Organizational Intelligence" },
   { label: "D", title: "RESONANCE", descriptor: "Process architecture for continuity in creative work." },
-  { label: "E", title: "VERBATIM", descriptor: "A speculative archive of product systems, institutions, and fictions." },
+  { label: "E", title: "VERBATIM", descriptor: "Speaking and workshops on AI, organizations, and creative work." },
   { label: "F", title: "ABOUT", descriptor: "Background, philosophy, and the studio behind the work." },
 ];
 
