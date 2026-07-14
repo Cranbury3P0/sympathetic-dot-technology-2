@@ -122,7 +122,7 @@ const article: ArticleData = {
     { id: "038", title: "Introducing Controlled Intelligence", href: "/field-notes/introducing-controlled-intelligence" },
   ],
   previousObservation: { title: "The Pope Has Entered the Chat", href: "/field-notes/the-pope-has-entered-the-chat" },
-  nextObservation: { title: "Who Trains AI on Your Posts?", href: "/field-notes/who-trains-ai-on-your-posts" },
+  nextObservation: { title: "The Master's Tools Will Never Destroy the Master's Datacenter", href: "/field-notes/the-masters-tools-will-never-destroy-the-masters-datacenter" },
   access: "public",
 };
 

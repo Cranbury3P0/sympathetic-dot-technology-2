@@ -37,6 +37,17 @@ const NAV_ITEMS = ["SYSTEMS", "FIELD NOTES", "WORK", "VERBATIM", "ABOUT", "CONTA
 
 const ENTRIES = [
   {
+    id: "044",
+    titleLines: ["THE MASTER'S TOOLS", "WILL NEVER DESTROY", "THE MASTER'S DATACENTER"],
+    title: "The Master's Tools Will Never Destroy the Master's Datacenter",
+    excerpt: "On Audre Lorde, Meta's new gigawatt data centre in Alberta, and a communications environment that has learned to only reproduce itself.",
+    category: "Masters Tools",
+    date: "July 13, 2026",
+    image: "/meta-alberta-datacenter-render.png",
+    imagePosition: "center center",
+    href: "/field-notes/the-masters-tools-will-never-destroy-the-masters-datacenter",
+  },
+  {
     id: "042",
     titleLines: ["CANADA'S AI", "STRATEGY 01", "FRAME AFTER FRAME"],
     title: "Canada's AI Strategy 01 Frame after Frame",
