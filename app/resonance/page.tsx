@@ -268,9 +268,20 @@ export default function ResonancePage() {
             <p style={{ fontFamily: SANS, fontSize: "clamp(17px, 1.4vw, 22px)", lineHeight: 1.6, color: LIMESTONE, margin: "0 0 1.5rem", maxWidth: "38rem" }}>
               It does not replace writers. It does not replace editors. It does not replace existing tools.
             </p>
-            <p style={{ fontFamily: SANS, fontSize: "clamp(17px, 1.4vw, 22px)", lineHeight: 1.6, color: CHARCOAL, margin: "0 0 2.5rem", maxWidth: "38rem" }}>
+            <p style={{ fontFamily: SANS, fontSize: "clamp(17px, 1.4vw, 22px)", lineHeight: 1.6, color: CHARCOAL, margin: "0 0 1.5rem", maxWidth: "38rem" }}>
               Instead, it preserves continuity throughout the lifecycle of creative work — so the work keeps
               progressing even when people leave the room.
+            </p>
+            <p style={{ fontFamily: SANS, fontSize: "clamp(17px, 1.4vw, 22px)", lineHeight: 1.6, color: LIMESTONE, margin: "0 0 1.5rem", maxWidth: "38rem" }}>
+              Resonance isn&apos;t built for one relationship. It&apos;s built to hold any relationship that
+              depends on continuity: the kind of work where understanding accumulates over months, where the
+              gap between sessions is where the real thinking happens, and where losing that thread means
+              starting over every time.
+            </p>
+            <p style={{ fontFamily: SANS, fontSize: "clamp(17px, 1.4vw, 22px)", lineHeight: 1.6, color: CHARCOAL, margin: "0 0 2.5rem", maxWidth: "38rem" }}>
+              Perkins is the first thing built on it. Other applications will be built the same way, on the
+              same architecture, for people who need a different relationship than the one Perkins holds with
+              a novelist and their manuscript.
             </p>
             <div className="resonance-terms" aria-hidden="true">
               {METADATA_TERMS.map((term) => (
@@ -304,11 +315,50 @@ export default function ResonancePage() {
             </h2>
           </div>
           <div>
+            <p style={{ fontFamily: SANS, fontSize: "clamp(17px, 1.4vw, 22px)", lineHeight: 1.6, color: CHARCOAL, margin: "0 0 1.5rem", maxWidth: "38rem" }}>
+              Perkins is an ongoing editorial relationship between a novelist and an editor, built on the
+              Resonance pattern.
+            </p>
+            <p style={{ fontFamily: SANS, fontSize: "clamp(17px, 1.4vw, 22px)", lineHeight: 1.6, color: LIMESTONE, margin: "0 0 1.5rem", maxWidth: "38rem" }}>
+              A writer submits a manuscript and chooses what to focus on. Perkins observes what&apos;s actually
+              on the page, not what the writer intended to write. It produces an editorial letter: a diagnosis,
+              not a rewrite, that names what&apos;s happening in the manuscript in the writer&apos;s own terms.
+              The writer takes that back to the draft. Perkins doesn&apos;t write the next scene.
+            </p>
             <p style={{ fontFamily: SANS, fontSize: "clamp(17px, 1.4vw, 22px)", lineHeight: 1.6, color: CHARCOAL, margin: 0, maxWidth: "38rem" }}>
-              Perkins is an ongoing editorial relationship between a novelist and an experienced editor, built on
-              the Resonance pattern. Every reading deepens Perkins&apos; editorial understanding while the
-              manuscript always remains the writer&apos;s own — the understanding carries forward; the work does
-              not need to be re-explained from the beginning each time.
+              What makes it a Resonance application and not a document review tool is what happens between
+              sessions. The reasoning behind each editorial letter persists. The writer can leave for three
+              weeks and come back to a desk that remembers the conversation, without the manuscript itself ever
+              being stored. The relationship deepens. The manuscript stays the writer&apos;s own.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── WHAT COMES NEXT — same architecture, other relationships ── */}
+      <section id="whats-next" style={{ borderBottom: `1px solid ${CONCRETE}` }}>
+        <div className="resonance-section">
+          <div>
+            <h2
+              style={{
+                fontFamily: DISPLAY,
+                fontWeight: 400,
+                fontSize: "clamp(28px, 3vw, 40px)",
+                lineHeight: 1.15,
+                margin: 0,
+                maxWidth: "16ch",
+              }}
+            >
+              What comes next
+            </h2>
+          </div>
+          <div>
+            <p style={{ fontFamily: SANS, fontSize: "clamp(17px, 1.4vw, 22px)", lineHeight: 1.6, color: CHARCOAL, margin: 0, maxWidth: "38rem" }}>
+              The same architecture holds other kinds of work: a research collaborator that keeps the state of
+              a literature review intact across a year of stop-and-start reading, a policy advisor for an
+              association that remembers the reasoning behind a decision after the staff who made it have
+              moved on. Perkins proves the pattern works for one relationship. What we build next proves it
+              wasn&apos;t a coincidence.
             </p>
           </div>
         </div>
