@@ -222,8 +222,8 @@ export default function Home() {
       {/* ── FOOTER METADATA STRIP ── */}
       <footer className="footer-grid" style={{ marginTop: "2rem" }}>
         <div>
-          <div style={META_LABEL}>ARCHIVE STATUS</div>
-          <div style={META_VALUE}>PUBLIC</div>
+          <div style={META_LABEL}>AVAILABILITY</div>
+          <div style={META_VALUE}>OPEN</div>
         </div>
 
         <div>

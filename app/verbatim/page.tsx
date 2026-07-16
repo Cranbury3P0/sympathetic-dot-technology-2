@@ -182,6 +182,17 @@ const SPEAKING_THEMES = [
   { icon: IconVenn, title: "Designing better relationships with technology", description: "Building a healthier, clearer relationship between people and the tools they use." },
 ];
 
+const SESSION_FORMATS = [
+  { icon: IconClock, title: "Single hourly session", description: "One hour, one problem. Bring a specific question, tool, or workflow and leave with an answer instead of homework." },
+  { icon: IconCalendar, title: "Set of three sessions", description: "Three sessions spread across a few weeks, for the kind of skill that needs more than an hour to actually stick." },
+];
+
+const GROUP_SIZES = [
+  { icon: IconPerson, title: "Individual", description: "One person, one hour, whatever you're actually stuck on." },
+  { icon: IconTeam, title: "Small group", description: "A handful of colleagues working through the same material, at the same table, at the same time." },
+  { icon: IconNetwork, title: "Organizations", description: "Built around a whole team or department, calibrated to the tools and workflows they're already using." },
+];
+
 const WORKSHOP_FORMATS = [
   { icon: IconBoard, title: "Executive briefings", description: "Focused sessions that get leadership oriented fast, before bigger decisions get made." },
   { icon: IconTeam, title: "Team workshops", description: "Working sessions built around what a specific team is trying to figure out." },
@@ -247,6 +258,52 @@ function OfferingSection({
             <IconCard key={item.title} icon={item.icon} title={item.title} description={item.description} />
           ))}
         </div>
+
+        <p style={{ fontFamily: BARLOW, fontSize: "15px", lineHeight: 1.7, color: "#4a4a46", margin: 0, maxWidth: "640px" }}>
+          {closing}
+        </p>
+      </div>
+    </section>
+  );
+}
+
+function LearningSection({
+  accent,
+  heading,
+  intro,
+  groups,
+  closing,
+}: {
+  accent: string;
+  heading: string;
+  intro: string;
+  groups: { label: string; items: typeof SPEAKING_THEMES }[];
+  closing: string;
+}) {
+  return (
+    <section className="vb-section">
+      <div style={{ background: accent, minHeight: "100%" }} />
+      <div className="vb-section-body" style={{ borderTop: RULE, borderBottom: RULE }}>
+        <h2 style={{ fontFamily: CONDENSED, fontWeight: 900, textTransform: "uppercase", fontSize: "clamp(30px, 3.4vw, 40px)", lineHeight: 1.1, margin: "0 0 24px", color: "#0A0A0A" }}>
+          {heading}
+        </h2>
+
+        <p style={{ fontFamily: BARLOW, fontSize: "20px", lineHeight: 1.7, color: "#0A0A0A", margin: "0 0 40px", maxWidth: "700px" }}>
+          {intro}
+        </p>
+
+        {groups.map((group) => (
+          <div key={group.label} style={{ marginBottom: "40px" }}>
+            <div style={{ fontFamily: BARLOW, fontSize: "12px", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: accent, marginBottom: "20px" }}>
+              {group.label}
+            </div>
+            <div className="vb-card-grid">
+              {group.items.map((item) => (
+                <IconCard key={item.title} icon={item.icon} title={item.title} description={item.description} />
+              ))}
+            </div>
+          </div>
+        ))}
 
         <p style={{ fontFamily: BARLOW, fontSize: "15px", lineHeight: 1.7, color: "#4a4a46", margin: 0, maxWidth: "640px" }}>
           {closing}
@@ -327,6 +384,18 @@ export default function VerbatimPage() {
           ))}
         </div>
       </section>
+
+      {/* ── LEARNING ── */}
+      <LearningSection
+        accent="#0A0A0A"
+        heading="Learning"
+        intro="A lot of the people who reach out don't need a full workshop. They need an hour with someone who already knows the territory, working through the specific problem in front of them: a tool that isn't doing what they expected, a workflow that needs rebuilding, a decision they can't quite make alone. These sessions are built around that kind of question, whether the person asking it is working solo or part of a team of forty."
+        groups={[
+          { label: "Session format", items: SESSION_FORMATS },
+          { label: "Group size", items: GROUP_SIZES },
+        ]}
+        closing="Session format and group size are independent choices; a single hour can run one-on-one or with a room of people, and so can the three-session version. Get in touch and we'll work out which combination fits."
+      />
 
       {/* ── SPEAKING ── */}
       <OfferingSection
