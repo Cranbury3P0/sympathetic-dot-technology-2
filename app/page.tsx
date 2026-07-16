@@ -276,7 +276,7 @@ export default function Home() {
       <section style={{ position: "relative" }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/VH.png" alt="" aria-hidden style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 60%", zIndex: 0 }} />
-        <div style={{ position: "absolute", inset: 0, backgroundColor: "#F0EDE6", opacity: 0.6, zIndex: 1 }} />
+        <div style={{ position: "absolute", inset: 0, backgroundColor: "#FFFFFF", opacity: 0.4, mixBlendMode: "screen", zIndex: 1 }} />
         <div style={{ position: "relative", zIndex: 2 }}>
           {SECTIONS.map((sec) => (
             <a key={sec.label} className="section-row" href={
