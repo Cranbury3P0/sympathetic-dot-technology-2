@@ -275,8 +275,9 @@ export default function Home() {
       {/* ── SECTION INDEX ── */}
       <section style={{ position: "relative" }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/VH.png" alt="" aria-hidden style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 60%" }} />
-        <div style={{ position: "relative" }}>
+        <img src="/VH.png" alt="" aria-hidden style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 60%", zIndex: 0 }} />
+        <div style={{ position: "absolute", inset: 0, backgroundColor: "#F0EDE6", opacity: 0.6, zIndex: 1 }} />
+        <div style={{ position: "relative", zIndex: 2 }}>
           {SECTIONS.map((sec) => (
             <a key={sec.label} className="section-row" href={
               sec.title === "FIELD NOTES" ? "/field-notes" :
@@ -288,7 +289,7 @@ export default function Home() {
                 <div style={{ fontFamily: BARLOW, fontWeight: 300, fontSize: "0.75rem", letterSpacing: "0.06em", paddingTop: "0.75rem" }}>
                   ({sec.label})
                 </div>
-                <h2 style={{ fontFamily: CONDENSED, fontWeight: 900, fontSize: "clamp(3.5rem, 10vw, 11rem)", lineHeight: 0.9, letterSpacing: "-0.02em", textTransform: "uppercase", margin: "0 0 0.5rem", color: "#FFFFFF", mixBlendMode: "difference" }}>
+                <h2 style={{ fontFamily: CONDENSED, fontWeight: 900, fontSize: "clamp(3.5rem, 10vw, 11rem)", lineHeight: 0.9, letterSpacing: "-0.02em", textTransform: "uppercase", margin: "0 0 0.5rem" }}>
                   {sec.title}
                 </h2>
               </div>
