@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Archivo, DM_Serif_Text } from "next/font/google";
-import { LegalBar, Nav } from "sympathetic-ds";
+import { FitText, LegalBar, Nav } from "sympathetic-ds";
 import styles from "./page.module.css";
 
 const archivo = Archivo({
@@ -172,10 +172,24 @@ export default function HarvardCapstonePage() {
     <main className={`${styles.page} ${archivo.variable} ${dmSerif.variable}`}>
       <Nav variant="verbatim" logoHref="/" />
 
+      <div className={styles.brandMasthead}>
+        <FitText
+          text="HARVARD CAPSTONE"
+          style={{
+            fontFamily: "var(--font-barlow-condensed), sans-serif",
+            fontWeight: 900,
+            lineHeight: 0.88,
+            letterSpacing: "-0.02em",
+            color: "#0A0A0A",
+            textTransform: "uppercase",
+          }}
+        />
+      </div>
+
       <header className={styles.hero}>
         <div className={styles.heroCopy}>
           <p className={styles.eyebrow}>Harvard Medical School Executive Education · 2025</p>
-          <h1>Transforming Advocacy and Access</h1>
+          <h2 className={styles.heroTitle}>Transforming Advocacy and Access</h2>
           <p className={styles.deck}>
             A proposed, culturally grounded, AI-supported strategy for healthcare access and advocacy in rural and Indigenous communities.
           </p>
