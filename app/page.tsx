@@ -134,8 +134,8 @@ const SECTIONS = [
   { label: "A", title: "WORK", descriptor: "Selected projects in research, strategy, infrastructure, and design." },
   { label: "B", title: "FIELD NOTES", descriptor: "Essays and observations on technology, governance, publishing, and cultural change." },
   { label: "C", title: "MERIDIAN FRAMEWORK", descriptor: "Architecture for Organizational Intelligence" },
-  { label: "D", title: "RESONANCE", descriptor: "Process architecture for continuity in creative work." },
-  { label: "E", title: "VERBATIM", descriptor: "Speaking and workshops on AI, organizations, and creative work." },
+  { label: "D", title: "RESONANCE ENGINE", descriptor: "Process architecture for continuity in creative work." },
+  { label: "E", title: "VERBATIM LEARNING", descriptor: "Speaking and workshops on AI, organizations, and creative work." },
   { label: "F", title: "ABOUT", descriptor: "Background, philosophy, and the studio behind the work." },
 ];
 
@@ -275,20 +275,20 @@ export default function Home() {
       {/* ── SECTION INDEX ── */}
       <section style={{ position: "relative" }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="/VH.png" alt="" aria-hidden style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 60%", zIndex: 0 }} />
-        <div style={{ position: "relative", zIndex: 1 }}>
+        <img src="/VH.png" alt="" aria-hidden style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 60%" }} />
+        <div style={{ position: "relative" }}>
           {SECTIONS.map((sec) => (
             <a key={sec.label} className="section-row" href={
               sec.title === "FIELD NOTES" ? "/field-notes" :
               sec.title === "MERIDIAN FRAMEWORK" ? "/meridian" :
-              sec.title === "RESONANCE" ? "/resonance" :
-              sec.title === "VERBATIM" ? "/verbatim" : "#"
+              sec.title === "RESONANCE ENGINE" ? "/resonance" :
+              sec.title === "VERBATIM LEARNING" ? "/verbatim" : "#"
             } style={{ textDecoration: "none", color: "inherit", display: "grid" }}>
               <div>
                 <div style={{ fontFamily: BARLOW, fontWeight: 300, fontSize: "0.75rem", letterSpacing: "0.06em", paddingTop: "0.75rem" }}>
                   ({sec.label})
                 </div>
-                <h2 style={{ fontFamily: CONDENSED, fontWeight: 900, fontSize: "clamp(3.5rem, 10vw, 11rem)", lineHeight: 0.9, letterSpacing: "-0.02em", textTransform: "uppercase", margin: "0 0 0.5rem" }}>
+                <h2 style={{ fontFamily: CONDENSED, fontWeight: 900, fontSize: "clamp(3.5rem, 10vw, 11rem)", lineHeight: 0.9, letterSpacing: "-0.02em", textTransform: "uppercase", margin: "0 0 0.5rem", color: "#FFFFFF", mixBlendMode: "difference" }}>
                   {sec.title}
                 </h2>
               </div>
