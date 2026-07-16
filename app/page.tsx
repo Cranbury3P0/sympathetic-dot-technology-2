@@ -135,8 +135,9 @@ const SECTIONS = [
   { label: "B", title: "FIELD NOTES", descriptor: "Essays and observations on technology, governance, publishing, and cultural change." },
   { label: "C", title: "MERIDIAN FRAMEWORK", descriptor: "Architecture for Organizational Intelligence" },
   { label: "D", title: "RESONANCE ENGINE", descriptor: "Process architecture for continuity in creative work." },
-  { label: "E", title: "VERBATIM LEARNING", descriptor: "Speaking and workshops on AI, organizations, and creative work." },
-  { label: "F", title: "ABOUT", descriptor: "Background, philosophy, and the studio behind the work." },
+  { label: "E", title: "HARVARD CAPSTONE", descriptor: "Capstone project from Harvard Medical School's Executive Education program." },
+  { label: "F", title: "VERBATIM LEARNING", descriptor: "Speaking and workshops on AI, organizations, and creative work." },
+  { label: "G", title: "ABOUT", descriptor: "Background, philosophy, and the studio behind the work." },
 ];
 
 /* ── SHARED STYLE TOKENS ── */
@@ -283,6 +284,7 @@ export default function Home() {
               sec.title === "FIELD NOTES" ? "/field-notes" :
               sec.title === "MERIDIAN FRAMEWORK" ? "/meridian" :
               sec.title === "RESONANCE ENGINE" ? "/resonance" :
+              sec.title === "HARVARD CAPSTONE" ? "/harvard-capstone" :
               sec.title === "VERBATIM LEARNING" ? "/verbatim" : "#"
             } style={{ textDecoration: "none", color: "inherit", display: "grid" }}>
               <div>

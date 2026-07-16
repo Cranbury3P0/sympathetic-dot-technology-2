@@ -277,9 +277,9 @@ function LearningSection({
 }: {
   accent: string;
   heading: string;
-  intro: string;
+  intro: React.ReactNode[];
   groups: { label: string; items: typeof SPEAKING_THEMES }[];
-  closing: string;
+  closing?: string;
 }) {
   return (
     <section className="vb-section">
@@ -289,9 +289,11 @@ function LearningSection({
           {heading}
         </h2>
 
-        <p style={{ fontFamily: BARLOW, fontSize: "20px", lineHeight: 1.7, color: "#0A0A0A", margin: "0 0 40px", maxWidth: "700px" }}>
-          {intro}
-        </p>
+        {intro.map((paragraph, i) => (
+          <p key={i} style={{ fontFamily: BARLOW, fontSize: "20px", lineHeight: 1.7, color: "#0A0A0A", margin: i === intro.length - 1 ? "0 0 40px" : "0 0 24px", maxWidth: "700px" }}>
+            {paragraph}
+          </p>
+        ))}
 
         {groups.map((group) => (
           <div key={group.label} style={{ marginBottom: "40px" }}>
@@ -306,9 +308,11 @@ function LearningSection({
           </div>
         ))}
 
-        <p style={{ fontFamily: BARLOW, fontSize: "15px", lineHeight: 1.7, color: "#4a4a46", margin: 0, maxWidth: "640px" }}>
-          {closing}
-        </p>
+        {closing && (
+          <p style={{ fontFamily: BARLOW, fontSize: "15px", lineHeight: 1.7, color: "#4a4a46", margin: 0, maxWidth: "640px" }}>
+            {closing}
+          </p>
+        )}
       </div>
     </section>
   );
@@ -391,12 +395,22 @@ export default function VerbatimPage() {
       <LearningSection
         accent="#0A0A0A"
         heading="Learning"
-        intro="A lot of the people who reach out don't need a full workshop. They need an hour with someone who already knows the territory, working through the specific problem in front of them: a tool that isn't doing what they expected, a workflow that needs rebuilding, a decision they can't quite make alone. These sessions are built around that kind of question, whether the person asking it is working solo or part of a team of forty."
+        intro={[
+          "I offer workshops and tutorials for individuals, small groups, and organizations.",
+          "Every learning opportunity is shaped around the people I’m teaching—their needs, intentions, craft, and industry. These specifics help determine how we work together, what we focus on, and what you can expect from the tool or suite of tools you’re learning.",
+          <>My general philosophy for learning to use AI tools with confidence and intention is explored in a recent post I wrote about{" "}
+            <a href="#" style={{ color: "#0A0A0A", textDecoration: "underline", textUnderlineOffset: "2px" }}>
+              <strong>Orientation</strong>
+            </a>.
+          </>,
+          "The short version is this: AI tools are context machines. They consume context and produce more context—in the form of text, images, audio, code, and more.",
+          "The quickest way to understand these tools is to begin with a thorough orientation: What do you want? What do you expect? What is the tool capable of producing? It sounds simple, but in practice it can be surprisingly difficult—and learning how to answer those questions is a large part of learning how to use AI well.",
+          "Please explore the packages below, and reach out if you have any questions. I’m always happy to work with you to shape a learning opportunity around your particular needs.",
+        ]}
         groups={[
           { label: "Session format", items: SESSION_FORMATS },
           { label: "Group size", items: GROUP_SIZES },
         ]}
-        closing="Session format and group size are independent choices; a single hour can run one-on-one or with a room of people, and so can the three-session version. Get in touch and we'll work out which combination fits."
       />
 
       {/* ── SPEAKING ── */}
