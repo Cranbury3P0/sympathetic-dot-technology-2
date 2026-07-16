@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import { Fraunces, Inter, IBM_Plex_Mono } from "next/font/google";
 import Image from "next/image";
+import { Nav } from "sympathetic-ds";
 
 /**
- * Resonance is a standalone architectural/institutional identity — not a
- * reskin of the Sympathetic Technology site chrome. It has its own nav,
- * its own palette, and its own type system, per the Resonance doctrine.
+ * Resonance is a page within the Sympathetic Technology site, so it uses
+ * the shared site Nav — not a bespoke one. Below the nav, it keeps its own
+ * architectural/institutional palette and type system per the Resonance
+ * doctrine, since the content itself (not the chrome) is what carries that
+ * distinct identity.
  *
  * Canela (the doctrine's specified display face) is a commercial typeface
  * with no available Google Fonts / licensed file here. Fraunces is
@@ -69,16 +72,6 @@ const PROCESS_STAGES = [
   { n: "05", name: "Continue", description: "Re-enter the work later without reconstructing context." },
 ];
 
-/* ── ICON ── */
-
-function ResonanceMark() {
-  return (
-    <svg width="14" height="20" viewBox="0 0 14 20" fill="none" aria-hidden="true">
-      <rect x="1" y="1" width="12" height="18" stroke={CHARCOAL} strokeWidth="1.2" />
-    </svg>
-  );
-}
-
 /* ── COMPONENT ── */
 
 export default function ResonancePage() {
@@ -87,43 +80,7 @@ export default function ResonancePage() {
       className={`${fraunces.variable} ${inter.variable} ${plexMono.variable}`}
       style={{ backgroundColor: WARM_WHITE, color: CHARCOAL, margin: 0 }}
     >
-      {/* ── NAV — restrained, standalone, no shared site chrome ── */}
-      <nav
-        className="resonance-nav"
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          padding: "1.75rem 3rem",
-          borderBottom: `1px solid ${CONCRETE}`,
-        }}
-      >
-        <a href="#" style={{ display: "flex", alignItems: "center", gap: "0.75rem", textDecoration: "none", color: CHARCOAL }}>
-          <ResonanceMark />
-          <span style={{ fontFamily: SANS, fontWeight: 600, fontSize: "14px", letterSpacing: "0.08em", textTransform: "uppercase" }}>
-            Resonance
-          </span>
-        </a>
-        <div className="resonance-nav-links">
-          {[
-            ["ARCHITECTURE", "#architecture"],
-            ["APPLICATIONS", "#applications"],
-            ["PRINCIPLES", "#principles"],
-            ["ABOUT", "#about"],
-            ["CONTACT", "#contact"],
-          ].map(([label, href]) => (
-            <a
-              key={label}
-              href={href}
-              className="resonance-link"
-              style={{ fontFamily: SANS, fontWeight: 500, fontSize: "14px", letterSpacing: "0.08em", textTransform: "uppercase", color: CHARCOAL, textDecoration: "none" }}
-            >
-              {label}
-            </a>
-          ))}
-        </div>
-      </nav>
-
+      <Nav activeItem="RESONANCE" logoHref="/" />
       {/* ── HERO ── */}
       <div className="resonance-hero">
         <div className="resonance-hero-text">

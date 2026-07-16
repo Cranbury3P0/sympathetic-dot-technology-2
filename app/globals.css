@@ -1224,16 +1224,6 @@ body {
    Perkins Visual Design Standard — "Resonance never centers text"),
    hairline rules instead of cards, 8px-multiple spacing throughout. */
 
-.resonance-nav-links {
-  display: flex;
-  gap: 2.5rem;
-}
-.resonance-link {
-  transition: opacity 0.15s ease;
-}
-.resonance-link:hover {
-  opacity: 0.6;
-}
 .resonance-cta {
   transition: background-color 0.15s ease, color 0.15s ease;
 }
@@ -1351,12 +1341,6 @@ body {
 }
 
 @media (max-width: 1024px) {
-  .resonance-nav {
-    padding: 1.25rem 1.5rem !important;
-  }
-  .resonance-nav-links {
-    display: none;
-  }
   .resonance-hero {
     grid-template-columns: 1fr;
   }
