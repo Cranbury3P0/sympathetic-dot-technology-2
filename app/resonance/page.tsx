@@ -32,7 +32,7 @@ const LIMESTONE = "#726C5F";
 const CONCRETE = "#D9D2C3";
 const BRONZE = "#96754A";
 
-const title = "Resonance — Process Architecture for Creative Work";
+const title = "Resonance: Process Architecture for Creative Work";
 const description =
   "Resonance is the adaptable process architecture upon which applications such as Perkins are built. It preserves continuity across the entire lifecycle of creative work.";
 
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
 
 const PRINCIPLES = [
   { n: "01", statement: "Continuity, not automation.", gloss: "The work carries forward. Nothing about it runs itself." },
-  { n: "02", statement: "Clarity, not creativity.", gloss: "The architecture does not create better work — it lets people see the work more clearly over time." },
+  { n: "02", statement: "Clarity, not creativity.", gloss: "It gives people a clearer view of their own work over time." },
   { n: "03", statement: "Architecture, not application.", gloss: "Perkins is one implementation. The pattern beneath it is what Resonance names." },
   { n: "04", statement: "Presence, not productivity.", gloss: "Continuity exists so creative work keeps its shape between the moments people are actually in the room." },
 ];
@@ -129,7 +129,7 @@ export default function ResonancePage() {
         <div className="resonance-hero-image">
           <Image
             src="/RESONANCE_QUARTZ_LENS.jpg"
-            alt="A monumental slab of flawless optical quartz standing on a stone plinth in an alpine valley. The quartz introduces no distortion — the landscape behind it is visible exactly as it is."
+            alt="A monumental slab of flawless optical quartz standing on a stone plinth in an alpine valley. The quartz introduces no distortion, so the landscape behind it is visible exactly as it is."
             width={1024}
             height={1024}
             priority
@@ -223,17 +223,16 @@ export default function ResonancePage() {
               Perkins is the first implementation of Resonance.
             </p>
             <p style={{ fontFamily: SANS, fontSize: "clamp(17px, 1.4vw, 22px)", lineHeight: 1.6, color: LIMESTONE, margin: "0 0 1.5rem", maxWidth: "38rem" }}>
-              It does not replace writers. It does not replace editors. It does not replace existing tools.
+              It doesn&apos;t replace writers, editors, or the tools already in use.
             </p>
             <p style={{ fontFamily: SANS, fontSize: "clamp(17px, 1.4vw, 22px)", lineHeight: 1.6, color: CHARCOAL, margin: "0 0 1.5rem", maxWidth: "38rem" }}>
-              Instead, it preserves continuity throughout the lifecycle of creative work — so the work keeps
-              progressing even when people leave the room.
+              It preserves continuity throughout the lifecycle of creative work, so the work keeps progressing
+              even when people leave the room.
             </p>
             <p style={{ fontFamily: SANS, fontSize: "clamp(17px, 1.4vw, 22px)", lineHeight: 1.6, color: LIMESTONE, margin: "0 0 1.5rem", maxWidth: "38rem" }}>
-              Resonance isn&apos;t built for one relationship. It&apos;s built to hold any relationship that
-              depends on continuity: the kind of work where understanding accumulates over months, where the
-              gap between sessions is where the real thinking happens, and where losing that thread means
-              starting over every time.
+              Resonance holds any relationship that depends on continuity: work where understanding accumulates
+              over months, where the gap between sessions is where the real thinking happens, and where losing
+              that thread means starting over every time.
             </p>
             <p style={{ fontFamily: SANS, fontSize: "clamp(17px, 1.4vw, 22px)", lineHeight: 1.6, color: CHARCOAL, margin: "0 0 2.5rem", maxWidth: "38rem" }}>
               Perkins is the first thing built on it. Other applications will be built the same way, on the
@@ -277,16 +276,16 @@ export default function ResonancePage() {
               Resonance pattern.
             </p>
             <p style={{ fontFamily: SANS, fontSize: "clamp(17px, 1.4vw, 22px)", lineHeight: 1.6, color: LIMESTONE, margin: "0 0 1.5rem", maxWidth: "38rem" }}>
-              A writer submits a manuscript and chooses what to focus on. Perkins observes what&apos;s actually
-              on the page, not what the writer intended to write. It produces an editorial letter: a diagnosis,
-              not a rewrite, that names what&apos;s happening in the manuscript in the writer&apos;s own terms.
-              The writer takes that back to the draft. Perkins doesn&apos;t write the next scene.
+              A writer submits a manuscript and chooses what to focus on. Perkins reads what&apos;s actually on
+              the page, not the writer&apos;s intentions, and returns an editorial letter: a diagnosis in the
+              writer&apos;s own terms. The writer takes that back to the draft and writes the next scene
+              themselves.
             </p>
             <p style={{ fontFamily: SANS, fontSize: "clamp(17px, 1.4vw, 22px)", lineHeight: 1.6, color: CHARCOAL, margin: 0, maxWidth: "38rem" }}>
-              What makes it a Resonance application and not a document review tool is what happens between
-              sessions. The reasoning behind each editorial letter persists. The writer can leave for three
-              weeks and come back to a desk that remembers the conversation, without the manuscript itself ever
-              being stored. The relationship deepens. The manuscript stays the writer&apos;s own.
+              What happens between sessions is what makes this a Resonance application. The reasoning behind
+              each editorial letter persists: the writer can leave for three weeks and come back to a desk that
+              remembers the conversation, without the manuscript itself ever being stored. The relationship
+              deepens. The manuscript stays the writer&apos;s own.
             </p>
           </div>
         </div>
