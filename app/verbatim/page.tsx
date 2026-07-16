@@ -167,6 +167,7 @@ const READOUTS = [
 const UPCOMING_EVENTS = [
   { date: "TBD", title: "[Add upcoming talk or workshop]", location: "[City / virtual]" },
   { date: "TBD", title: "[Add upcoming talk or workshop]", location: "[City / virtual]" },
+  { date: "TBD", title: "[Add upcoming talk or workshop]", location: "[City / virtual]" },
 ];
 
 const SPEAKING_THEMES = [
@@ -360,8 +361,9 @@ export default function VerbatimPage() {
             Consulting
           </div>
           <h1 style={{ fontFamily: CONDENSED, fontWeight: 900, textTransform: "uppercase", margin: 0, lineHeight: 0.98 }}>
-            <span style={{ display: "block", fontSize: "clamp(48px, 8vw, 108px)", color: "#0A0A0A" }}>Speaking &amp;</span>
-            <span style={{ display: "block", fontSize: "clamp(48px, 8vw, 108px)", color: ACCENT }}>workshops</span>
+            <span style={{ display: "block", fontSize: "clamp(48px, 8vw, 108px)", color: "#0A0A0A" }}>Learning,</span>
+            <span style={{ display: "block", fontSize: "clamp(48px, 8vw, 108px)", color: "#0A0A0A" }}>workshops,</span>
+            <span style={{ display: "block", fontSize: "clamp(48px, 8vw, 108px)", color: ACCENT }}>&amp; events</span>
           </h1>
         </div>
 
