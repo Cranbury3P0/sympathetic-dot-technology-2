@@ -104,67 +104,64 @@ const METRICS = [
   ["Trust", "Partner-defined cultural safety, transparent AI use, confidence, meaningful governance, and the ability to correct or opt out."],
 ] as const;
 
+const PETALS = [
+  { label: "STRUCTURE", angle: 0, tone: "primary" },
+  { label: "PURPOSE", angle: 45, tone: "secondary" },
+  { label: "TECHNOLOGY", angle: 90, tone: "primary" },
+  { label: "PRACTICE", angle: 135, tone: "secondary" },
+  { label: "RELATIONSHIPS", angle: 180, tone: "primary" },
+  { label: "WORKFORCE", angle: 225, tone: "secondary" },
+  { label: "CULTURE", angle: 270, tone: "primary" },
+  { label: "GOVERNANCE", angle: 315, tone: "secondary" },
+] as const;
+
+const FIELD_CENTER = 310;
+const PETAL_LENGTH = 170;
+const PETAL_WIDTH = 46;
+const LABEL_RADIUS = 222;
+
+// A flower: eight petals radiating from a center circle, each label sitting
+// right at its own petal's tip. Position alone shows which label belongs to
+// which petal, so there's nothing to draw as a separate connector line, and
+// nothing that can end up pointing at the wrong thing.
 function OrientationField() {
   return (
-    <svg className={styles.orientationField} viewBox="0 0 680 640" aria-hidden="true">
+    <svg className={styles.orientationField} viewBox="0 0 620 620" aria-hidden="true">
       <defs>
-        <radialGradient id="capstone-core" cx="50%" cy="45%" r="60%">
-          <stop offset="0%" stopColor="#d8a4ac" stopOpacity="0.96" />
-          <stop offset="56%" stopColor="#a51c30" stopOpacity="0.92" />
-          <stop offset="100%" stopColor="#731221" stopOpacity="0.98" />
+        <radialGradient id="capstone-core" cx="45%" cy="40%" r="65%">
+          <stop offset="0%" stopColor="#f3d3d8" />
+          <stop offset="55%" stopColor="#a51c30" />
+          <stop offset="100%" stopColor="#6b0f1f" />
         </radialGradient>
       </defs>
-      <g className={styles.fieldGrid}>
-        <line x1="340" y1="36" x2="340" y2="600" />
-        <line x1="58" y1="318" x2="622" y2="318" />
-        <line x1="142" y1="120" x2="538" y2="516" />
-        <line x1="538" y1="120" x2="142" y2="516" />
-      </g>
-      <g className={styles.fieldRings}>
-        <circle cx="340" cy="318" r="246" />
-        <circle cx="340" cy="318" r="194" />
-        <circle cx="340" cy="318" r="132" />
-        <circle cx="340" cy="318" r="78" />
-      </g>
-      <g className={styles.fieldArcs}>
-        <path d="M92 332c54-150 173-244 315-240 83 2 154 32 204 81" />
-        <path d="M120 466c103 95 252 118 373 54 57-30 101-73 130-126" />
-        <path d="M170 120c-39 87-23 189 45 258 74 75 192 92 284 39" />
-        <path d="M490 118c54 59 75 145 48 222-30 88-106 151-199 160" />
-        <path d="M212 239c75-69 193-72 272-6" />
-        <path d="M219 405c72 64 181 67 257 8" />
-      </g>
-      <g className={styles.fieldConnectors}>
-        <path d="M340 72L340 240M534 318H418M340 564V396M146 318H262" />
-        <path d="M203 181L285 263M477 181L395 263M203 455L285 373M477 455L395 373" />
-      </g>
-      <g className={styles.fieldNodes}>
-        {[
-          [340,72],[534,318],[340,564],[146,318],
-          [203,181],[477,181],[203,455],[477,455],
-          [340,186],[472,318],[340,450],[208,318],
-        ].map(([cx, cy], index) => <circle key={index} cx={cx} cy={cy} r={index < 4 ? 7 : 4.5} />)}
-      </g>
-      <circle className={styles.fieldCoreHalo} cx="340" cy="318" r="64" />
-      <circle className={styles.fieldCore} cx="340" cy="318" r="49" fill="url(#capstone-core)" />
-      <circle className={styles.fieldCoreInner} cx="340" cy="318" r="15" />
-      <g className={styles.fieldLabels}>
-        <text x="340" y="47" textAnchor="middle">STRUCTURE</text>
-        <text x="558" y="313">TECHNOLOGY</text>
-        <text x="340" y="598" textAnchor="middle">RELATIONSHIPS</text>
-        <text x="120" y="313" textAnchor="end">CULTURE</text>
-        <text x="169" y="158" textAnchor="middle">GOVERNANCE</text>
-        <text x="511" y="158" textAnchor="middle">PURPOSE</text>
-        <text x="169" y="486" textAnchor="middle">WORKFORCE</text>
-        <text x="511" y="486" textAnchor="middle">PRACTICE</text>
-      </g>
+
+      {PETALS.map(({ label, angle, tone }) => {
+        const rad = (angle * Math.PI) / 180;
+        const lx = FIELD_CENTER + LABEL_RADIUS * Math.sin(rad);
+        const ly = FIELD_CENTER - LABEL_RADIUS * Math.cos(rad);
+        const textAnchor = angle === 0 || angle === 180 ? "middle" : angle > 0 && angle < 180 ? "start" : "end";
+        return (
+          <g key={label}>
+            <g
+              transform={`translate(${FIELD_CENTER} ${FIELD_CENTER}) rotate(${angle})`}
+              className={tone === "primary" ? styles.petalPrimary : styles.petalSecondary}
+            >
+              <path d={`M0,0 Q-${PETAL_WIDTH},-${PETAL_LENGTH * 0.55} 0,-${PETAL_LENGTH} Q${PETAL_WIDTH},-${PETAL_LENGTH * 0.55} 0,0 Z`} />
+            </g>
+            <text x={lx} y={ly} textAnchor={textAnchor} className={styles.petalLabel}>{label}</text>
+          </g>
+        );
+      })}
+
+      <circle className={styles.fieldCoreHalo} cx={FIELD_CENTER} cy={FIELD_CENTER} r="82" />
+      <circle className={styles.fieldCore} cx={FIELD_CENTER} cy={FIELD_CENTER} r="62" fill="url(#capstone-core)" />
       <g className={styles.fieldCenterLabel}>
-        <text x="340" y="313" textAnchor="middle">ORIENTATION</text>
-        <text x="340" y="332" textAnchor="middle">BEFORE ADOPTION</text>
+        <text x={FIELD_CENTER} y={FIELD_CENTER - 4} textAnchor="middle">ORIENTATION</text>
+        <text x={FIELD_CENTER} y={FIELD_CENTER + 16} textAnchor="middle">BEFORE ADOPTION</text>
       </g>
       <g className={styles.fieldCaption}>
-        <text x="70" y="610">ORGANIZATIONAL FIELD / 01</text>
-        <text x="610" y="610" textAnchor="end">A SYSTEM, NOT A STACK</text>
+        <text x="20" y="600">ORGANIZATIONAL FIELD / 01</text>
+        <text x="600" y="600" textAnchor="end">A SYSTEM, NOT A STACK</text>
       </g>
     </svg>
   );

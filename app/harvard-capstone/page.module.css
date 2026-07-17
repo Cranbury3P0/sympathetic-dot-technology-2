@@ -106,24 +106,15 @@
   padding: 70px 4vw 150px 0;
 }
 
-.orientationField { width: min(100%, 690px); height: auto; overflow: visible; filter: drop-shadow(0 24px 55px rgba(0,0,0,0.18)); }
-.fieldGrid line { stroke: rgba(255,255,255,0.08); stroke-width: 1; }
-.fieldRings circle { fill: rgba(5,36,41,0.16); stroke: rgba(255,255,255,0.24); stroke-width: 1; }
-.fieldRings circle:nth-child(2) { stroke-dasharray: 3 8; stroke: rgba(216,164,172,0.5); }
-.fieldRings circle:nth-child(3) { stroke-width: 1.5; stroke: rgba(255,255,255,0.38); }
-.fieldRings circle:nth-child(4) { fill: rgba(255,255,255,0.025); stroke: rgba(255,255,255,0.18); }
-.fieldArcs path { fill: none; stroke: rgba(243,243,241,0.64); stroke-width: 1.4; }
-.fieldArcs path:nth-child(even) { stroke: rgba(216,164,172,0.58); }
-.fieldConnectors path { fill: none; stroke: rgba(255,255,255,0.28); stroke-width: 1; }
-.fieldNodes circle { fill: var(--teal); stroke: #f3f3f1; stroke-width: 2; }
-.fieldNodes circle:nth-child(-n+4) { fill: var(--crimson); stroke-width: 2.5; }
-.fieldCoreHalo { fill: rgba(165,28,48,0.1); stroke: rgba(216,164,172,0.6); stroke-width: 1; }
+.orientationField { width: min(100%, 640px); height: auto; overflow: visible; filter: drop-shadow(0 24px 55px rgba(0,0,0,0.18)); }
+.petalPrimary path { fill: rgba(165,28,48,0.55); stroke: rgba(243,211,216,0.7); stroke-width: 1.5; }
+.petalSecondary path { fill: rgba(186,197,198,0.28); stroke: rgba(255,255,255,0.45); stroke-width: 1.5; }
+.petalLabel { fill: rgba(255,255,255,0.82); font-family: var(--sans); font-size: 13px; font-weight: 600; letter-spacing: 0.1em; }
+.fieldCoreHalo { fill: rgba(165,28,48,0.12); stroke: rgba(216,164,172,0.55); stroke-width: 1; }
 .fieldCore { stroke: #f5e7e9; stroke-width: 2; }
-.fieldCoreInner { fill: #f3f3f1; stroke: rgba(5,36,41,0.8); stroke-width: 4; }
-.fieldLabels, .fieldCaption { fill: rgba(255,255,255,0.74); font-family: var(--sans); font-size: 10px; font-weight: 600; letter-spacing: 0.13em; }
-.fieldCenterLabel { fill: #fff; font-family: var(--sans); font-size: 8px; font-weight: 700; letter-spacing: 0.1em; }
-.fieldCenterLabel text:last-child { fill: #f1ced3; font-size: 6px; letter-spacing: 0.08em; }
-.fieldCaption { fill: rgba(255,255,255,0.42); font-size: 7px; }
+.fieldCenterLabel { fill: #fff; font-family: var(--sans); font-size: 13px; font-weight: 700; letter-spacing: 0.1em; }
+.fieldCenterLabel text:last-child { fill: #f1ced3; font-size: 9px; letter-spacing: 0.08em; }
+.fieldCaption { fill: rgba(255,255,255,0.42); font-family: var(--sans); font-size: 10px; font-weight: 600; letter-spacing: 0.13em; }
 
 .heroMeta {
   position: absolute;
