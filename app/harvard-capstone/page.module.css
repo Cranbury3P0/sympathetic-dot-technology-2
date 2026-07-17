@@ -106,6 +106,14 @@
   padding: 70px 4vw 150px 0;
 }
 
+.heroArtwork {
+  width: min(126%, 940px);
+  height: auto;
+  margin-right: -10%;
+  object-fit: contain;
+  filter: drop-shadow(0 24px 55px rgba(0,0,0,0.16));
+}
+
 .orientationField { width: min(100%, 690px); height: auto; overflow: visible; filter: drop-shadow(0 24px 55px rgba(0,0,0,0.18)); }
 .fieldGrid line { stroke: rgba(255,255,255,0.08); stroke-width: 1; }
 .fieldRings circle { fill: rgba(5,36,41,0.16); stroke: rgba(255,255,255,0.24); stroke-width: 1; }
