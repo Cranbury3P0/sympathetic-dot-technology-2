@@ -103,17 +103,7 @@
   align-items: center;
   justify-content: center;
   min-height: 540px;
-  padding: 50px 1.5vw 150px 0;
-}
-
-.heroArtwork {
-  width: min(128%, 1200px);
-  max-width: none;
-  height: auto;
-  margin-right: -4%;
-  margin-left: -14%;
-  object-fit: contain;
-  filter: drop-shadow(0 24px 55px rgba(0,0,0,0.16));
+  padding: 70px 4vw 150px 0;
 }
 
 .orientationField { width: min(100%, 690px); height: auto; overflow: visible; filter: drop-shadow(0 24px 55px rgba(0,0,0,0.18)); }
@@ -314,7 +304,6 @@
   .hero { grid-template-columns: 1fr; }
   .heroCopy { padding-bottom: 40px; }
   .heroVisual { min-height: 430px; padding: 0 10vw 170px; }
-  .heroArtwork { width: min(100%, 820px); margin: 0; }
   .heroMeta { grid-template-columns: repeat(3, 1fr); }
   .governanceDiagram { gap: 3%; padding-inline: 0; }
   .governanceDiagram article { padding: 28px; }
@@ -334,7 +323,6 @@
   .deck { font-size: 23px; }
   .heroIntro { font-size: 15px; }
   .heroVisual { min-height: 320px; padding: 5px 20px 24px; }
-  .heroArtwork { width: 100%; }
   .heroMeta { position: relative; grid-template-columns: 1fr; }
   .heroMeta div { min-height: auto; padding: 20px; border-left: 0; border-top: 1px solid rgba(255,255,255,0.28); }
   .heroMeta div:first-child { border-top: 0; }

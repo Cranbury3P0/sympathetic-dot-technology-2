@@ -294,9 +294,9 @@ function FieldNoteArticleTemplate({ article }: { article: ArticleData }) {
               return (
                 <>
                   {paras.map((para, i) => (
-                    <p key={i} style={{ fontFamily: SERIF, fontWeight: 400, fontSize: "18px", lineHeight: 1.8, margin: "0 0 1.5rem", color: INK }}>
+                    <div key={i} style={{ fontFamily: SERIF, fontWeight: 400, fontSize: "18px", lineHeight: 1.8, margin: "0 0 1.5rem", color: INK }}>
                       {para}
-                    </p>
+                    </div>
                   ))}
                 </>
               );

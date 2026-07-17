@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { Archivo, DM_Serif_Text } from "next/font/google";
 import { FitText, LegalBar, Nav } from "sympathetic-ds";
 import styles from "./page.module.css";
@@ -19,7 +18,6 @@ const dmSerif = DM_Serif_Text({
 const title = "Transforming Advocacy and Access";
 const description =
   "A healthcare transformation capstone that became a broader argument about the structural, cultural, and relational changes organizations must make in response to AI.";
-const heroImage = "/harvard-capstone-systems-bloom.svg";
 const socialImage = "/harvard-capstone-systems-bloom-og.png";
 const socialImageAlt =
   "A pastel organizational systems bloom centred on the principle Orientation Before Adoption.";
@@ -212,16 +210,7 @@ export default function HarvardCapstonePage() {
           </p>
         </div>
         <div className={styles.heroVisual}>
-          <Image
-            className={styles.heroArtwork}
-            src={heroImage}
-            alt={socialImageAlt}
-            width={1100}
-            height={820}
-            priority
-            unoptimized
-            sizes="(max-width: 760px) 100vw, 52vw"
-          />
+          <OrientationField />
         </div>
         <dl className={styles.heroMeta}>
           <div>

@@ -52,6 +52,9 @@ body {
   gap: 2rem;
   align-items: center;
 }
+.nav-mobile-panel {
+  display: none;
+}
 
 /* Process ticker */
 .ticker-row {
@@ -149,6 +152,9 @@ body {
     display: none;
   }
   .nav-mobile-icon {
+    display: flex !important;
+  }
+  .nav-mobile-panel {
     display: flex !important;
   }
 

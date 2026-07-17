@@ -13,6 +13,9 @@
   gap: 2rem;
   align-items: center;
 }
+.nav-mobile-panel {
+  display: none;
+}
 
 /* Legal bar */
 .legal-bar {
@@ -59,6 +62,9 @@
     display: none;
   }
   .nav-mobile-icon {
+    display: flex !important;
+  }
+  .nav-mobile-panel {
     display: flex !important;
   }
 }

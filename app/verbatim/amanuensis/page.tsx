@@ -225,7 +225,7 @@ export default function AmanuensisPage() {
     <div style={{ background: BG, minHeight: "100vh", fontFamily: BARLOW }}>
 
       {/* ── NAV ── */}
-      <Nav variant="verbatim" activeItem="VERBATIM" logoHref="/" />
+      <Nav variant="verbatim" activeItem="VERBATIM LEARNING" logoHref="/" />
 
       {/* ── BREADCRUMB ── */}
       <div style={{ borderBottom: RULE, padding: "0.6rem 1.5rem", display: "flex", gap: "0.5rem", alignItems: "center" }}>
@@ -252,7 +252,9 @@ export default function AmanuensisPage() {
               src="/AMANEUNSIS_FINAL.png"
               alt="Amanuensis by Olivia Richards — Satellite Editions"
               fill
+              sizes="(max-width: 900px) 90vw, 340px"
               style={{ objectFit: "contain", mixBlendMode: "multiply" }}
+              priority
             />
           </div>
         </div>
