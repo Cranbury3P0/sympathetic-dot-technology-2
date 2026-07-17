@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { Archivo, DM_Serif_Text } from "next/font/google";
 import { FitText, LegalBar, Nav } from "sympathetic-ds";
 import styles from "./page.module.css";
@@ -211,15 +210,7 @@ export default function HarvardCapstonePage() {
           </p>
         </div>
         <div className={styles.heroVisual}>
-          <Image
-            className={styles.heroArtwork}
-            src={socialImage}
-            alt={socialImageAlt}
-            width={1536}
-            height={1024}
-            priority
-            sizes="(max-width: 780px) 100vw, 48vw"
-          />
+          <OrientationField />
         </div>
         <dl className={styles.heroMeta}>
           <div>
