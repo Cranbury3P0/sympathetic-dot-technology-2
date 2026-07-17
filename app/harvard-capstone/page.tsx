@@ -19,7 +19,8 @@ const dmSerif = DM_Serif_Text({
 const title = "Transforming Advocacy and Access";
 const description =
   "A healthcare transformation capstone that became a broader argument about the structural, cultural, and relational changes organizations must make in response to AI.";
-const socialImage = "/harvard-capstone-systems-bloom-transparent-v2.png";
+const heroImage = "/harvard-capstone-systems-bloom.svg";
+const socialImage = "/harvard-capstone-systems-bloom-og.png";
 const socialImageAlt =
   "A pastel organizational systems bloom centred on the principle Orientation Before Adoption.";
 
@@ -33,8 +34,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: socialImage,
-        width: 1536,
-        height: 1024,
+        width: 2200,
+        height: 1640,
         alt: socialImageAlt,
       },
     ],
@@ -213,12 +214,13 @@ export default function HarvardCapstonePage() {
         <div className={styles.heroVisual}>
           <Image
             className={styles.heroArtwork}
-            src={socialImage}
+            src={heroImage}
             alt={socialImageAlt}
-            width={1536}
-            height={1024}
+            width={1100}
+            height={820}
             priority
-            sizes="(max-width: 780px) 100vw, 48vw"
+            unoptimized
+            sizes="(max-width: 760px) 100vw, 52vw"
           />
         </div>
         <dl className={styles.heroMeta}>

@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="820" viewBox="0 0 1100 820" role="img" aria-labelledby="title description">
+  <title id="title">Orientation Before Adoption</title>
+  <desc id="description">A pastel organizational systems bloom connecting structure, relationships, technology, purpose, culture, governance, workforce, and practice.</desc>
+  <defs>
+    <linearGradient id="coral" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f49b86"/>
+      <stop offset="1" stop-color="#dd6d70"/>
+    </linearGradient>
+    <linearGradient id="orange" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f6bd77"/>
+      <stop offset="1" stop-color="#e99a58"/>
+    </linearGradient>
+    <linearGradient id="olive" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d7ce8e"/>
+      <stop offset="1" stop-color="#aeb679"/>
+    </linearGradient>
+    <linearGradient id="aqua" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#a7cfbe"/>
+      <stop offset="1" stop-color="#73b5b0"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9db8cc"/>
+      <stop offset="1" stop-color="#7098bb"/>
+    </linearGradient>
+    <linearGradient id="mauve" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#d79aaf"/>
+      <stop offset="1" stop-color="#a97f9e"/>
+    </linearGradient>
+    <radialGradient id="medallion" cx="45%" cy="38%" r="70%">
+      <stop offset="0" stop-color="#fff8df"/>
+      <stop offset="0.72" stop-color="#f7e2b1"/>
+      <stop offset="1" stop-color="#edc98c"/>
+    </radialGradient>
+    <filter id="paper" x="-15%" y="-15%" width="130%" height="130%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.018 0.05" numOctaves="2" seed="8" result="noise"/>
+      <feColorMatrix in="noise" type="saturate" values="0" result="mono"/>
+      <feComposite in="mono" in2="SourceAlpha" operator="in" result="clipped-noise"/>
+      <feComponentTransfer in="clipped-noise" result="grain">
+        <feFuncA type="table" tableValues="0 0.09"/>
+      </feComponentTransfer>
+      <feBlend in="SourceGraphic" in2="grain" mode="soft-light"/>
+    </filter>
+    <filter id="soft-shadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#001f25" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <g fill="none" stroke="#f4ead7" stroke-linecap="round" stroke-width="1.35" opacity="0.7">
+    <path d="M237 205C377 75 720 53 897 183"/>
+    <path d="M187 399C184 241 346 138 518 174"/>
+    <path d="M183 571C293 704 536 752 738 675"/>
+    <path d="M640 152C850 120 1002 278 947 496"/>
+    <path d="M703 656C803 548 797 406 717 309"/>
+    <path d="M329 678C416 591 439 478 396 373"/>
+  </g>
+
+  <g filter="url(#paper)" stroke="#f8e9cb" stroke-width="1.4" stroke-opacity="0.6">
+    <path d="M550 371C481 308 473 145 555 63C638 142 637 307 550 371Z" fill="url(#orange)" fill-opacity="0.88"/>
+    <path d="M519 383C422 393 282 328 257 211C372 168 505 238 519 383Z" fill="url(#coral)" fill-opacity="0.9"/>
+    <path d="M590 378C600 233 732 169 847 212C823 329 686 398 590 378Z" fill="url(#olive)" fill-opacity="0.86"/>
+    <path d="M633 420C773 380 884 454 897 571C778 615 659 553 633 420Z" fill="url(#aqua)" fill-opacity="0.84"/>
+    <path d="M597 456C683 536 652 690 552 744C466 675 473 519 597 456Z" fill="url(#blue)" fill-opacity="0.86"/>
+    <path d="M505 429C485 566 356 626 251 569C267 450 392 381 505 429Z" fill="url(#mauve)" fill-opacity="0.88"/>
+  </g>
+
+  <g fill="none" stroke="#f4ead7" stroke-linecap="round" stroke-width="1.5" opacity="0.78">
+    <path d="M555 63L600 22"/>
+    <path d="M257 211L151 190L24 190"/>
+    <path d="M847 212L910 169L1076 169"/>
+    <path d="M251 413L156 377L60 377"/>
+    <path d="M897 571L957 535L1073 535"/>
+    <path d="M251 569L174 569L35 569"/>
+    <path d="M337 646L294 718L185 718"/>
+    <path d="M552 744L552 798"/>
+  </g>
+
+  <g fill="#f2d7a4" stroke="#fff5dd" stroke-width="1">
+    <circle cx="555" cy="63" r="6"/>
+    <circle cx="257" cy="211" r="6"/>
+    <circle cx="847" cy="212" r="6"/>
+    <circle cx="251" cy="413" r="6"/>
+    <circle cx="897" cy="571" r="6"/>
+    <circle cx="251" cy="569" r="6"/>
+    <circle cx="337" cy="646" r="6"/>
+    <circle cx="552" cy="744" r="6"/>
+  </g>
+
+  <g filter="url(#soft-shadow)">
+    <circle cx="555" cy="415" r="121" fill="#f9e8bd" fill-opacity="0.36" stroke="#f8e6bc" stroke-width="2"/>
+    <circle cx="555" cy="415" r="108" fill="url(#medallion)" stroke="#fff2cf" stroke-width="3"/>
+    <circle cx="555" cy="415" r="98" fill="none" stroke="#c8a975" stroke-width="1.5" opacity="0.72"/>
+  </g>
+
+  <g fill="#f6ead5" font-family="Arial Narrow, Archivo Narrow, Helvetica Neue, sans-serif" font-size="18" font-weight="700" letter-spacing="3">
+    <text x="610" y="24">STRUCTURE</text>
+    <text x="22" y="181">RELATIONSHIPS</text>
+    <text x="1078" y="161" text-anchor="end">TECHNOLOGY</text>
+    <text x="58" y="368">PURPOSE</text>
+    <text x="1078" y="528" text-anchor="end">CULTURE</text>
+    <text x="34" y="560">GOVERNANCE</text>
+    <text x="183" y="710">WORKFORCE</text>
+    <text x="552" y="817" text-anchor="middle">PRACTICE</text>
+  </g>
+
+  <g fill="#093842" font-family="Arial Narrow, Archivo Narrow, Helvetica Neue, sans-serif" text-anchor="middle">
+    <text x="555" y="409" font-size="27" font-weight="800" letter-spacing="1.3">ORIENTATION</text>
+    <text x="555" y="441" font-size="17" font-weight="700" letter-spacing="1.7">BEFORE ADOPTION</text>
+  </g>
+</svg>
