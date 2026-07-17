@@ -325,12 +325,12 @@ export default function VerbatimPage() {
     <div style={{ background: PAPER, minHeight: "100vh", fontFamily: BARLOW }}>
 
       {/* ── NAV ── */}
-      <Nav variant="verbatim" activeItem="VERBATIM" logoHref="/" />
+      <Nav variant="verbatim" activeItem="VERBATIM LEARNING" logoHref="/" />
 
       {/* ── VERBATIM TITLE ── */}
       <div style={{ borderBottom: RULE, padding: "0.5rem 1.5rem 0.4rem" }}>
         <FitText
-          text="VERBATIM"
+          text="VERBATIM LEARNING"
           style={{
             fontFamily: CONDENSED,
             fontWeight: 900,
