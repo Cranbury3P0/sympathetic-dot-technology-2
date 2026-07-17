@@ -30,7 +30,7 @@ const NAV_ITEMS = [
   { label: "SYSTEMS",      href: "/systems" },
   { label: "FIELD NOTES",  href: "/field-notes" },
   { label: "WORK",         href: "#" },
-  { label: "VERBATIM",     href: "/verbatim" },
+  { label: "VERBATIM LEARNING", href: "/verbatim" },
   { label: "ABOUT",        href: "#" },
   { label: "CONTACT",      href: "#" },
   { label: "CLIENT LOGIN", href: "/client" },
