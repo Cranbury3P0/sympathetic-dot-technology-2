@@ -1,5 +1,5 @@
-import React from "react";
-import { RULE, SANS, INK } from "./tokens";
+import React, { useState } from "react";
+import { RULE, SANS, INK, PAPER } from "./tokens";
 
 export const DEFAULT_NAV_ITEMS = [
   "SYSTEMS",
@@ -63,6 +63,9 @@ const indicatorStyle: React.CSSProperties = {
   justifyContent: "center",
   flexShrink: 0,
   fontSize: "0.6rem",
+  background: "none",
+  cursor: "pointer",
+  padding: 0,
 };
 
 export interface NavProps {
@@ -79,7 +82,9 @@ export interface NavProps {
   hrefFor?: (item: string) => string;
 }
 
-/** Site navigation bar, in its two shipped variants. */
+/** Site navigation bar, in its two shipped variants. Below the 1024px
+ *  breakpoint the link row collapses into a toggleable dropdown panel,
+ *  opened by the mobile icon (real button, not decorative). */
 export function Nav({
   variant = "site",
   items = DEFAULT_NAV_ITEMS,
@@ -87,76 +92,125 @@ export function Nav({
   logoHref,
   hrefFor = defaultHrefFor,
 }: NavProps) {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
   if (variant === "verbatim") {
     return (
-      <nav
+      <nav style={{ borderBottom: RULE }}>
+        <div
+          style={{
+            padding: "0 1.5rem",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            height: "44px",
+          }}
+        >
+          <a href={logoHref ?? "/"} style={{ ...verbatimNavStyle, fontWeight: 700, letterSpacing: "0.06em" }}>
+            SYMPATHETIC TECHNOLOGY
+          </a>
+          <div className="nav-links">
+            {items.map((item) => (
+              <a
+                key={item}
+                href={hrefFor(item)}
+                style={{
+                  ...verbatimNavStyle,
+                  fontWeight: item === activeItem ? 700 : 500,
+                  borderBottom: item === activeItem ? RULE : "none",
+                  paddingBottom: item === activeItem ? "2px" : "0",
+                }}
+              >
+                {item}
+              </a>
+            ))}
+          </div>
+          <button
+            type="button"
+            className="nav-mobile-icon"
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
+            onClick={() => setMobileOpen((open) => !open)}
+            style={{ ...indicatorStyle, display: "none" }}
+          >
+            {mobileOpen ? "✕" : "☰"}
+          </button>
+        </div>
+        {mobileOpen && (
+          <div className="nav-mobile-panel" style={{ borderTop: RULE, padding: "1rem 1.5rem", flexDirection: "column", gap: "1rem", background: PAPER }}>
+            {items.map((item) => (
+              <a
+                key={item}
+                href={hrefFor(item)}
+                onClick={() => setMobileOpen(false)}
+                style={{ ...verbatimNavStyle, fontSize: "0.85rem", fontWeight: item === activeItem ? 700 : 500 }}
+              >
+                {item}
+              </a>
+            ))}
+          </div>
+        )}
+      </nav>
+    );
+  }
+
+  return (
+    <nav style={{ borderBottom: RULE }}>
+      <div
         style={{
-          borderBottom: RULE,
-          padding: "0 1.5rem",
           display: "flex",
-          alignItems: "center",
           justifyContent: "space-between",
-          height: "44px",
+          alignItems: "center",
+          padding: "1.125rem 1.5rem",
         }}
       >
-        <a href={logoHref ?? "/"} style={{ ...verbatimNavStyle, fontWeight: 700, letterSpacing: "0.06em" }}>
-          SYMPATHETIC TECHNOLOGY
-        </a>
+        {logoHref ? (
+          <a href={logoHref} style={{ ...siteNavStyle, textDecoration: "none" }}>
+            SYMPATHETIC.TECHNOLOGY
+          </a>
+        ) : (
+          <span style={siteNavStyle}>SYMPATHETIC.TECHNOLOGY</span>
+        )}
         <div className="nav-links">
           {items.map((item) => (
             <a
               key={item}
               href={hrefFor(item)}
               style={{
-                ...verbatimNavStyle,
-                fontWeight: item === activeItem ? 700 : 500,
-                borderBottom: item === activeItem ? RULE : "none",
-                paddingBottom: item === activeItem ? "2px" : "0",
+                ...siteNavStyle,
+                ...(item === activeItem ? { textDecoration: "underline", textUnderlineOffset: "4px" } : {}),
               }}
             >
               {item}
             </a>
           ))}
+          <span style={indicatorStyle}>◉</span>
         </div>
-      </nav>
-    );
-  }
-
-  return (
-    <nav
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        padding: "1.125rem 1.5rem",
-        borderBottom: RULE,
-      }}
-    >
-      {logoHref ? (
-        <a href={logoHref} style={{ ...siteNavStyle, textDecoration: "none" }}>
-          SYMPATHETIC.TECHNOLOGY
-        </a>
-      ) : (
-        <span style={siteNavStyle}>SYMPATHETIC.TECHNOLOGY</span>
-      )}
-      <div className="nav-links">
-        {items.map((item) => (
-          <a
-            key={item}
-            href={hrefFor(item)}
-            style={{
-              ...siteNavStyle,
-              ...(item === activeItem ? { textDecoration: "underline", textUnderlineOffset: "4px" } : {}),
-            }}
-          >
-            {item}
-          </a>
-        ))}
-        <span style={indicatorStyle}>◉</span>
+        <button
+          type="button"
+          className="nav-mobile-icon"
+          aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          aria-expanded={mobileOpen}
+          onClick={() => setMobileOpen((open) => !open)}
+          style={{ ...indicatorStyle, display: "none" }}
+        >
+          {mobileOpen ? "✕" : "☰"}
+        </button>
       </div>
-      <span className="nav-mobile-icon" style={{ ...indicatorStyle, display: "none" }}>
-        ◉
-      </span>
+      {mobileOpen && (
+        <div className="nav-mobile-panel" style={{ borderTop: RULE, padding: "1rem 1.5rem", flexDirection: "column", gap: "1rem", background: PAPER }}>
+          {items.map((item) => (
+            <a
+              key={item}
+              href={hrefFor(item)}
+              onClick={() => setMobileOpen(false)}
+              style={{ ...siteNavStyle, ...(item === activeItem ? { textDecoration: "underline", textUnderlineOffset: "4px" } : {}) }}
+            >
+              {item}
+            </a>
+          ))}
+        </div>
+      )}
     </nav>
   );
 }

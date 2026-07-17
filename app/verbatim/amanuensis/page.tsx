@@ -252,7 +252,9 @@ export default function AmanuensisPage() {
               src="/AMANEUNSIS_FINAL.png"
               alt="Amanuensis by Olivia Richards — Satellite Editions"
               fill
+              sizes="(max-width: 900px) 90vw, 340px"
               style={{ objectFit: "contain", mixBlendMode: "multiply" }}
+              priority
             />
           </div>
         </div>

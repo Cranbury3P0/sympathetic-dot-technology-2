@@ -142,6 +142,7 @@ export function VerbatimProduct({ product }: { product: VerbatimProduct }) {
                 src={product.heroImage}
                 alt={product.heroImageAlt ?? product.name}
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1100px) 55vw, 58vw"
                 style={{ objectFit: "cover", objectPosition: "center" }}
                 priority
               />
