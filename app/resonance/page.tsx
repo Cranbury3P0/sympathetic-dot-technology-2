@@ -5,7 +5,7 @@ import { Nav } from "sympathetic-ds";
 
 /**
  * Resonance is a page within the Sympathetic Technology site, so it uses
- * the shared site Nav — not a bespoke one. Below the nav, it keeps its own
+ * the shared site Nav. Below the nav, it keeps its own
  * architectural/institutional palette and type system per the Resonance
  * doctrine, since the content itself (not the chrome) is what carries that
  * distinct identity.
@@ -23,7 +23,7 @@ const DISPLAY = "var(--font-fraunces), Georgia, serif";
 const SANS = "var(--font-inter-r), sans-serif";
 const MONO = "var(--font-plex-mono-r), monospace";
 
-/* Palette — warm neutrals only, per the Resonance color doctrine. Kept
+/* Palette: warm neutrals only, per the Resonance color doctrine. Kept
    local to this page rather than the shared PAPER/INK tokens, since the
    doctrine specifies a distinct, desaturated architectural palette. */
 const WARM_WHITE = "#F5F2EC";
@@ -34,7 +34,7 @@ const BRONZE = "#96754A";
 
 const title = "Resonance: Process Architecture for Creative Work";
 const description =
-  "Resonance is the adaptable process architecture upon which applications such as Perkins are built. It preserves continuity across the entire lifecycle of creative work.";
+  "Resonance is a process architecture for editorial work that preserves context, decisions, and revision history over time.";
 
 export const metadata: Metadata = {
   title,
@@ -53,13 +53,13 @@ export const metadata: Metadata = {
   },
 };
 
-/* ── DATA ── */
+/* DATA */
 
 const PRINCIPLES = [
-  { n: "01", statement: "Continuity, not automation.", gloss: "The work carries forward. Nothing about it runs itself." },
-  { n: "02", statement: "Clarity, not creativity.", gloss: "It gives people a clearer view of their own work over time." },
-  { n: "03", statement: "Architecture, not application.", gloss: "Perkins is one implementation. The pattern beneath it is what Resonance names." },
-  { n: "04", statement: "Presence, not productivity.", gloss: "Continuity exists so creative work keeps its shape between the moments people are actually in the room." },
+  { n: "01", statement: "Continuity carries the work forward.", gloss: "People remain responsible for every editorial decision." },
+  { n: "02", statement: "Clarity supports creative judgment.", gloss: "Writers and editors can see how the work and its reasoning have developed over time." },
+  { n: "03", statement: "One architecture supports many applications.", gloss: "Perkins is the first implementation of the Resonance pattern." },
+  { n: "04", statement: "Context remains available between sessions.", gloss: "People can return to the work without reconstructing the last conversation." },
 ];
 
 const METADATA_TERMS = ["CONTINUITY", "MEMORY", "WORKFLOW", "REVISION HISTORY"];
@@ -72,7 +72,41 @@ const PROCESS_STAGES = [
   { n: "05", name: "Continue", description: "Re-enter the work later without reconstructing context." },
 ];
 
-/* ── COMPONENT ── */
+const AUDIENCES = [
+  {
+    name: "Independent publishers",
+    description: "Keep manuscripts, editorial decisions, and contributor conversations coherent across a small team.",
+  },
+  {
+    name: "Professional literary editors",
+    description: "Manage several client relationships without losing the reasoning behind each edit.",
+  },
+  {
+    name: "Writers and writing groups",
+    description: "Return to drafts, feedback, and revision choices with the original context intact.",
+  },
+  {
+    name: "Editors building a freelance practice",
+    description: "Create a consistent editorial process for clients working in different places and on different schedules.",
+  },
+];
+
+const WORKFLOWS = [
+  {
+    name: "Editorial work across genres",
+    description: "A shared record of analysis, decisions, and revision history for fiction, nonfiction, poetry, and other forms.",
+  },
+  {
+    name: "Agent-led client management",
+    description: "A clear account of timelines, editorial commitments, and manuscript changes for high-touch client relationships.",
+  },
+  {
+    name: "Distributed editorial practices",
+    description: "Continuity for independent editors and clients who rarely work in the same room or at the same time.",
+  },
+];
+
+/* COMPONENT */
 
 export default function ResonancePage() {
   return (
@@ -81,7 +115,7 @@ export default function ResonancePage() {
       style={{ backgroundColor: WARM_WHITE, color: CHARCOAL, margin: 0 }}
     >
       <Nav activeItem="RESONANCE" logoHref="/" />
-      {/* ── HERO ── */}
+      {/* HERO */}
       <div className="resonance-hero">
         <div className="resonance-hero-text">
           <span style={{ fontFamily: MONO, fontWeight: 500, fontSize: "11px", letterSpacing: "0.25em", textTransform: "uppercase", color: BRONZE }}>
@@ -101,8 +135,8 @@ export default function ResonancePage() {
           </h1>
           <div aria-hidden style={{ width: "48px", height: "1px", background: BRONZE, marginBottom: "1.75rem" }} />
           <p style={{ fontFamily: SANS, fontWeight: 400, fontSize: "clamp(19px, 2vw, 24px)", lineHeight: 1.4, color: CHARCOAL, margin: "0 0 2.5rem", maxWidth: "32rem" }}>
-            Resonance preserves continuity across the entire lifecycle of creative work. It aligns people,
-            conversations, revisions, and memory into a persistent process that continues between interactions.
+            Resonance preserves the context of editorial work across conversations, revisions, and long pauses.
+            Writers and editors can return knowing what changed, why it changed, and what remains unresolved.
           </p>
           <a
             href="#architecture"
@@ -139,7 +173,34 @@ export default function ResonancePage() {
         </div>
       </div>
 
-      {/* ── CENTRAL PHILOSOPHY — the statement the page revolves around, paired with the process it describes ── */}
+      <section aria-label="Current status" style={{ borderTop: `1px solid ${CONCRETE}`, borderBottom: `1px solid ${CONCRETE}` }}>
+        <div className="resonance-status-grid">
+          <article className="resonance-status-item">
+            <span style={{ fontFamily: MONO, fontSize: "11px", fontWeight: 500, letterSpacing: "0.2em", textTransform: "uppercase", color: BRONZE }}>
+              Perkins
+            </span>
+            <h2 style={{ fontFamily: DISPLAY, fontWeight: 400, fontSize: "clamp(24px, 2.4vw, 34px)", lineHeight: 1.15, margin: "1rem 0" }}>
+              Ready for private beta
+            </h2>
+            <p style={{ fontFamily: SANS, fontSize: "16px", lineHeight: 1.65, color: LIMESTONE, margin: 0, maxWidth: "34rem" }}>
+              Professional writers are using Perkins and report that it is working well.
+            </p>
+          </article>
+          <article className="resonance-status-item">
+            <span style={{ fontFamily: MONO, fontSize: "11px", fontWeight: 500, letterSpacing: "0.2em", textTransform: "uppercase", color: BRONZE }}>
+              Resonance
+            </span>
+            <h2 style={{ fontFamily: DISPLAY, fontWeight: 400, fontSize: "clamp(24px, 2.4vw, 34px)", lineHeight: 1.15, margin: "1rem 0" }}>
+              Generic showcase in development
+            </h2>
+            <p style={{ fontFamily: SANS, fontSize: "16px", lineHeight: 1.65, color: LIMESTONE, margin: 0, maxWidth: "34rem" }}>
+              The core pattern is defined. The next build will show how it serves editorial relationships beyond the current Perkins implementation.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      {/* CENTRAL PHILOSOPHY */}
       <section style={{ borderTop: `1px solid ${CONCRETE}`, borderBottom: `1px solid ${CONCRETE}` }}>
         <div className="resonance-philosophy">
           <p
@@ -199,7 +260,7 @@ export default function ResonancePage() {
         </div>
       </section>
 
-      {/* ── ARCHITECTURE — what Resonance is ── */}
+      {/* ARCHITECTURE */}
       <section id="architecture" style={{ borderBottom: `1px solid ${CONCRETE}` }}>
         <div className="resonance-section">
           <div>
@@ -214,30 +275,24 @@ export default function ResonancePage() {
                 maxWidth: "14ch",
               }}
             >
-              Resonance is not an application.
+              Resonance is the architecture beneath the work.
             </h2>
           </div>
           <div>
             <p style={{ fontFamily: SANS, fontSize: "clamp(17px, 1.4vw, 22px)", lineHeight: 1.6, color: CHARCOAL, margin: "0 0 1.5rem", maxWidth: "38rem" }}>
-              Resonance is the adaptable process architecture upon which applications such as Perkins are built.
-              Perkins is the first implementation of Resonance.
+              Resonance gives editorial relationships a durable structure. Perkins is its first working implementation.
             </p>
             <p style={{ fontFamily: SANS, fontSize: "clamp(17px, 1.4vw, 22px)", lineHeight: 1.6, color: LIMESTONE, margin: "0 0 1.5rem", maxWidth: "38rem" }}>
-              It doesn&apos;t replace writers, editors, or the tools already in use.
+              Writers and editors keep control of the work and continue using the tools that already serve them.
             </p>
             <p style={{ fontFamily: SANS, fontSize: "clamp(17px, 1.4vw, 22px)", lineHeight: 1.6, color: CHARCOAL, margin: "0 0 1.5rem", maxWidth: "38rem" }}>
-              It preserves continuity throughout the lifecycle of creative work, so the work keeps progressing
-              even when people leave the room.
+              Resonance preserves analysis, decisions, and revision history so people can resume the work with its context intact.
             </p>
             <p style={{ fontFamily: SANS, fontSize: "clamp(17px, 1.4vw, 22px)", lineHeight: 1.6, color: LIMESTONE, margin: "0 0 1.5rem", maxWidth: "38rem" }}>
-              Resonance holds any relationship that depends on continuity: work where understanding accumulates
-              over months, where the gap between sessions is where the real thinking happens, and where losing
-              that thread means starting over every time.
+              It is designed for relationships where understanding accumulates over months and much of the thinking happens between sessions.
             </p>
             <p style={{ fontFamily: SANS, fontSize: "clamp(17px, 1.4vw, 22px)", lineHeight: 1.6, color: CHARCOAL, margin: "0 0 2.5rem", maxWidth: "38rem" }}>
-              Perkins is the first thing built on it. Other applications will be built the same way, on the
-              same architecture, for people who need a different relationship than the one Perkins holds with
-              a novelist and their manuscript.
+              Each application can use the same structure while adapting the workflow to a particular editorial relationship.
             </p>
             <div className="resonance-terms" aria-hidden="true">
               {METADATA_TERMS.map((term) => (
@@ -250,7 +305,7 @@ export default function ResonancePage() {
         </div>
       </section>
 
-      {/* ── APPLICATIONS — Perkins as first implementation ── */}
+      {/* APPLICATIONS */}
       <section id="applications" style={{ borderBottom: `1px solid ${CONCRETE}` }}>
         <div className="resonance-section">
           <div>
@@ -276,10 +331,9 @@ export default function ResonancePage() {
               Resonance pattern.
             </p>
             <p style={{ fontFamily: SANS, fontSize: "clamp(17px, 1.4vw, 22px)", lineHeight: 1.6, color: LIMESTONE, margin: "0 0 1.5rem", maxWidth: "38rem" }}>
-              A writer submits a manuscript and chooses what to focus on. Perkins reads what&apos;s actually on
-              the page, not the writer&apos;s intentions, and returns an editorial letter: a diagnosis in the
-              writer&apos;s own terms. The writer takes that back to the draft and writes the next scene
-              themselves.
+              A writer submits a manuscript and chooses what to focus on. Perkins examines the language on the page
+              and returns an editorial letter grounded in the writer&apos;s own terms. The writer takes that analysis
+              back to the draft and writes the next scene themselves.
             </p>
             <p style={{ fontFamily: SANS, fontSize: "clamp(17px, 1.4vw, 22px)", lineHeight: 1.6, color: CHARCOAL, margin: 0, maxWidth: "38rem" }}>
               What happens between sessions is what makes this a Resonance application. The reasoning behind
@@ -291,10 +345,13 @@ export default function ResonancePage() {
         </div>
       </section>
 
-      {/* ── WHAT COMES NEXT — same architecture, other relationships ── */}
-      <section id="whats-next" style={{ borderBottom: `1px solid ${CONCRETE}` }}>
+      {/* AUDIENCE */}
+      <section id="for-whom" style={{ borderBottom: `1px solid ${CONCRETE}` }}>
         <div className="resonance-section">
           <div>
+            <span style={{ fontFamily: MONO, fontSize: "11px", fontWeight: 500, letterSpacing: "0.25em", textTransform: "uppercase", color: BRONZE, display: "block", marginBottom: "1.25rem" }}>
+              Who it serves
+            </span>
             <h2
               style={{
                 fontFamily: DISPLAY,
@@ -305,22 +362,86 @@ export default function ResonancePage() {
                 maxWidth: "16ch",
               }}
             >
-              What comes next
+              Built for editorial relationships that develop over time.
+            </h2>
+          </div>
+          <div className="resonance-detail-list">
+            {AUDIENCES.map((audience, index) => (
+              <article key={audience.name} className="resonance-detail-item">
+                <span style={{ fontFamily: MONO, fontSize: "11px", color: BRONZE, letterSpacing: "0.12em" }}>
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <h3 style={{ fontFamily: SANS, fontWeight: 600, fontSize: "18px", lineHeight: 1.35, margin: "0 0 0.5rem" }}>
+                    {audience.name}
+                  </h3>
+                  <p style={{ fontFamily: SANS, fontSize: "15px", lineHeight: 1.65, color: LIMESTONE, margin: 0 }}>
+                    {audience.description}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* WORKFLOWS */}
+      <section id="workflows" style={{ borderBottom: `1px solid ${CONCRETE}` }}>
+        <div className="resonance-section">
+          <div>
+            <span style={{ fontFamily: MONO, fontSize: "11px", fontWeight: 500, letterSpacing: "0.25em", textTransform: "uppercase", color: BRONZE, display: "block", marginBottom: "1.25rem" }}>
+              Beyond Perkins
+            </span>
+            <h2 style={{ fontFamily: DISPLAY, fontWeight: 400, fontSize: "clamp(28px, 3vw, 40px)", lineHeight: 1.15, margin: 0, maxWidth: "16ch" }}>
+              Three practical editorial settings
+            </h2>
+          </div>
+          <div className="resonance-detail-list">
+            {WORKFLOWS.map((workflow, index) => (
+              <article key={workflow.name} className="resonance-detail-item">
+                <span style={{ fontFamily: MONO, fontSize: "11px", color: BRONZE, letterSpacing: "0.12em" }}>
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <h3 style={{ fontFamily: SANS, fontWeight: 600, fontSize: "18px", lineHeight: 1.35, margin: "0 0 0.5rem" }}>
+                    {workflow.name}
+                  </h3>
+                  <p style={{ fontFamily: SANS, fontSize: "15px", lineHeight: 1.65, color: LIMESTONE, margin: 0 }}>
+                    {workflow.description}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* INFORMATION BOUNDARIES */}
+      <section id="information-boundaries" style={{ borderBottom: `1px solid ${CONCRETE}` }}>
+        <div className="resonance-section">
+          <div>
+            <span style={{ fontFamily: MONO, fontSize: "11px", fontWeight: 500, letterSpacing: "0.25em", textTransform: "uppercase", color: BRONZE, display: "block", marginBottom: "1.25rem" }}>
+              Information boundaries
+            </span>
+            <h2 style={{ fontFamily: DISPLAY, fontWeight: 400, fontSize: "clamp(28px, 3vw, 40px)", lineHeight: 1.15, margin: 0, maxWidth: "16ch" }}>
+              What Resonance keeps
             </h2>
           </div>
           <div>
+            <p style={{ fontFamily: SANS, fontSize: "clamp(17px, 1.4vw, 22px)", lineHeight: 1.6, color: CHARCOAL, margin: "0 0 1.5rem", maxWidth: "38rem" }}>
+              Resonance retains its own editorial analysis and the notes or passages an author deliberately commits to a working area.
+            </p>
+            <p style={{ fontFamily: SANS, fontSize: "clamp(17px, 1.4vw, 22px)", lineHeight: 1.6, color: LIMESTONE, margin: "0 0 1.5rem", maxWidth: "38rem" }}>
+              Uploaded manuscripts are analyzed for the requested session and are not retained as stored documents. Resonance does not generate prose.
+            </p>
             <p style={{ fontFamily: SANS, fontSize: "clamp(17px, 1.4vw, 22px)", lineHeight: 1.6, color: CHARCOAL, margin: 0, maxWidth: "38rem" }}>
-              The same architecture holds other kinds of work: a research collaborator that keeps the state of
-              a literature review intact across a year of stop-and-start reading, a policy advisor for an
-              association that remembers the reasoning behind a decision after the staff who made it have
-              moved on. Perkins proves the pattern works for one relationship. What we build next proves it
-              wasn&apos;t a coincidence.
+              An author may choose to preserve writing inside a Resonance workspace. That choice must be explicit. The default is restraint.
             </p>
           </div>
         </div>
       </section>
 
-      {/* ── PRINCIPLES ── */}
+      {/* PRINCIPLES */}
       <section id="principles" style={{ borderBottom: `1px solid ${CONCRETE}` }}>
         <div className="resonance-section">
           <div>
@@ -357,7 +478,7 @@ export default function ResonancePage() {
         </div>
       </section>
 
-      {/* ── ABOUT ── */}
+      {/* ABOUT */}
       <section id="about" style={{ borderBottom: `1px solid ${CONCRETE}` }}>
         <div className="resonance-section">
           <div>
@@ -383,7 +504,7 @@ export default function ResonancePage() {
         </div>
       </section>
 
-      {/* ── CONTACT ── */}
+      {/* CONTACT */}
       <section id="contact">
         <div className="resonance-section">
           <div>
@@ -397,12 +518,15 @@ export default function ResonancePage() {
                 maxWidth: "14ch",
               }}
             >
-              Contact
+              Book a conversation
             </h2>
           </div>
           <div>
+            <p style={{ fontFamily: SANS, fontSize: "clamp(17px, 1.4vw, 22px)", lineHeight: 1.6, color: CHARCOAL, margin: "0 0 2rem", maxWidth: "38rem" }}>
+              If you publish, edit, represent, or organize writers, let&apos;s discuss where continuity breaks down in your current process and whether Resonance is a useful fit.
+            </p>
             <a
-              href="mailto:sean@sympathetic.technology"
+              href="mailto:sean@sympathetic.technology?subject=Resonance%20conversation"
               className="resonance-cta"
               style={{
                 display: "inline-flex",
@@ -419,16 +543,16 @@ export default function ResonancePage() {
                 padding: "1rem 1.75rem",
               }}
             >
-              sean@sympathetic.technology
+              Book a conversation <span aria-hidden>→</span>
             </a>
           </div>
         </div>
       </section>
 
-      {/* ── FOOTER — Plex Mono metadata, left-aligned ── */}
+      {/* FOOTER */}
       <footer style={{ borderTop: `1px solid ${CONCRETE}` }}>
         <div className="resonance-footer">
-          {["REVISION 03", "EST. 2026", "PROCESS ARCHITECTURE", "CONTINUITY IS THE CONDITION OF EXCELLENCE"].map((item, i) => (
+          {["REVISION 04", "EST. 2026", "PROCESS ARCHITECTURE", "CONTINUITY IS THE CONDITION OF EXCELLENCE"].map((item, i) => (
             <span key={item} style={{ display: "flex", alignItems: "center", gap: "1.5rem" }}>
               {i > 0 && <span aria-hidden style={{ color: CONCRETE }}>|</span>}
               <span style={{ fontFamily: MONO, fontSize: "11px", fontWeight: 500, letterSpacing: "0.2em", textTransform: "uppercase", color: LIMESTONE }}>

@@ -1227,7 +1227,7 @@ body {
 
 /* ── RESONANCE LANDING PAGE ── */
 /* Standalone institutional identity: strict left alignment (per the
-   Perkins Visual Design Standard — "Resonance never centers text"),
+   Perkins Visual Design Standard, "Resonance never centers text"),
    hairline rules instead of cards, 8px-multiple spacing throughout. */
 
 .resonance-cta {
@@ -1254,6 +1254,19 @@ body {
   width: 100%;
   aspect-ratio: 1 / 1;
   overflow: hidden;
+}
+
+.resonance-status-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 1600px;
+  margin: 0 auto;
+}
+.resonance-status-item {
+  padding: 2.5rem 3rem;
+}
+.resonance-status-item + .resonance-status-item {
+  border-left: 1px solid #D9D2C3;
 }
 
 .resonance-philosophy {
@@ -1324,6 +1337,17 @@ body {
   border-top: 1px solid #D9D2C3;
 }
 
+.resonance-detail-list {
+  border-top: 1px solid #D9D2C3;
+}
+.resonance-detail-item {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid #D9D2C3;
+}
+
 .resonance-principle-row {
   display: grid;
   grid-template-columns: 2.5rem 1fr;
@@ -1358,6 +1382,16 @@ body {
     gap: 3rem;
     padding: 4rem 1.5rem;
   }
+  .resonance-status-grid {
+    grid-template-columns: 1fr;
+  }
+  .resonance-status-item {
+    padding: 2rem 1.5rem;
+  }
+  .resonance-status-item + .resonance-status-item {
+    border-left: none;
+    border-top: 1px solid #D9D2C3;
+  }
   .resonance-process-diagram {
     flex-direction: column;
     align-items: flex-start;
@@ -1367,6 +1401,9 @@ body {
     grid-template-columns: 1fr;
     gap: 2.5rem;
     padding: 3.5rem 1.5rem;
+  }
+  .resonance-status-item {
+    padding: 1.75rem 1.25rem;
   }
   .resonance-footer {
     padding: 1.5rem;
