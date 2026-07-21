@@ -200,7 +200,7 @@ export default function HarvardCapstonePage() {
         <dl className={styles.heroMeta}>
           <div>
             <dt>Context</dt>
-            <dd>Physiotherapy Association of British Columbia</dd>
+            <dd>Director of Organizational Development, Physiotherapy Association of British Columbia</dd>
           </div>
           <div>
             <dt>Work</dt>
@@ -234,7 +234,7 @@ export default function HarvardCapstonePage() {
               It began with a practical question: could an AI-supported platform help rural and Indigenous communities navigate health care services while helping practitioners and communities turn local knowledge into more timely public advocacy?
             </p>
             <p>
-              The proposed platform mattered. But the further the project developed, the clearer it became that technology was only the visible layer of a much larger transformation.
+              The proposed platform was the key piece in the very beginning. But the further the project developed, the clearer it became that technology was only the visible layer of a much larger transformation.
             </p>
           </div>
         </div>
@@ -259,7 +259,7 @@ export default function HarvardCapstonePage() {
         <div className={styles.challengeLead}>
           <h2>Access and advocacy were being treated as separate problems.</h2>
           <p>
-            The project began in physiotherapy, but the pattern is much broader. Rural and Indigenous communities face overlapping barriers to health care access, continuity of care, digital participation, and influence over the policies that shape services. Practitioners may understand the local need but lack the time, evidence, or organizational support to turn that knowledge into sustained policy influence.
+            The project began in physiotherapy, but the pattern extends across and beyond all Allied Health professions. Rural and Indigenous communities face overlapping barriers to health care access, continuity of care, digital participation, and influence over the policies that shape services. Practitioners may understand the local need but lack the time, evidence, or organizational support to turn that knowledge into sustained policy influence.
           </p>
         </div>
         <blockquote>
