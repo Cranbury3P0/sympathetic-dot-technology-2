@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Archivo, DM_Serif_Text } from "next/font/google";
+import Image from "next/image";
 import { FitText, LegalBar, Nav } from "sympathetic-ds";
 import styles from "./page.module.css";
 
@@ -104,66 +105,53 @@ const METRICS = [
   ["Trust", "Partner-defined cultural safety, transparent AI use, confidence, meaningful governance, and the ability to correct or opt out."],
 ] as const;
 
-const PETALS = [
-  { label: "STRUCTURE", angle: 0, tone: "primary" },
-  { label: "PURPOSE", angle: 45, tone: "secondary" },
-  { label: "TECHNOLOGY", angle: 90, tone: "primary" },
-  { label: "PRACTICE", angle: 135, tone: "secondary" },
-  { label: "RELATIONSHIPS", angle: 180, tone: "primary" },
-  { label: "WORKFORCE", angle: 225, tone: "secondary" },
-  { label: "CULTURE", angle: 270, tone: "primary" },
-  { label: "GOVERNANCE", angle: 315, tone: "secondary" },
+const FIELD_LABELS = [
+  { label: "STRUCTURE", angle: 0 },
+  { label: "PURPOSE", angle: 45 },
+  { label: "TECHNOLOGY", angle: 90 },
+  { label: "PRACTICE", angle: 135 },
+  { label: "RELATIONSHIPS", angle: 180 },
+  { label: "WORKFORCE", angle: 225 },
+  { label: "CULTURE", angle: 270 },
+  { label: "GOVERNANCE", angle: 315 },
 ] as const;
 
 const FIELD_CENTER = 310;
-const PETAL_LENGTH = 170;
-const PETAL_WIDTH = 46;
 const LABEL_RADIUS = 222;
 
-// A flower: eight petals radiating from a center circle, each label sitting
-// right at its own petal's tip. Position alone shows which label belongs to
-// which petal, so there's nothing to draw as a separate connector line, and
-// nothing that can end up pointing at the wrong thing.
-function OrientationField() {
+function FlowerDiagram() {
   return (
-    <svg className={styles.orientationField} viewBox="0 0 620 620" aria-hidden="true">
-      <defs>
-        <radialGradient id="capstone-core" cx="45%" cy="40%" r="65%">
-          <stop offset="0%" stopColor="#f3d3d8" />
-          <stop offset="55%" stopColor="#a51c30" />
-          <stop offset="100%" stopColor="#6b0f1f" />
-        </radialGradient>
-      </defs>
+    <div className={styles.heroDiagram} aria-hidden="true">
+      <Image
+        className={styles.heroFlower}
+        src="/harvard-capstone-flower-transparent.png"
+        alt=""
+        width={1254}
+        height={1254}
+        sizes="(max-width: 760px) calc(100vw - 40px), (max-width: 1050px) 80vw, 46vw"
+        fetchPriority="high"
+      />
+      <svg className={styles.heroAnnotations} viewBox="0 0 620 620">
+        {FIELD_LABELS.map(({ label, angle }) => {
+          const rad = (angle * Math.PI) / 180;
+          const x = FIELD_CENTER + LABEL_RADIUS * Math.sin(rad);
+          const y = FIELD_CENTER - LABEL_RADIUS * Math.cos(rad);
+          const textAnchor = angle === 0 || angle === 180 ? "middle" : angle > 0 && angle < 180 ? "start" : "end";
 
-      {PETALS.map(({ label, angle, tone }) => {
-        const rad = (angle * Math.PI) / 180;
-        const lx = FIELD_CENTER + LABEL_RADIUS * Math.sin(rad);
-        const ly = FIELD_CENTER - LABEL_RADIUS * Math.cos(rad);
-        const textAnchor = angle === 0 || angle === 180 ? "middle" : angle > 0 && angle < 180 ? "start" : "end";
-        return (
-          <g key={label}>
-            <g
-              transform={`translate(${FIELD_CENTER} ${FIELD_CENTER}) rotate(${angle})`}
-              className={tone === "primary" ? styles.petalPrimary : styles.petalSecondary}
-            >
-              <path d={`M0,0 Q-${PETAL_WIDTH},-${PETAL_LENGTH * 0.55} 0,-${PETAL_LENGTH} Q${PETAL_WIDTH},-${PETAL_LENGTH * 0.55} 0,0 Z`} />
-            </g>
-            <text x={lx} y={ly} textAnchor={textAnchor} className={styles.petalLabel}>{label}</text>
-          </g>
-        );
-      })}
+          return <text key={label} x={x} y={y} textAnchor={textAnchor} className={styles.petalLabel}>{label}</text>;
+        })}
 
-      <circle className={styles.fieldCoreHalo} cx={FIELD_CENTER} cy={FIELD_CENTER} r="82" />
-      <circle className={styles.fieldCore} cx={FIELD_CENTER} cy={FIELD_CENTER} r="62" fill="url(#capstone-core)" />
-      <g className={styles.fieldCenterLabel}>
-        <text x={FIELD_CENTER} y={FIELD_CENTER - 4} textAnchor="middle">ORIENTATION</text>
-        <text x={FIELD_CENTER} y={FIELD_CENTER + 16} textAnchor="middle">BEFORE ADOPTION</text>
-      </g>
-      <g className={styles.fieldCaption}>
-        <text x="20" y="600">ORGANIZATIONAL FIELD / 01</text>
-        <text x="600" y="600" textAnchor="end">A SYSTEM, NOT A STACK</text>
-      </g>
-    </svg>
+        <circle className={styles.fieldCoreHalo} cx={FIELD_CENTER} cy={FIELD_CENTER} r="82" />
+        <circle className={styles.fieldCore} cx={FIELD_CENTER} cy={FIELD_CENTER} r="62" />
+        <g className={styles.fieldCenterLabel}>
+          <text x={FIELD_CENTER} y={FIELD_CENTER + 5} textAnchor="middle">ORIENTATION</text>
+        </g>
+        <g className={styles.fieldCaption}>
+          <text x="20" y="600">ORGANIZATIONAL FIELD / 01</text>
+          <text x="600" y="600" textAnchor="end">A SYSTEM, NOT A STACK</text>
+        </g>
+      </svg>
+    </div>
   );
 }
 
@@ -207,7 +195,7 @@ export default function HarvardCapstonePage() {
           </p>
         </div>
         <div className={styles.heroVisual}>
-          <OrientationField />
+          <FlowerDiagram />
         </div>
         <dl className={styles.heroMeta}>
           <div>

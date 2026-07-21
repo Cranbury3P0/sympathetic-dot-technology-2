@@ -106,14 +106,34 @@
   padding: 70px 4vw 150px 0;
 }
 
-.orientationField { width: min(100%, 640px); height: auto; overflow: visible; filter: drop-shadow(0 24px 55px rgba(0,0,0,0.18)); }
-.petalPrimary path { fill: rgba(165,28,48,0.55); stroke: rgba(243,211,216,0.7); stroke-width: 1.5; }
-.petalSecondary path { fill: rgba(186,197,198,0.28); stroke: rgba(255,255,255,0.45); stroke-width: 1.5; }
+.heroDiagram {
+  position: relative;
+  width: min(100%, 640px);
+  aspect-ratio: 1;
+  filter: drop-shadow(0 24px 55px rgba(0,0,0,0.18));
+}
+
+.heroFlower {
+  position: absolute;
+  top: 14%;
+  left: 11%;
+  width: 78%;
+  height: 78%;
+  object-fit: contain;
+  filter: saturate(1.55) brightness(1.18) contrast(1.04);
+}
+
+.heroAnnotations {
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
 .petalLabel { fill: rgba(255,255,255,0.82); font-family: var(--sans); font-size: 13px; font-weight: 600; letter-spacing: 0.1em; }
-.fieldCoreHalo { fill: rgba(165,28,48,0.12); stroke: rgba(216,164,172,0.55); stroke-width: 1; }
-.fieldCore { stroke: #f5e7e9; stroke-width: 2; }
-.fieldCenterLabel { fill: #fff; font-family: var(--sans); font-size: 13px; font-weight: 700; letter-spacing: 0.1em; }
-.fieldCenterLabel text:last-child { fill: #f1ced3; font-size: 9px; letter-spacing: 0.08em; }
+.fieldCoreHalo { fill: rgba(211,177,84,0.14); stroke: rgba(232,208,139,0.5); stroke-width: 1; }
+.fieldCore { fill: #d7b75d; stroke: #ead99f; stroke-width: 2; }
+.fieldCenterLabel { fill: var(--teal); font-family: var(--sans); font-size: 13px; font-weight: 600; letter-spacing: 0.1em; }
 .fieldCaption { fill: rgba(255,255,255,0.42); font-family: var(--sans); font-size: 10px; font-weight: 600; letter-spacing: 0.13em; }
 
 .heroMeta {
