@@ -263,15 +263,13 @@ export default function FieldNotesPage() {
       <section className={styles.interlude}>
         <span>Our editorial position</span>
         <blockquote>
-          Looking sideways.
-          <br />
-          Asking who benefits.
-          <br />
-          Refusing the inevitable.
+          Treating tech as a practical reality to be critiqued and repurposed
+          for everyday use by everyday people.
         </blockquote>
         <p>
-          Field Notes treats technology as culture: something made by people,
-          governed by institutions, and open to critique.
+          Field Notes is a series of short essays on issues related to
+          technology and culture that is resistant to tech essentialism and any
+          form of lock-in.
         </p>
       </section>
 

@@ -353,9 +353,9 @@
 .interlude blockquote {
   margin: 0;
   font-family: var(--font-field-serif), Georgia, serif;
-  font-size: clamp(4.2rem, 7.5vw, 8rem);
-  line-height: 0.92;
-  letter-spacing: -0.05em;
+  font-size: clamp(2.8rem, 4.4vw, 5rem);
+  line-height: 0.98;
+  letter-spacing: -0.04em;
 }
 
 .interlude > p {
@@ -719,7 +719,7 @@
 
   .interlude blockquote {
     margin-top: 110px;
-    font-size: clamp(4rem, 18vw, 6rem);
+    font-size: clamp(2.7rem, 12vw, 4.3rem);
   }
 
   .interlude > p {
