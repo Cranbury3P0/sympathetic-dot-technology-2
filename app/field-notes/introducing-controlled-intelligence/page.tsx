@@ -1,9 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { AccessGate } from "@/components/AccessGate";
-import type { AccessType } from "@/lib/access";
 import { Nav, Breadcrumb, PrevNext } from "sympathetic-ds";
+import { EditorialArticle } from "../_components/editorial-article";
 
 /* ── TYPES ── */
 
@@ -35,10 +34,6 @@ type ArticleData = {
   relatedObservations?: RelatedObservation[];
   previousObservation?: { title: string; href: string };
   nextObservation?: { title: string; href: string };
-  access?: AccessType;
-  allowPreviewParagraphs?: number;
-  stripeProductId?: string;
-  stripePriceId?: string;
 };
 
 /* ── ARTICLE DATA ── */
@@ -95,7 +90,6 @@ const article: ArticleData = {
     { id: "039", title: "Time for Vancouver to Come Clean About AI", href: "/field-notes/time-for-vancouver-to-come-clean-about-ai" },
   ],
   previousObservation: { title: "Time for Vancouver to Come Clean About AI", href: "/field-notes/time-for-vancouver-to-come-clean-about-ai" },
-  access: "public",
 };
 
 /* ── TOKENS ── */
@@ -411,9 +405,6 @@ function FieldNoteArticleTemplate({ article }: { article: ArticleData }) {
 
           {/* ── BODY + RIGHT IMAGE COLUMN ── */}
           {(() => {
-            const accessType = article.access ?? "public";
-            const hasAccess = accessType === "public" ? true : false;
-
             function BodyParas({ paras }: { paras: string[] }) {
               return (
                 <>
@@ -436,18 +427,11 @@ function FieldNoteArticleTemplate({ article }: { article: ArticleData }) {
             return (
               <div className="fn-article-body">
                 <div className="fn-article-body-text">
-                  <AccessGate
-                    postSlug="introducing-controlled-intelligence"
-                    postTitle={article.title}
-                    accessType={accessType}
-                    hasAccess={hasAccess}
-                  >
-                    <BodyParas paras={article.body} />
-                  </AccessGate>
+                  <BodyParas paras={article.body} />
                 </div>
 
                 {/* Right column — infographic images with lightbox */}
-                {(accessType === "public" || hasAccess) && article.supportingImages && (
+                {article.supportingImages && (
                   <div className="fn-article-body-images">
                     {article.supportingImages.map((img, i) => (
                       <LightboxImage key={i} img={img} />
@@ -469,5 +453,5 @@ function FieldNoteArticleTemplate({ article }: { article: ArticleData }) {
 
 /* ── PAGE ── */
 export default function ControlledIntelligencePage() {
-  return <FieldNoteArticleTemplate article={article} />;
+  return <EditorialArticle article={article} accent="basil" />;
 }

@@ -1,9 +1,8 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { AccessGate } from "@/components/AccessGate";
-import type { AccessType } from "@/lib/access";
 import { Nav, Breadcrumb, PrevNext } from "sympathetic-ds";
+import { EditorialArticle } from "../_components/editorial-article";
 
 /* ── TYPES ── */
 
@@ -29,7 +28,6 @@ type ArticleData = {
   relatedObservations?: RelatedObservation[];
   previousObservation?: { title: string; href: string };
   nextObservation?: { title: string; href: string };
-  access?: AccessType;
 };
 
 /* ── ARTICLE DATA ── */
@@ -122,8 +120,7 @@ const article: ArticleData = {
     { id: "038", title: "Introducing Controlled Intelligence", href: "/field-notes/introducing-controlled-intelligence" },
   ],
   previousObservation: { title: "The Pope Has Entered the Chat", href: "/field-notes/the-pope-has-entered-the-chat" },
-  nextObservation: { title: "The Master's Tools Will Never Destroy the Master's Datacenter", href: "/field-notes/the-masters-tools-will-never-destroy-the-masters-datacenter" },
-  access: "public",
+  nextObservation: { title: "The Master's Tools Will Never Dismantle the Master's Datacenter", href: "/field-notes/the-masters-tools-will-never-destroy-the-masters-datacenter" },
 };
 
 /* ── TOKENS ── */
@@ -287,9 +284,6 @@ function FieldNoteArticleTemplate({ article }: { article: ArticleData }) {
           </div>
 
           {(() => {
-            const accessType = article.access ?? "public";
-            const hasAccess = accessType === "public" ? true : false;
-
             function BodyParas({ paras }: { paras: ReactNode[] }) {
               return (
                 <>
@@ -316,18 +310,11 @@ function FieldNoteArticleTemplate({ article }: { article: ArticleData }) {
             return (
               <div className="fn-article-body">
                 <div className="fn-article-body-text">
-                  <AccessGate
-                    postSlug="frame-within-a-frame"
-                    postTitle={article.title}
-                    accessType={accessType}
-                    hasAccess={hasAccess}
-                  >
-                    <BodyParas paras={article.body} />
-                    <PullQuote />
-                  </AccessGate>
+                  <BodyParas paras={article.body} />
+                  <PullQuote />
                 </div>
 
-                {(accessType === "public" || hasAccess) && article.supportingImages && (
+                {article.supportingImages && (
                   <div className="fn-article-body-images">
                     {article.supportingImages.map((img, i) => (
                       <ImgOrPlaceholder
@@ -353,5 +340,5 @@ function FieldNoteArticleTemplate({ article }: { article: ArticleData }) {
 }
 
 export default function FrameWithinAFramePage() {
-  return <FieldNoteArticleTemplate article={article} />;
+  return <EditorialArticle article={article} accent="basil" />;
 }

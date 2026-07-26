@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-const title = "The Master's Tools Will Never Destroy the Master's Datacenter";
+const title = "The Master's Tools Will Never Dismantle the Master's Datacenter";
 const description =
   "Increasingly I feel like we're trapped inside a communications environment that has become incapable of producing anything except more of itself.";
 

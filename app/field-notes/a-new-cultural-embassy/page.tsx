@@ -1,8 +1,7 @@
 "use client";
 
-import { AccessGate } from "@/components/AccessGate";
-import type { AccessType } from "@/lib/access";
 import { Nav, Breadcrumb, PrevNext } from "sympathetic-ds";
+import { EditorialArticle } from "../_components/editorial-article";
 
 /* ── TYPES ── */
 
@@ -27,10 +26,6 @@ type ArticleData = {
   relatedObservations?: RelatedObservation[];
   previousObservation?: { title: string; href: string };
   nextObservation?: { title: string; href: string };
-  access?: AccessType;
-  allowPreviewParagraphs?: number;
-  stripeProductId?: string;
-  stripePriceId?: string;
 };
 
 /* ── ARTICLE DATA ── */
@@ -86,7 +81,6 @@ const article: ArticleData = {
   ],
   previousObservation: { title: "The Pope Has Entered the Chat", href: "/field-notes/the-pope-has-entered-the-chat" },
   nextObservation: { title: "Time for Vancouver to Come Clean About AI", href: "/field-notes/time-for-vancouver-to-come-clean-about-ai" },
-  access: "public",
 };
 
 /* ── TOKENS ── */
@@ -297,9 +291,6 @@ function FieldNoteArticleTemplate({ article }: { article: ArticleData }) {
 
           {/* ── BODY + IMAGES ── */}
           {(() => {
-            const accessType = article.access ?? "public";
-            const hasAccess = accessType === "public" ? true : false;
-
             function BodyParas({ paras }: { paras: string[] }) {
               return (
                 <>
@@ -342,19 +333,11 @@ function FieldNoteArticleTemplate({ article }: { article: ArticleData }) {
             return (
               <div className="fn-article-body">
                 <div className="fn-article-body-text">
-                  <AccessGate
-                    postSlug="a-new-cultural-embassy"
-                    postTitle={article.title}
-                    accessType={accessType}
-                    hasAccess={hasAccess}
-                  >
-                    <BodyParas paras={article.body} />
-                    <PullQuote />
-                  </AccessGate>
+                  <BodyParas paras={article.body} />
+                  <PullQuote />
                 </div>
 
-                {/* Right image column — shown for public posts */}
-                {(accessType === "public" || hasAccess) && (
+                {article.supportingImages && (
                   <div className="fn-article-body-images">
                     {article.supportingImages?.map((img, i) => (
                       <ImgOrPlaceholder
@@ -382,5 +365,5 @@ function FieldNoteArticleTemplate({ article }: { article: ArticleData }) {
 
 /* ── PAGE ── */
 export default function CulturalEmbassyPage() {
-  return <FieldNoteArticleTemplate article={article} />;
+  return <EditorialArticle article={article} accent="klein" />;
 }

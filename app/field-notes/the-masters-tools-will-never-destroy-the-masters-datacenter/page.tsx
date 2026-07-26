@@ -1,12 +1,20 @@
-"use client";
-
 /* ─────────────────────────────────────────────────────────────
-   FIELD NOTE ARTICLE — THE MASTER'S TOOLS WILL NEVER DESTROY
+   FIELD NOTE ARTICLE — THE MASTER'S TOOLS WILL NEVER DISMANTLE
    THE MASTER'S DATACENTER
    Based on the shared Field Note article template.
 ───────────────────────────────────────────────────────────── */
 
-import { Nav, Breadcrumb, PrevNext } from "sympathetic-ds";
+import Image from "next/image";
+import Link from "next/link";
+import { Prata } from "next/font/google";
+import { Nav, PrevNext } from "sympathetic-ds";
+import styles from "./page.module.css";
+
+const prata = Prata({
+  variable: "--font-field-serif",
+  subsets: ["latin"],
+  weight: "400",
+});
 
 /* ── TYPES ── */
 
@@ -45,8 +53,8 @@ type ArticleData = {
 /* ── ARTICLE DATA ── */
 
 const article: ArticleData = {
-  title: "The Master's Tools Will Never Destroy the Master's Datacenter",
-  titleLines: ["THE MASTER'S TOOLS", "WILL NEVER DESTROY", "THE MASTER'S DATACENTER"],
+  title: "The Master's Tools Will Never Dismantle the Master's Datacenter",
+  titleLines: ["THE MASTER’S", "TOOLS WILL NEVER", "DISMANTLE THE MASTER’S", "DATACENTER"],
   observationNumber: "044",
   date: "July 13, 2026",
   category: "Masters Tools",
@@ -133,324 +141,199 @@ const article: ArticleData = {
   previousObservation: { title: "Canada's AI Strategy 01 Frame after Frame", href: "/field-notes/frame-within-a-frame" },
 };
 
-/* ── TOKENS ── */
+/* ── ARTICLE RENDERING ── */
 
-const RULE = "1px solid #0A0A0A";
-const BARLOW = "var(--font-barlow), sans-serif";
-const CONDENSED = "var(--font-barlow-condensed), sans-serif";
-const SERIF = "Georgia, 'Times New Roman', serif";
-const PAPER = "#F0EDE6";
-const INK = "#0A0A0A";
+function Paragraphs({ items }: { items: BodyPara[] }) {
+  return items.map((para, i) => {
+    if (isQuoteBlock(para)) {
+      return (
+        <blockquote className={styles.reportQuote} key={i}>
+          {para.quote.map((line, j) => <p key={j}>{line}</p>)}
+          {para.source && <footer>{para.source}</footer>}
+        </blockquote>
+      );
+    }
+    return <p key={i}>{para}</p>;
+  });
+}
 
-const LABEL: React.CSSProperties = {
-  fontFamily: BARLOW, fontWeight: 600, fontSize: "10px",
-  letterSpacing: "0.14em", textTransform: "uppercase", color: INK,
-};
-
-const META_VAL: React.CSSProperties = {
-  fontFamily: BARLOW, fontWeight: 400, fontSize: "13px",
-  lineHeight: 1.4, color: INK,
-};
-
-/* ── IMAGE PLACEHOLDER ── */
-
-function ImgOrPlaceholder({
-  src, alt = "", style, caption,
+function Figure({
+  image,
+  className = "",
 }: {
-  src: string; alt?: string; style?: React.CSSProperties; caption?: string;
+  image: SupportingImage;
+  className?: string;
 }) {
   return (
-    <figure style={{ margin: 0 }}>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={src}
-        alt={alt}
-        style={{
-          width: "100%",
-          height: "auto",
-          display: "block",
-          objectFit: "cover",
-          ...style,
-        }}
-        onError={(e) => {
-          const el = e.currentTarget;
-          el.style.display = "none";
-          const placeholder = el.nextElementSibling as HTMLElement | null;
-          if (placeholder) placeholder.style.display = "flex";
-        }}
-      />
-      <div style={{
-        display: "none",
-        width: "100%",
-        aspectRatio: "16/9",
-        border: RULE,
-        alignItems: "center",
-        justifyContent: "center",
-        background: "#E8E4DC",
-        ...style,
-      }}>
-        <span style={{ ...LABEL, fontSize: "9px", opacity: 0.5 }}>{src}</span>
+    <figure className={`${styles.figure} ${className}`}>
+      <div className={styles.figureImage}>
+        <Image
+          src={image.src}
+          alt={image.alt ?? ""}
+          fill
+          sizes="(max-width: 720px) 88vw, 46vw"
+          style={{ objectFit: "contain" }}
+        />
       </div>
-      {caption && (
-        <figcaption style={{
-          fontFamily: BARLOW, fontWeight: 300, fontSize: "11px",
-          letterSpacing: "0.04em", color: INK, opacity: 0.6,
-          marginTop: "0.5rem", lineHeight: 1.4,
-        }}>
-          {caption}
-        </figcaption>
-      )}
+      {image.caption && <figcaption>{image.caption}</figcaption>}
     </figure>
   );
 }
 
-/* ── ARTICLE TEMPLATE ── */
-
 function FieldNoteArticleTemplate({ article }: { article: ArticleData }) {
-  return (
-    <main style={{ backgroundColor: PAPER, color: INK, margin: 0, minHeight: "100vh" }}>
+  const supporting = article.supportingImages ?? [];
 
+  return (
+    <main className={`${styles.page} ${prata.variable}`}>
       <Nav activeItem="FIELD NOTES" logoHref="/" />
 
-      <div className="fn-article-outer">
-
-        {/* ── LEFT RAIL ── */}
-        <aside className="fn-article-rail">
-
-          <div style={{ marginBottom: "1.5rem" }}>
-            <div style={{ ...LABEL, marginBottom: "0.3rem" }}>OBSERVATION</div>
-            <div style={{ fontFamily: CONDENSED, fontWeight: 900, fontSize: "2rem", letterSpacing: "-0.02em", lineHeight: 0.9 }}>
-              {article.observationNumber}
-            </div>
-          </div>
-
-          <div style={{ borderTop: RULE, paddingTop: "1rem", marginBottom: "1rem" }}>
-            <div style={{ ...LABEL, marginBottom: "0.25rem" }}>DATE</div>
-            <div style={META_VAL}>{article.date}</div>
-          </div>
-
-          <div style={{ borderTop: RULE, paddingTop: "1rem", marginBottom: "1rem" }}>
-            <div style={{ ...LABEL, marginBottom: "0.25rem" }}>CATEGORY</div>
-            <div style={META_VAL}>{article.category}</div>
-          </div>
-
-          <div style={{ borderTop: RULE, paddingTop: "1rem", marginBottom: "1rem" }}>
-            <div style={{ ...LABEL, marginBottom: "0.35rem" }}>TAGS</div>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "0.25rem" }}>
-              {article.tags.map((tag) => (
-                <span key={tag} style={{ ...META_VAL, fontSize: "11px" }}>{tag}</span>
-              ))}
-            </div>
-          </div>
-
-          <div style={{ borderTop: RULE, paddingTop: "1rem", marginBottom: "1rem" }}>
-            <div style={{ ...LABEL, marginBottom: "0.25rem" }}>AUTHOR</div>
-            <div style={META_VAL}>{article.author}</div>
-          </div>
-
-          <div style={{ borderTop: RULE, paddingTop: "1rem", marginBottom: "1.5rem" }}>
-            <div style={{ ...LABEL, marginBottom: "0.25rem" }}>READING TIME</div>
-            <div style={META_VAL}>{article.readingTime}</div>
-          </div>
-
-          {article.relatedObservations && (
-            <div className="fn-article-rail-related" style={{ borderTop: RULE, paddingTop: "1rem" }}>
-              <div style={{ ...LABEL, marginBottom: "1rem" }}>RELATED OBSERVATIONS</div>
-              {article.relatedObservations.map((obs) => (
-                <a key={obs.id} href={obs.href} style={{ display: "block", textDecoration: "none", marginBottom: "1rem" }}>
-                  <div style={{ fontFamily: CONDENSED, fontWeight: 900, fontSize: "1.1rem", letterSpacing: "-0.01em", lineHeight: 0.9, color: INK }}>
-                    {obs.id}
-                  </div>
-                  <div style={{ fontFamily: BARLOW, fontWeight: 300, fontSize: "12px", lineHeight: 1.4, color: INK, marginTop: "0.2rem" }}>
-                    {obs.title}
-                  </div>
-                </a>
-              ))}
-            </div>
-          )}
-        </aside>
-
-        {/* ── MAIN CONTENT ── */}
-        <div className="fn-article-main">
-
-          <Breadcrumb observationNumber={article.observationNumber} />
-
-          <div className="fn-article-hero">
-            <div className="fn-article-hero-text">
-              <h1 style={{
-                fontFamily: CONDENSED,
-                fontWeight: 900,
-                fontSize: "clamp(1.75rem, 6.5vw, 7.5rem)",
-                letterSpacing: "-0.02em",
-                textTransform: "uppercase",
-                lineHeight: 0.88,
-                margin: 0,
-              }}>
-                {article.titleLines.map((line, i) => (
-                  <span key={i} style={{ display: "block", whiteSpace: "nowrap" }}>{line}</span>
-                ))}
-              </h1>
-            </div>
-
-            <div className="fn-article-hero-img">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={article.featuredImage}
-                alt={article.title}
-                style={{ objectPosition: article.featuredImagePosition ?? "center center" }}
-              />
-            </div>
-          </div>
-
-          {/* ── DECK ── */}
-          <div className="fn-article-deck">
-            <p style={{
-              fontFamily: SERIF,
-              fontWeight: 400,
-              fontSize: "clamp(1.4rem, 2.2vw, 2.2rem)",
-              lineHeight: 1.45,
-              margin: 0,
-              maxWidth: "52ch",
-            }}>
-              {article.deck}
-            </p>
-          </div>
-
-          {/* ── BODY + RIGHT IMAGES ── */}
-          <div className="fn-article-body">
-            <div className="fn-article-body-text">
-
-              {/* Epigraph */}
-              {article.epigraph && (
-                <blockquote style={{
-                  fontFamily: SERIF,
-                  fontStyle: "italic",
-                  fontSize: "20px",
-                  lineHeight: 1.6,
-                  margin: "0 0 2rem",
-                  paddingLeft: "1.25rem",
-                  borderLeft: `3px solid ${INK}`,
-                  color: INK,
-                }}>
-                  &ldquo;{article.epigraph.text}&rdquo;
-                  <footer style={{
-                    fontFamily: BARLOW, fontStyle: "normal", fontWeight: 500,
-                    fontSize: "12px", letterSpacing: "0.06em", textTransform: "uppercase",
-                    marginTop: "0.75rem", opacity: 0.7,
-                  }}>
-                    — {article.epigraph.source}
-                  </footer>
-                </blockquote>
-              )}
-
-              {/* Body paragraphs (plain text, JSX, or quote blocks) */}
-              {article.body.map((para, i) => {
-                if (isQuoteBlock(para)) {
-                  return (
-                    <blockquote key={i} style={{
-                      fontFamily: SERIF,
-                      fontStyle: "italic",
-                      fontSize: "17px",
-                      lineHeight: 1.75,
-                      margin: "0 0 1.5rem",
-                      padding: "1rem 1.5rem",
-                      borderLeft: `3px solid ${INK}`,
-                      background: "#E8E4DC",
-                      color: INK,
-                    }}>
-                      {para.quote.map((line, j) => (
-                        <p key={j} style={{ margin: j < para.quote.length - 1 ? "0 0 1rem" : 0 }}>
-                          {line}
-                        </p>
-                      ))}
-                      {para.source && (
-                        <footer style={{
-                          fontFamily: BARLOW, fontStyle: "normal", fontWeight: 500,
-                          fontSize: "12px", letterSpacing: "0.06em", textTransform: "uppercase",
-                          marginTop: "0.75rem", opacity: 0.7,
-                        }}>
-                          {para.source}
-                        </footer>
-                      )}
-                    </blockquote>
-                  );
-                }
-                return (
-                  <p key={i} style={{
-                    fontFamily: SERIF,
-                    fontWeight: 400,
-                    fontSize: "18px",
-                    lineHeight: 1.8,
-                    margin: "0 0 1.5rem",
-                    color: INK,
-                  }}>
-                    {para}
-                  </p>
-                );
-              })}
-
-              {/* Pull quote */}
-              {article.pullQuote && (
-                <div className="fn-article-pull-quote">
-                  <blockquote style={{
-                    fontFamily: CONDENSED,
-                    fontWeight: 700,
-                    fontSize: "clamp(1.75rem, 3.5vw, 4rem)",
-                    letterSpacing: "-0.02em",
-                    lineHeight: 1.05,
-                    margin: 0,
-                    fontStyle: "normal",
-                    color: INK,
-                  }}>
-                    &ldquo;{article.pullQuote}&rdquo;
-                  </blockquote>
-                  {article.pullQuoteSource && (
-                    <footer style={{
-                      fontFamily: BARLOW, fontWeight: 500,
-                      fontSize: "13px", letterSpacing: "0.06em", textTransform: "uppercase",
-                      marginTop: "1rem", opacity: 0.7,
-                    }}>
-                      — {article.pullQuoteSource}
-                    </footer>
-                  )}
-                </div>
-              )}
-
-              {/* Source link */}
-              {article.sourceLink && (
-                <div style={{ borderTop: RULE, marginTop: "1rem", paddingTop: "1rem" }}>
-                  <div style={{ ...LABEL, marginBottom: "0.4rem" }}>SOURCE</div>
-                  <a
-                    href={article.sourceLink.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{ fontFamily: BARLOW, fontWeight: 400, fontSize: "13px", color: INK }}
-                  >
-                    {article.sourceLink.label}
-                  </a>
-                </div>
-              )}
-            </div>
-
-            {/* Right image column */}
-            <div className="fn-article-body-images">
-              {article.supportingImages?.map((img, i) => (
-                <ImgOrPlaceholder
-                  key={i}
-                  src={img.src}
-                  alt={img.alt}
-                  caption={img.caption}
-                  style={{ aspectRatio: img.wide ? "16/9" : "3/4", objectFit: "cover" }}
-                />
-              ))}
-            </div>
-          </div>
-
-          {/* ── PREVIOUS / NEXT ── */}
-          <PrevNext previous={article.previousObservation} next={article.nextObservation} />
-
-        </div>
+      <div className={styles.breadcrumb}>
+        <Link href="/field-notes">← Field Notes</Link>
+        <span>Observation {article.observationNumber}</span>
       </div>
+
+      <header className={styles.hero}>
+        <div className={styles.heroCopy}>
+          <div className={styles.heroKicker}>
+            <span>{article.category}</span>
+            <span>{article.date}</span>
+          </div>
+          <h1>
+            <span>The Master’s</span>
+            <span>Tools Will Never</span>
+            <span>Dismantle the Master’s</span>
+            <span>Datacenter</span>
+          </h1>
+          <div className={styles.heroMeta}>
+            <span>By {article.author}</span>
+            <span>{article.readingTime} read</span>
+          </div>
+        </div>
+
+        <div className={styles.heroImage}>
+          <Image
+            src={article.featuredImage}
+            alt={article.title}
+            fill
+            priority
+            sizes="(max-width: 720px) 100vw, 52vw"
+            style={{
+              objectFit: "cover",
+              objectPosition: article.featuredImagePosition ?? "center",
+            }}
+          />
+          <span>Central Alberta / Proposed Meta datacentre</span>
+        </div>
+      </header>
+
+      <section className={styles.thesis}>
+        <span>Field note {article.observationNumber} / Thesis</span>
+        <p>{article.deck}</p>
+      </section>
+
+      <section className={styles.reading}>
+        <aside className={styles.readingRail}>
+          <span>01</span>
+          <p>
+            Audre Lorde
+            <br />
+            tools
+            <br />
+            and structures
+          </p>
+        </aside>
+        <article className={styles.copy}>
+          {article.epigraph && (
+            <blockquote className={styles.epigraph}>
+              “{article.epigraph.text}”
+              <footer>— {article.epigraph.source}</footer>
+            </blockquote>
+          )}
+          <Paragraphs items={article.body.slice(0, 9)} />
+        </article>
+      </section>
+
+      <section className={styles.dataPlate}>
+        <div className={styles.dataPlateImage}>
+          <Image
+            src={article.featuredImage}
+            alt=""
+            fill
+            sizes="100vw"
+            style={{ objectFit: "cover" }}
+          />
+        </div>
+        <div className={styles.dataPlateCopy}>
+          <span>Infrastructure / 2026</span>
+          <p>
+            $13 billion
+            <br />
+            1 gigawatt
+            <br />
+            central Alberta
+          </p>
+        </div>
+      </section>
+
+      <section className={styles.reading}>
+        <aside className={styles.readingRail}>
+          <span>02</span>
+          <p>
+            Platforms
+            <br />
+            repetition
+            <br />
+            and poison
+          </p>
+        </aside>
+        <article className={styles.copy}>
+          <Paragraphs items={article.body.slice(9, 18)} />
+        </article>
+      </section>
+
+      <section className={styles.gallery} id="material-references">
+        <div className={styles.galleryHeading}>
+          <span>Material references</span>
+          <h2>Tools, hosts, transformations</h2>
+        </div>
+        {supporting[0] && <Figure image={supporting[0]} className={styles.bookFigure} />}
+        {supporting[1] && <Figure image={supporting[1]} className={styles.venomFigure} />}
+      </section>
+
+      <section className={styles.reading}>
+        <aside className={styles.readingRail}>
+          <span>03</span>
+          <p>
+            The only
+            <br />
+            way out
+            <br />
+            is through
+          </p>
+        </aside>
+        <article className={styles.copy}>
+          <Paragraphs items={article.body.slice(18)} />
+        </article>
+      </section>
+
+      {article.pullQuote && (
+        <section className={styles.closingQuote}>
+          <span>On resistance</span>
+          <blockquote>“{article.pullQuote}”</blockquote>
+          <footer>— {article.pullQuoteSource}</footer>
+        </section>
+      )}
+
+      {article.sourceLink && (
+        <div className={styles.source}>
+          <span>Primary source</span>
+          <a href={article.sourceLink.href} target="_blank" rel="noopener noreferrer">
+            {article.sourceLink.label} ↗
+          </a>
+        </div>
+      )}
+
+      <PrevNext previous={article.previousObservation} next={article.nextObservation} />
     </main>
   );
 }

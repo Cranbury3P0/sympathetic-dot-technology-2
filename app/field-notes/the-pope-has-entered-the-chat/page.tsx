@@ -4,26 +4,10 @@
    FIELD NOTE ARTICLE TEMPLATE
    Reusable template for all Field Notes entries.
    Pass an ArticleData object to render the full editorial layout.
-
-   ACCESS CONTROL
-   ──────────────
-   Articles with access: "paid" show only the deck and
-   allowPreviewParagraphs body paragraphs to visitors without
-   access. The rest is replaced by an AccessGate / AccessCard.
-
-   NOTE ON CONTENT PROTECTION
-   ──────────────────────────
-   This file is "use client" — the full body array is currently
-   in the client bundle. To prevent this, migrate this page to a
-   Server Component and call checkAccess() server-side, passing
-   only the preview slice of body[] to the template when access
-   is denied. See components/AccessGate.tsx for the full
-   migration path.
 ───────────────────────────────────────────────────────────── */
 
-import { AccessGate } from "@/components/AccessGate";
-import type { AccessType } from "@/lib/access";
 import { Nav, Breadcrumb, PrevNext } from "sympathetic-ds";
+import { EditorialArticle } from "../_components/editorial-article";
 
 /* ── TYPES ── */
 
@@ -48,11 +32,6 @@ type ArticleData = {
   relatedObservations?: RelatedObservation[];
   previousObservation?: { title: string; href: string };
   nextObservation?: { title: string; href: string };
-  /* ── access control ── */
-  access?: AccessType;            // default: "public"
-  allowPreviewParagraphs?: number; // how many body paras to show before gate
-  stripeProductId?: string;       // TODO: Stripe product ID
-  stripePriceId?: string;         // TODO: Stripe price ID (single-post)
 };
 
 /* ── ARTICLE DATA — THE POPE HAS ENTERED THE CHAT ── */
@@ -119,11 +98,6 @@ const article: ArticleData = {
   ],
   previousObservation: { title: "A New Cultural Embassy", href: "/field-notes/a-new-cultural-embassy" },
   nextObservation: { title: "Canada's AI Strategy 01 Frame after Frame", href: "/field-notes/frame-within-a-frame" },
-  /* ── access ── */
-  access: "paid",
-  allowPreviewParagraphs: 1,
-  stripeProductId: "prod_STUB_pope_article", // TODO: real Stripe product ID
-  stripePriceId: "price_STUB_pope_single",   // TODO: real Stripe price ID
 };
 
 /* ── TOKENS ── */
@@ -331,13 +305,6 @@ function FieldNoteArticleTemplate({ article }: { article: ArticleData }) {
 
           {/* ── BODY + RIGHT IMAGES ── */}
           {(() => {
-            const accessType = article.access ?? "public";
-            // TODO: pass real hasAccess from server-side checkAccess() once auth is wired
-            const hasAccess = false;
-            const previewCount = article.allowPreviewParagraphs ?? 0;
-            const previewParas = article.body.slice(0, previewCount);
-            const protectedParas = article.body.slice(previewCount);
-
             /* Full body paragraphs renderer */
             function BodyParas({ paras }: { paras: string[] }) {
               return (
@@ -396,41 +363,13 @@ function FieldNoteArticleTemplate({ article }: { article: ArticleData }) {
               );
             }
 
-            if (accessType === "public" || hasAccess) {
-              /* ── FULL ACCESS ── */
-              return (
-                <div className="fn-article-body">
-                  <div className="fn-article-body-text">
-                    <BodyParas paras={article.body} />
-                    <PullQuote />
-                  </div>
-                  <SupportingImages />
-                </div>
-              );
-            }
-
-            /* ── PAID + NO ACCESS ── */
-            const previewNode = previewParas.length > 0
-              ? <BodyParas paras={previewParas} />
-              : undefined;
-
             return (
               <div className="fn-article-body">
                 <div className="fn-article-body-text">
-                  <AccessGate
-                    postSlug="the-pope-has-entered-the-chat"
-                    postTitle={article.title}
-                    accessType={accessType}
-                    hasAccess={hasAccess}
-                    previewContent={previewNode}
-                  >
-                    {/* Protected content — not rendered unless hasAccess is true */}
-                    {/* TODO: in RSC migration, this node won't be in the bundle */}
-                    <BodyParas paras={protectedParas} />
-                    <PullQuote />
-                  </AccessGate>
+                  <BodyParas paras={article.body} />
+                  <PullQuote />
                 </div>
-                {/* Supporting images hidden behind gate */}
+                <SupportingImages />
               </div>
             );
           })()}
@@ -446,5 +385,5 @@ function FieldNoteArticleTemplate({ article }: { article: ArticleData }) {
 
 /* ── PAGE ── */
 export default function PapalArticlePage() {
-  return <FieldNoteArticleTemplate article={article} />;
+  return <EditorialArticle article={article} accent="haida" />;
 }

@@ -1,9 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { AccessGate } from "@/components/AccessGate";
-import type { AccessType } from "@/lib/access";
 import { Nav, Breadcrumb, PrevNext } from "sympathetic-ds";
+import { EditorialArticle } from "../_components/editorial-article";
 
 /* ── TYPES ── */
 
@@ -29,8 +28,6 @@ type ArticleData = {
   previousObservation?: { title: string; href: string };
   nextObservation?: { title: string; href: string };
   sources?: { label: string; detail: string }[];
-  access?: AccessType;
-  allowPreviewParagraphs?: number;
 };
 
 /* ── ARTICLE DATA ── */
@@ -97,7 +94,6 @@ const article: ArticleData = {
     { id: "040", title: "A New Cultural Embassy", href: "/field-notes/a-new-cultural-embassy" },
   ],
   nextObservation: { title: "Introducing Controlled Intelligence", href: "/field-notes/introducing-controlled-intelligence" },
-  access: "public",
 };
 
 /* ── TOKENS ── */
@@ -317,9 +313,6 @@ function FieldNoteArticleTemplate({ article }: { article: ArticleData }) {
 
           {/* ── BODY + RIGHT IMAGE COLUMN ── */}
           {(() => {
-            const accessType = article.access ?? "public";
-            const hasAccess = accessType === "public" ? true : false;
-
             function BodyParas({ paras }: { paras: string[] }) {
               return (
                 <>
@@ -346,18 +339,11 @@ function FieldNoteArticleTemplate({ article }: { article: ArticleData }) {
             return (
               <div className="fn-article-body">
                 <div className="fn-article-body-text">
-                  <AccessGate
-                    postSlug="the-ai-frontier-is-inside-your-office"
-                    postTitle={article.title}
-                    accessType={accessType}
-                    hasAccess={hasAccess}
-                  >
-                    <BodyParas paras={article.body} />
-                    <PullQuote />
-                  </AccessGate>
+                  <BodyParas paras={article.body} />
+                  <PullQuote />
                 </div>
 
-                {(accessType === "public" || hasAccess) && article.supportingImages && (
+                {article.supportingImages && (
                   <div className="fn-article-body-images">
                     {article.supportingImages.map((img, i) => (
                       <LightboxImage key={i} img={img} />
@@ -379,5 +365,5 @@ function FieldNoteArticleTemplate({ article }: { article: ArticleData }) {
 
 /* ── PAGE ── */
 export default function AIFrontierPage() {
-  return <FieldNoteArticleTemplate article={article} />;
+  return <EditorialArticle article={article} accent="haida" />;
 }
