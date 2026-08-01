@@ -1225,6 +1225,228 @@ body {
   }
 }
 
+/* ── CONTROLLED INTELLIGENCE PAGE ── */
+/* Meridian's editorial register, with a cooler governance-blue accent.
+   The open hero column is reserved for forthcoming artwork. */
+
+.ci-hero {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  min-height: min(820px, calc(100vh - 70px));
+}
+.ci-hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 4.5rem 3rem 4.5rem 1.5rem;
+}
+.ci-hero-intro {
+  max-width: 34rem;
+}
+.ci-hero-open {
+  min-height: 44rem;
+}
+.ci-statement {
+  padding: 5.5rem 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+.ci-split {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 4.5rem;
+  align-items: start;
+  padding: 5rem 1.5rem;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+.ci-wide-head,
+.ci-architecture,
+.ci-comparison,
+.ci-principles {
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.ci-wide-head {
+  margin-bottom: 3rem;
+}
+.ci-architecture {
+  border-bottom: 1px solid #d8d2c6;
+}
+.ci-architecture-row {
+  display: grid;
+  grid-template-columns: 4rem minmax(12rem, 0.7fr) 1.3fr;
+  gap: 2rem;
+  align-items: start;
+  padding: 1.75rem 0;
+  border-top: 1px solid #d8d2c6;
+}
+.ci-comparison {
+  border-bottom: 1px solid #d8d2c6;
+}
+.ci-comparison-head,
+.ci-comparison-row {
+  display: grid;
+  grid-template-columns: 0.7fr 0.9fr 1fr;
+  gap: 2rem;
+}
+.ci-comparison-head {
+  padding: 0 0 1rem;
+  font-family: var(--font-plex-mono), monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #8a8578;
+}
+.ci-comparison-row {
+  align-items: start;
+  padding: 1.4rem 0;
+  border-top: 1px solid #d8d2c6;
+}
+.ci-comparison-row h3 {
+  font-family: var(--font-manrope), sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: 600;
+  margin: 0;
+}
+.ci-comparison-row p {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14px;
+  line-height: 1.65;
+  color: #5c584f;
+  margin: 0;
+}
+.ci-comparison-row .ci-controlled {
+  color: #0A0A0A;
+}
+.ci-mobile-label {
+  display: none;
+}
+.ci-principles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: #d8d2c6;
+}
+.ci-principle {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(10rem, 0.75fr) 1.25fr;
+  gap: 1.5rem;
+  align-items: start;
+  background: #F0EDE6;
+  padding: 2rem 1.75rem;
+}
+.ci-closing {
+  padding: 5rem 1.5rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 3rem;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+.ci-cta {
+  display: inline-block;
+  flex-shrink: 0;
+  background: #0A0A0A;
+  color: #F0EDE6;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 1.125rem 2.25rem;
+  transition: opacity 0.15s ease;
+}
+.ci-cta:hover {
+  opacity: 0.75;
+}
+
+@media (max-width: 1024px) {
+  .ci-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .ci-hero-text {
+    padding: 3rem 1.5rem 2.5rem;
+  }
+  .ci-hero-open {
+    min-height: clamp(15rem, 44vw, 28rem);
+  }
+  .ci-split {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 3.5rem 1.5rem;
+  }
+  .ci-architecture-row {
+    grid-template-columns: 3rem minmax(10rem, 0.75fr) 1.25fr;
+    gap: 1.5rem;
+  }
+  .ci-principles {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .ci-hero-text {
+    padding: 2.5rem 1.25rem 2rem;
+  }
+  .ci-hero-open {
+    min-height: 12rem;
+  }
+  .ci-statement {
+    padding: 3.5rem 1.25rem;
+  }
+  .ci-split {
+    padding: 2.75rem 1.25rem;
+    gap: 2.5rem;
+  }
+  .ci-wide-head {
+    margin-bottom: 2.5rem;
+  }
+  .ci-architecture-row {
+    grid-template-columns: 2.25rem 1fr;
+    gap: 0.5rem 1rem;
+    padding: 1.5rem 0;
+  }
+  .ci-architecture-row > p {
+    grid-column: 2;
+    margin-top: 0.75rem !important;
+  }
+  .ci-comparison-head {
+    display: none;
+  }
+  .ci-comparison-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1.5rem 0;
+  }
+  .ci-mobile-label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-family: var(--font-plex-mono), monospace;
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #8a8578;
+  }
+  .ci-principle {
+    grid-template-columns: 2rem 1fr;
+    padding: 1.5rem 1.25rem;
+  }
+  .ci-principle > p {
+    grid-column: 2;
+  }
+  .ci-closing {
+    padding: 3.5rem 1.25rem;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
 /* ── RESONANCE LANDING PAGE ── */
 /* Standalone institutional identity: strict left alignment (per the
    Perkins Visual Design Standard — "Resonance never centers text"),

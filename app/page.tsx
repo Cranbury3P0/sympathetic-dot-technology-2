@@ -133,11 +133,12 @@ const NAV_ITEMS = ["SYSTEMS", "FIELD NOTES", "WORK", "VERBATIM", "ABOUT", "CONTA
 const SECTIONS = [
   { label: "A", title: "WORK", descriptor: "Selected projects in research, strategy, infrastructure, and design." },
   { label: "B", title: "FIELD NOTES", descriptor: "Essays and observations on technology, governance, publishing, and cultural change." },
-  { label: "C", title: "MERIDIAN FRAMEWORK", descriptor: "Architecture for Organizational Intelligence" },
-  { label: "D", title: "RESONANCE ENGINE", descriptor: "Process architecture for continuity in creative work." },
-  { label: "E", title: "HARVARD CAPSTONE", descriptor: "Capstone project from Harvard Medical School's Executive Education program." },
-  { label: "F", title: "VERBATIM LEARNING", descriptor: "Speaking and workshops on AI, organizations, and creative work." },
-  { label: "G", title: "ABOUT", descriptor: "Background, philosophy, and the studio behind the work." },
+  { label: "C", title: "CONTROLLED INTELLIGENCE", descriptor: "Governed AI infrastructure under organizational control." },
+  { label: "D", title: "MERIDIAN FRAMEWORK", descriptor: "Architecture for Organizational Intelligence" },
+  { label: "E", title: "RESONANCE ENGINE", descriptor: "Process architecture for continuity in creative work." },
+  { label: "F", title: "HARVARD CAPSTONE", descriptor: "Capstone project from Harvard Medical School's Executive Education program." },
+  { label: "G", title: "VERBATIM LEARNING", descriptor: "Speaking and workshops on AI, organizations, and creative work." },
+  { label: "H", title: "ABOUT", descriptor: "Background, philosophy, and the studio behind the work." },
 ];
 
 /* ── SHARED STYLE TOKENS ── */
@@ -282,6 +283,7 @@ export default function Home() {
           {SECTIONS.map((sec) => (
             <a key={sec.label} className="section-row" href={
               sec.title === "FIELD NOTES" ? "/field-notes" :
+              sec.title === "CONTROLLED INTELLIGENCE" ? "/controlled-intelligence" :
               sec.title === "MERIDIAN FRAMEWORK" ? "/meridian" :
               sec.title === "RESONANCE ENGINE" ? "/resonance" :
               sec.title === "HARVARD CAPSTONE" ? "/harvard-capstone" :
