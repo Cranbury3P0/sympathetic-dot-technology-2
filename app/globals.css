@@ -112,6 +112,7 @@ body {
   padding: clamp(1.25rem, 2.1vw, 2.5rem);
   background: #0A0A0A;
   color: #F0EDE6;
+  border-radius: 12px !important;
 }
 .home-studio-statement p {
   width: 100%;

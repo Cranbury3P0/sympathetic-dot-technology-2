@@ -220,7 +220,7 @@ export default function Home() {
         />
         <div className="home-studio-statement">
           <p>
-            An integrated West Coast studio for technology, organizational development, and project strategy. We help nonprofit organizations, businesses, and individuals understand where they are, clarify where they want to go, and chart a confident course toward a sustainable and prosperous future.
+            An integrated West Coast studio for technology, organizational development, and project strategy. We help nonprofit organizations, businesses, and individuals understand where they are, clarify where they want to be, and chart a confident course toward a sustainable and prosperous future.
           </p>
         </div>
       </section>
