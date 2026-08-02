@@ -293,7 +293,7 @@ export default function Home() {
                 <div style={{ fontFamily: BARLOW, fontWeight: 300, fontSize: "0.75rem", letterSpacing: "0.06em", paddingTop: "0.75rem" }}>
                   ({sec.label})
                 </div>
-                <h2 style={{ fontFamily: CONDENSED, fontWeight: 900, fontSize: "clamp(3.5rem, 10vw, 11rem)", lineHeight: 0.9, letterSpacing: "-0.02em", textTransform: "uppercase", margin: "0 0 0.5rem" }}>
+                <h2 style={{ fontFamily: CONDENSED, fontWeight: 900, fontSize: "clamp(2rem, 7vw, 8.5rem)", lineHeight: 0.9, letterSpacing: "-0.02em", textTransform: "uppercase", whiteSpace: "nowrap", margin: "0 0 0.5rem" }}>
                   {sec.title}
                 </h2>
               </div>

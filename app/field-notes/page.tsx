@@ -165,8 +165,9 @@ export default function FieldNotesPage() {
           </div>
 
           <p className={styles.coverIntro}>
-            Independent observations on artificial intelligence, culture,
-            infrastructure, and power.
+            Field Notes is a series of short essays on issues related to
+            technology and culture that resists tech essentialism and any form
+            of lock-in.
           </p>
 
           <div className={styles.coverFooter}>
