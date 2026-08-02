@@ -103,6 +103,9 @@ body {
 }
 
 /* Footer metadata strip */
+.home-brand-lockup {
+  padding: 0 0.2rem;
+}
 .footer-grid {
   border-top: 1px solid #0A0A0A;
   display: grid;
@@ -164,6 +167,9 @@ body {
   }
 
   /* Hero */
+  .home-brand-lockup {
+    padding: 0 0.15rem;
+  }
   .hero-h1 {
     font-size: clamp(4.5rem, 22vw, 10rem) !important;
     padding: 0 0.15rem !important;
