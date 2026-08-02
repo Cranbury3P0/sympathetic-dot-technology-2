@@ -278,6 +278,14 @@ export default function Home() {
         </div>
       </footer>
 
+      {/* ── PROCESS TICKER ── */}
+      <section className="ticker-row" style={{ borderTop: RULE, borderBottom: RULE }}>
+        <div className="ticker-track">
+          <span className="ticker-item" style={{ fontFamily: CONDENSED }}>RESEARCH. CREATIVITY. STRATEGY. COLLABORATION. ITERATION. REPEAT.&nbsp;</span>
+          <span className="ticker-item" style={{ fontFamily: CONDENSED }} aria-hidden="true">RESEARCH. CREATIVITY. STRATEGY. COLLABORATION. ITERATION. REPEAT.&nbsp;</span>
+        </div>
+      </section>
+
       {/* ── SECTION INDEX ── */}
       <section style={{ position: "relative" }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -312,12 +320,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── PROCESS TICKER ── */}
-      <section className="ticker-row" style={{ borderTop: RULE, borderBottom: RULE }}>
-        <div className="ticker-track">
-          <span className="ticker-item" style={{ fontFamily: CONDENSED }}>RESEARCH. CREATIVITY. STRATEGY. COLLABORATION. ITERATION. REPEAT.&nbsp;</span>
-          <span className="ticker-item" style={{ fontFamily: CONDENSED }} aria-hidden="true">RESEARCH. CREATIVITY. STRATEGY. COLLABORATION. ITERATION. REPEAT.&nbsp;</span>
-        </div>
+      {/* ── APPROACH HEADING ── */}
+      <section style={{ borderTop: RULE, borderBottom: RULE, padding: "1rem 1.5rem 0.75rem" }}>
+        <h2 style={{
+          fontFamily: CONDENSED,
+          fontWeight: 900,
+          fontSize: "clamp(3rem, 7vw, 8.5rem)",
+          lineHeight: 0.9,
+          letterSpacing: "-0.02em",
+          textTransform: "uppercase",
+          margin: 0,
+        }}>
+          Our Approach
+        </h2>
       </section>
 
       {/* ── THREE-COLUMN STATEMENT ROW ── */}
@@ -325,7 +340,7 @@ export default function Home() {
         {[
           { title: "Orientation Before Adaptation", body: "We build systems, platforms, and strategies for individuals and organizations that embrace the complexity of today.\n\nWe work in a noisy and chaotic world, where technologies emerge and change at lightning speed. For groups that know they must adapt, this can create confusion and paralysis.\n\nBefore recommending any act of adaptation, we orient the organization, its staff, and especially its leadership to the present moment and possible futures. Using a human-centred approach and current tools we bring its history, systems, values, and institutional knowledge forward so it can understand and inform the changes happening around it, recognize the opportunities available, and chart a path forward.\n\nGrounded in trust, transparency, and equity, our work prioritizes client support and self-sufficiency over lock-in.\n\nWe establish a shared language that grounds us in the present as we look to the future." },
           { title: "Connecting the Historical Present", body: "Organizational orientation requires more than understanding current conditions. It also requires understanding how the organization arrived here.\n\nDecades of institutional knowledge can become scattered across past projects, strategic directives, manuals, board minutes, correspondence, research, and abandoned document systems. Valuable ideas and hard-earned lessons remain buried in old Dropbox folders and unnavigable Microsoft 365 document trees, disconnected from the people who could use them today.\n\nGenerative and agentic tools can help retrieve, organize, connect, and interpret these materials at a scale that was previously too costly or exhausting to contemplate. When this knowledge is integrated into current systems, staff can understand not only what was done, but why it was done, what was learned, and what remains useful.\n\nThis is not an exercise in nostalgia. It restores continuity, reduces repeated work, and returns the knowledge and wisdom of earlier leaders to the active life of the organization.\n\nBy bringing its past forward, an organization can better understand its present and make more informed choices about its future." },
-          { title: "The Language of Intention", body: "Orientation begins with language. An organization cannot understand where it is, bring its historical knowledge forward, or decide where it wants to go without a clear and shared way of describing itself and the world around it.\n\nLanguage is not a product we delegate to technology. It is a human and intentional act shaped by attention, judgment, experience, and care. AI can retrieve, organize, compare, and generate words, but it cannot determine what an organization means, believes, or intends to say.\n\nWe listen carefully, ask precise questions, and help staff and leadership find language that reflects their knowledge, values, and ambitions. This creates the common ground required for trust, collaboration, and informed action.\n\nWhen historical materials are returned to active use, clear language connects past insight to present conditions. It helps an organization preserve what remains valuable, recognize what has changed, and articulate what must come next.\n\nThe world changes quickly, but the foundations of meaningful work remain human: clarity, trust, intention, and collaboration.", footer: "/" },
+          { title: "The Language of Intention", body: "Orientation begins with language. An organization cannot understand where it is, bring its historical knowledge forward, or decide where it wants to go without a clear and shared way of describing itself and the world around it.\n\nLanguage is not a product we delegate to technology. It is a human and intentional act shaped by attention, judgment, experience, and care. AI can retrieve, organize, compare, and generate words, but it cannot determine what an organization means, believes, or intends to say.\n\nWe listen carefully, ask precise questions, and help staff and leadership find language that reflects their knowledge, values, and ambitions. This creates the common ground required for trust, collaboration, and informed action.\n\nWhen historical materials are returned to active use, clear language connects past insight to present conditions. It helps an organization preserve what remains valuable, recognize what has changed, and articulate what must come next.\n\nThe world changes quickly, but the foundations of meaningful work remain human: clarity, trust, intention, and collaboration." },
         ].map((col) => (
           <div key={col.title} className="three-col-cell">
             <h3 style={{
@@ -349,11 +364,6 @@ export default function Home() {
             }}>
               {col.body}
             </p>
-            {col.footer && (
-              <p style={{ fontFamily: BARLOW, fontWeight: 300, fontSize: "clamp(18px, 2vw, 28px)", margin: "0.75rem 0 0" }}>
-                {col.footer}
-              </p>
-            )}
           </div>
         ))}
       </section>
