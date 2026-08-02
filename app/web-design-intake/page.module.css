@@ -1,0 +1,403 @@
+/* Web Design Intake — paper/ink editorial form */
+
+.page {
+  background-color: var(--paper, #f0ede6);
+  color: var(--ink, #0a0a0a);
+  min-height: 100vh;
+  margin: 0;
+  font-family: var(--font-barlow), sans-serif;
+}
+
+.hero {
+  padding: 1.5rem 1.5rem 0;
+}
+
+.eyebrow {
+  font-family: var(--font-barlow), sans-serif;
+  font-weight: 300;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+/* Title + intro occupy 2/3 of the header width */
+.heroLead {
+  width: 66.666%;
+  max-width: 100%;
+  container-type: inline-size;
+  container-name: hero-lead;
+}
+
+.heroTitle {
+  margin: 0;
+  font-family: var(--font-barlow-condensed), sans-serif;
+  font-weight: 900;
+  /* Sized to the longer line ("INTAKE FORM") so nothing clips in the 2/3 column */
+  font-size: 20.5cqi;
+  letter-spacing: -0.02em;
+  line-height: 0.88;
+  text-transform: uppercase;
+}
+
+.heroTitle span {
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.subtitle {
+  font-family: var(--font-barlow-condensed), sans-serif;
+  font-weight: 900;
+  font-size: clamp(1.1rem, 2.4vw, 1.65rem);
+  letter-spacing: -0.01em;
+  line-height: 1;
+  text-transform: uppercase;
+  margin: 1.1rem 0 0;
+}
+
+.intro {
+  border-top: 1px solid #0a0a0a;
+  margin-top: 1.25rem;
+  padding: 1.5rem 0 2rem;
+}
+
+.intro p {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-size: clamp(1.15rem, 1.6vw, 1.3rem);
+  line-height: 1.65;
+  margin: 0 0 1rem;
+  color: #0a0a0a;
+  max-width: 52ch;
+}
+
+.intro p:last-child {
+  margin-bottom: 0;
+}
+
+.form {
+  border-top: 1px solid #0a0a0a;
+  padding: 0 1.5rem 3rem;
+}
+
+.identity {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-bottom: 1px solid #0a0a0a;
+}
+
+.identityField {
+  padding: 1.25rem 1.5rem 1.25rem 0;
+  border-right: 1px solid #0a0a0a;
+}
+
+.identityField:last-child {
+  border-right: none;
+  padding-left: 1.5rem;
+  padding-right: 0;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.label {
+  font-family: var(--font-barlow), sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #0a0a0a;
+}
+
+.input,
+.textarea {
+  font-family: var(--font-barlow), sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 1.55;
+  color: #0a0a0a;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(10, 10, 10, 0.25);
+  border-radius: 0;
+  padding: 0.5rem 0 0.65rem;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.2s ease;
+  appearance: none;
+  resize: vertical;
+}
+
+.input:focus,
+.textarea:focus {
+  border-bottom-color: #0a0a0a;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: rgba(10, 10, 10, 0.35);
+  font-weight: 300;
+  font-size: 18px;
+}
+
+.textarea {
+  min-height: 9rem;
+  border: 2.5px solid #0a0a0a;
+  /* Override site-wide border-radius: 0 !important */
+  border-radius: 12px !important;
+  padding: 1.1rem 1.2rem;
+  background: transparent;
+}
+
+.textarea:focus {
+  border-color: #0a0a0a;
+  background: rgba(10, 10, 10, 0.02);
+}
+
+.questions {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.question {
+  border-bottom: 1px solid #0a0a0a;
+  padding: 2rem 0 1.75rem;
+  animation: rise 0.55s ease both;
+}
+
+.questionHeader {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 0.85rem;
+  margin-bottom: 1.15rem;
+  align-items: start;
+}
+
+.number {
+  font-family: var(--font-barlow), sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  padding-top: 0.2rem;
+}
+
+.prompt {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-size: clamp(1.2rem, 1.85vw, 1.45rem);
+  line-height: 1.55;
+  margin: 0;
+  max-width: 68ch;
+}
+
+.submitRow {
+  padding: 2rem 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+.submitHint {
+  font-family: var(--font-barlow), sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  opacity: 0.55;
+  max-width: 36ch;
+  margin: 0;
+}
+
+.submitError {
+  font-family: var(--font-barlow), sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #0a0a0a;
+  margin: 0;
+  max-width: 42ch;
+}
+
+.submit {
+  font-family: var(--font-barlow), sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #f0ede6;
+  background: #0a0a0a;
+  border: 1px solid #0a0a0a;
+  border-radius: 0;
+  padding: 1rem 1.85rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.submit:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.submit:hover {
+  transform: translateX(3px);
+}
+
+.submit:focus-visible {
+  outline: 1px solid #0a0a0a;
+  outline-offset: 3px;
+}
+
+.submit:active {
+  background: transparent;
+  color: #0a0a0a;
+}
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(10, 10, 10, 0.42);
+  animation: fadeIn 0.25s ease both;
+}
+
+.modal {
+  width: min(100%, 28rem);
+  background: #f0ede6;
+  color: #0a0a0a;
+  border: 2.5px solid #0a0a0a;
+  border-radius: 12px !important;
+  padding: 2rem 1.75rem 1.75rem;
+  box-shadow: none;
+  animation: modalRise 0.3s ease both;
+}
+
+.modalEyebrow {
+  font-family: var(--font-barlow), sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0 0 0.85rem;
+  opacity: 0.55;
+}
+
+.modalTitle {
+  font-family: var(--font-barlow-condensed), sans-serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  letter-spacing: -0.02em;
+  line-height: 0.92;
+  text-transform: uppercase;
+  margin: 0 0 1rem;
+}
+
+.modalBody {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin: 0 0 1.75rem;
+}
+
+.modalClose {
+  font-family: var(--font-barlow), sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #f0ede6;
+  background: #0a0a0a;
+  border: 1px solid #0a0a0a;
+  border-radius: 0;
+  padding: 0.95rem 1.5rem;
+  cursor: pointer;
+  width: 100%;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.modalClose:hover {
+  transform: translateY(-1px);
+}
+
+.modalClose:focus-visible {
+  outline: 1px solid #0a0a0a;
+  outline-offset: 3px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalRise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 720px) {
+  .heroLead {
+    width: 100%;
+  }
+
+  .identity {
+    grid-template-columns: 1fr;
+  }
+
+  .identityField {
+    border-right: none;
+    border-bottom: 1px solid #0a0a0a;
+    padding: 1.25rem 0;
+  }
+
+  .identityField:last-child {
+    border-bottom: none;
+    padding-left: 0;
+  }
+
+  .questionHeader {
+    grid-template-columns: 2rem 1fr;
+  }
+
+  .submitRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .submit {
+    width: 100%;
+  }
+}
