@@ -106,6 +106,22 @@ body {
 .home-brand-lockup {
   padding: 0 0.2rem;
 }
+.home-studio-statement {
+  margin-top: clamp(0.75rem, 1.2vw, 1.25rem);
+  padding: clamp(1.25rem, 2.1vw, 2.5rem);
+  background: #0A0A0A;
+  color: #F0EDE6;
+}
+.home-studio-statement p {
+  width: 100%;
+  margin: 0;
+  font-family: var(--font-barlow), sans-serif;
+  font-size: clamp(1.3rem, 2.15vw, 2.6rem);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
 .footer-grid {
   border-top: 1px solid #0A0A0A;
   display: grid;

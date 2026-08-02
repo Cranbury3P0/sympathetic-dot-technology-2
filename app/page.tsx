@@ -126,45 +126,6 @@ function FitText({ text, style }: { text: string; style: React.CSSProperties }) 
   );
 }
 
-function BrandStatement() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const lineRef = useRef<HTMLParagraphElement>(null);
-
-  useEffect(() => {
-    const fit = () => {
-      const container = containerRef.current;
-      const line = lineRef.current;
-      if (!container || !line) return;
-
-      line.style.fontSize = "100px";
-      const textWidth = line.getBoundingClientRect().width;
-      line.style.fontSize = `${100 * (container.offsetWidth / textWidth)}px`;
-    };
-
-    document.fonts.ready.then(fit);
-    const ro = new ResizeObserver(fit);
-    if (containerRef.current) ro.observe(containerRef.current);
-    return () => ro.disconnect();
-  }, []);
-
-  return (
-    <div ref={containerRef} style={{ width: "100%", overflow: "hidden" }}>
-      <p
-        ref={lineRef}
-        aria-label="Sympathetic Technology / Curiosity Orientation Action / Leadership and Collaboration"
-        style={{ display: "inline-flex", alignItems: "baseline", whiteSpace: "nowrap", lineHeight: 0.95, margin: "0.45rem 0 0" }}
-      >
-        <span style={{ fontFamily: CONDENSED, fontWeight: 900, letterSpacing: "-0.02em", textTransform: "uppercase" }}>
-          TECHNOLOGY
-        </span>
-        <span style={{ fontFamily: BARLOW, fontWeight: 400, letterSpacing: "0.01em" }}>
-          &nbsp;/ Curiosity Orientation Action / Leadership and Collaboration
-        </span>
-      </p>
-    </div>
-  );
-}
-
 /* ── DATA ── */
 
 const NAV_ITEMS = ["SYSTEMS", "FIELD NOTES", "WORK", "VERBATIM", "ABOUT", "CONTACT"];
@@ -257,7 +218,11 @@ export default function Home() {
             textTransform: "uppercase",
           }}
         />
-        <BrandStatement />
+        <div className="home-studio-statement">
+          <p>
+            An integrated West Coast studio for technology, organizational development, and project strategy. We help nonprofit organizations, businesses, and individuals understand where they are, clarify where they want to go, and chart a confident course toward a sustainable and prosperous future.
+          </p>
+        </div>
       </section>
 
       {/* ── FOOTER METADATA STRIP ── */}
