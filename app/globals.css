@@ -1226,8 +1226,7 @@ body {
 }
 
 /* ── CONTROLLED INTELLIGENCE PAGE ── */
-/* Meridian's editorial register, with a cooler governance-blue accent.
-   The open hero column is reserved for forthcoming artwork. */
+/* Meridian's editorial register, with a cooler governance-blue accent. */
 
 .ci-hero {
   display: grid;
@@ -1244,8 +1243,18 @@ body {
 .ci-hero-intro {
   max-width: 34rem;
 }
-.ci-hero-open {
+.ci-hero-visual {
   min-height: 44rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 2rem 2rem 0;
+  overflow: hidden;
+}
+.ci-hero-image {
+  display: block;
+  width: min(100%, 52rem);
+  height: auto;
 }
 .ci-statement {
   padding: 5.5rem 1.5rem;
@@ -1372,8 +1381,12 @@ body {
   .ci-hero-text {
     padding: 3rem 1.5rem 2.5rem;
   }
-  .ci-hero-open {
-    min-height: clamp(15rem, 44vw, 28rem);
+  .ci-hero-visual {
+    min-height: 0;
+    padding: 0 1.5rem 2.5rem;
+  }
+  .ci-hero-image {
+    width: min(100%, 42rem);
   }
   .ci-split {
     grid-template-columns: 1fr;
@@ -1393,8 +1406,8 @@ body {
   .ci-hero-text {
     padding: 2.5rem 1.25rem 2rem;
   }
-  .ci-hero-open {
-    min-height: 12rem;
+  .ci-hero-visual {
+    padding: 0 0.75rem 2rem;
   }
   .ci-statement {
     padding: 3.5rem 1.25rem;

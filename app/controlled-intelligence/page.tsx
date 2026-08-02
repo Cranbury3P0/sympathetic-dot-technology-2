@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Prata, Manrope, Inter, IBM_Plex_Mono } from "next/font/google";
 import { Nav, LegalBar, Heading, Label, PAPER, INK, RULE } from "sympathetic-ds";
+import controlledIntelligenceLayers from "../../public/controlled-intelligence-four-layers.png";
 
 const prata = Prata({ variable: "--font-prata", subsets: ["latin"], weight: "400" });
 const manrope = Manrope({ variable: "--font-manrope", subsets: ["latin"], weight: ["500", "600"] });
@@ -150,8 +152,15 @@ export default function ControlledIntelligencePage() {
           </div>
         </div>
 
-        {/* Reserved for the forthcoming hero image. */}
-        <div className="ci-hero-open" aria-hidden="true" />
+        <div className="ci-hero-visual">
+          <Image
+            src={controlledIntelligenceLayers}
+            alt="Four-layer Controlled Intelligence model: local inference, retrieval, staff interface, and governance."
+            className="ci-hero-image"
+            sizes="(max-width: 1024px) 100vw, 58vw"
+            priority
+          />
+        </div>
       </div>
 
       <section className="ci-statement" style={{ borderTop: RULE }}>
