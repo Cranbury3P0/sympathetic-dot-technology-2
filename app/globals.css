@@ -104,10 +104,11 @@ body {
 
 /* Footer metadata strip */
 .home-brand-lockup {
-  padding: 0 0.2rem;
+  --home-brand-padding: 0.2rem;
+  padding: 0 var(--home-brand-padding);
 }
 .home-studio-statement {
-  margin-top: clamp(0.75rem, 1.2vw, 1.25rem);
+  margin: clamp(0.75rem, 1.2vw, 1.25rem) calc(50px - var(--home-brand-padding)) 0;
   padding: clamp(1.25rem, 2.1vw, 2.5rem);
   background: #0A0A0A;
   color: #F0EDE6;
@@ -184,7 +185,7 @@ body {
 
   /* Hero */
   .home-brand-lockup {
-    padding: 0 0.15rem;
+    --home-brand-padding: 0.15rem;
   }
   .hero-h1 {
     font-size: clamp(4.5rem, 22vw, 10rem) !important;
@@ -252,6 +253,13 @@ body {
   }
   .legal-links {
     gap: 1.25rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .home-studio-statement {
+    margin-right: calc(1rem - var(--home-brand-padding));
+    margin-left: calc(1rem - var(--home-brand-padding));
   }
 }
 
