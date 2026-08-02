@@ -19,9 +19,6 @@ const dmSerif = DM_Serif_Text({
 const title = "Transforming Advocacy and Access";
 const description =
   "A healthcare transformation capstone that became a broader argument about the structural, cultural, and relational changes organizations must make in response to AI.";
-const socialImage = "/harvard-capstone-systems-bloom-og.png";
-const socialImageAlt =
-  "A pastel organizational systems bloom centred on the principle Orientation Before Adoption.";
 
 export const metadata: Metadata = {
   title,
@@ -30,20 +27,11 @@ export const metadata: Metadata = {
     title,
     description,
     type: "article",
-    images: [
-      {
-        url: socialImage,
-        width: 2200,
-        height: 1640,
-        alt: socialImageAlt,
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
-    images: [socialImage],
   },
 };
 
