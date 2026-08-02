@@ -323,11 +323,22 @@ export default function Home() {
       {/* ── THREE-COLUMN STATEMENT ROW ── */}
       <section className="three-col" style={{ borderBottom: RULE }}>
         {[
-          { body: "We build systems, platforms, and strategies for individuals and organizations that embrace the complexity of today.\n\nGrounded in values of trust, transparency, and equity our work embeds client support and self-sufficiency over lock-in.\n\nWe speak a common language as we look to the future." },
-          { body: "One of the strengths of the agentic and generative tools available today is reclamation and reintegration of institutional and/or cultural memory.\n\nOverwhelming quantities of documents and other information going back decades can be retrieved, organized, and understood in ways that were previously too exhausting to even contemplate.\n\nTake the knowledge and wisdom of the leaders who came before you and reintroduce them to the working knowledge of your organization today." },
-          { body: "Clarity and originality of language is the ground floor of how we operate: listening carefully, speaking clearly, and approach each project with a spirit of curiosity helps us deliver high quality results for clients.\n\nThe world changes so quickly but some things never change: clarity, trust, and collaboration always get us through.", footer: "—" },
-        ].map((col, i) => (
-          <div key={i} className="three-col-cell">
+          { title: "Orientation Before Adaptation", body: "We build systems, platforms, and strategies for individuals and organizations that embrace the complexity of today.\n\nWe work in a noisy and chaotic world, where technologies emerge and change at lightning speed. For groups that know they must adapt, this can create confusion and paralysis.\n\nBefore recommending any act of adaptation, we orient ourselves deeply to the organization—its people, history, systems, values, and direction.\n\nGrounded in trust, transparency, and equity, our work prioritizes client support and self-sufficiency over lock-in.\n\nWe establish a shared language that grounds us in the present as we look to the future." },
+          { title: "Connecting the Historical Present", body: "One of the strengths of the agentic and generative tools available today is reclamation and reintegration of institutional and/or cultural memory.\n\nOverwhelming quantities of documents and other information going back decades can be retrieved, organized, and understood in ways that were previously too exhausting to even contemplate.\n\nTake the knowledge and wisdom of the leaders who came before you and reintroduce them to the working knowledge of your organization today." },
+          { title: "The Language of Intent", body: "Clarity and originality of language is the ground floor of how we operate: listening carefully, speaking clearly, and approach each project with a spirit of curiosity helps us deliver high quality results for clients.\n\nThe world changes so quickly but some things never change: clarity, trust, and collaboration always get us through.", footer: "—" },
+        ].map((col) => (
+          <div key={col.title} className="three-col-cell">
+            <h3 style={{
+              fontFamily: CONDENSED,
+              fontWeight: 900,
+              fontSize: "clamp(1.5rem, 3vw, 3rem)",
+              lineHeight: 0.95,
+              letterSpacing: "-0.01em",
+              textTransform: "uppercase",
+              margin: "0 0 1.5rem",
+            }}>
+              {col.title}
+            </h3>
             <p style={{
               fontFamily: BARLOW,
               fontWeight: 300,
