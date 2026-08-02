@@ -10,7 +10,6 @@ export const DEFAULT_NAV_ITEMS = [
   "VERBATIM LEARNING",
   "ABOUT",
   "CONTACT",
-  "CLIENT LOGIN",
 ];
 
 /** Canonical route mapping used across the site's nav instances. */
@@ -26,8 +25,6 @@ export function defaultHrefFor(item: string): string {
       return "/resonance";
     case "VERBATIM LEARNING":
       return "/verbatim";
-    case "CLIENT LOGIN":
-      return "/client";
     default:
       return "#";
   }

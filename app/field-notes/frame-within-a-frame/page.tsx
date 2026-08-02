@@ -132,7 +132,7 @@ const SERIF = "Georgia, 'Times New Roman', serif";
 const PAPER = "#F0EDE6";
 const INK = "#0A0A0A";
 
-const NAV_ITEMS = ["SYSTEMS", "FIELD NOTES", "WORK", "VERBATIM", "ABOUT", "CONTACT", "CLIENT LOGIN"];
+const NAV_ITEMS = ["SYSTEMS", "FIELD NOTES", "WORK", "VERBATIM", "ABOUT", "CONTACT"];
 
 const NAV_STYLE: React.CSSProperties = {
   fontFamily: BARLOW, fontWeight: 500, fontSize: "14px",

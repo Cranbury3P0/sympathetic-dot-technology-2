@@ -95,7 +95,7 @@ function FitText({ text, style }: { text: string; style: React.CSSProperties }) 
 
 /* ── DATA ── */
 
-const NAV_ITEMS = ["SYSTEMS", "FIELD NOTES", "WORK", "VERBATIM", "ABOUT", "CONTACT", "CLIENT LOGIN"];
+const NAV_ITEMS = ["SYSTEMS", "FIELD NOTES", "WORK", "VERBATIM", "ABOUT", "CONTACT"];
 
 const SYSTEMS_DATA = [
   {

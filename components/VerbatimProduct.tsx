@@ -33,7 +33,6 @@ const NAV_ITEMS = [
   { label: "VERBATIM LEARNING", href: "/verbatim" },
   { label: "ABOUT",        href: "#" },
   { label: "CONTACT",      href: "#" },
-  { label: "CLIENT LOGIN", href: "/client" },
 ];
 
 /* ── Small reusable atoms ──────────────────────────────── */
