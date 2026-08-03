@@ -87,9 +87,22 @@ body {
 .three-col-cell {
   padding: 1.5rem;
   border-left: 1px solid #0A0A0A;
+  display: grid;
+  grid-template-rows: minmax(2.85em, auto) auto 1fr;
+  align-content: start;
+  gap: 1.5rem;
 }
 .three-col-cell:first-child {
   border-left: none;
+}
+.three-col-title {
+  align-self: start;
+}
+.three-col-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid #0A0A0A;
 }
 
 /* Section index row */
@@ -236,6 +249,7 @@ body {
   .three-col-cell {
     border-left: none;
     border-top: 1px solid #0A0A0A;
+    grid-template-rows: auto auto 1fr;
   }
   .three-col-cell:first-child {
     border-top: none;
