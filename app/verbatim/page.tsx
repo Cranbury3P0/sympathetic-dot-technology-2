@@ -443,7 +443,7 @@ export default function VerbatimPage() {
             Tell me about the room and the problem you're trying to solve in it, and I'll tell you what shape makes sense.
           </p>
           <a
-            href="mailto:sean@sympathetic.technology"
+            href="mailto:sean@sympathetictechnology.com"
             style={{ display: "inline-flex", alignItems: "center", gap: "10px", background: ACCENT, color: PAPER, fontFamily: BARLOW, fontSize: "15px", fontWeight: 700, letterSpacing: "0.04em", textTransform: "uppercase", padding: "18px 40px", textDecoration: "none" }}
           >
             Let&apos;s talk <span aria-hidden="true">→</span>

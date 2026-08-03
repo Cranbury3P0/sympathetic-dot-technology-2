@@ -55,7 +55,7 @@ export type IntakeQuestionId = (typeof INTAKE_QUESTIONS)[number]["id"];
 
 export type IntakeAnswers = Record<IntakeQuestionId, string>;
 
-export const INTAKE_TO_EMAIL = "hello@sympathetic.technology";
+export const INTAKE_TO_EMAIL = "sean@sympathetictechnology.com";
 
 export const INTAKE_FROM_EMAIL =
-  "Sympathetic Technology <hello@sympathetic.technology>";
+  "Sympathetic Technology <sean@sympathetictechnology.com>";

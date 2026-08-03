@@ -449,7 +449,7 @@ export default function HarvardCapstonePage() {
         <p className={styles.kicker}>From capstone to organizational practice</p>
         <h2>AI changes more than the tools.</h2>
         <p>It changes the conditions under which organizations listen, decide, learn, and act.</p>
-        <a href="mailto:hello@sympathetic.technology">Work with Sympathetic Technology <span aria-hidden="true">↗</span></a>
+        <a href="mailto:sean@sympathetictechnology.com">Work with Sympathetic Technology <span aria-hidden="true">↗</span></a>
       </section>
 
       <aside className={styles.disclaimer}>

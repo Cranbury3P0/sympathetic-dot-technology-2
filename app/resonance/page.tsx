@@ -402,7 +402,7 @@ export default function ResonancePage() {
           </div>
           <div>
             <a
-              href="mailto:sean@sympathetic.technology"
+              href="mailto:sean@sympathetictechnology.com"
               className="resonance-cta"
               style={{
                 display: "inline-flex",
@@ -419,7 +419,7 @@ export default function ResonancePage() {
                 padding: "1rem 1.75rem",
               }}
             >
-              sean@sympathetic.technology
+              sean@sympathetictechnology.com
             </a>
           </div>
         </div>

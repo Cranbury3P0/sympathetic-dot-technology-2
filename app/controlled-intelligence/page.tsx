@@ -302,7 +302,7 @@ export default function ControlledIntelligencePage() {
         <Heading as="h2" style={{ ...headingStyle, fontSize: "clamp(30px, 4vw, 52px)", maxWidth: "24ch" }}>
           Mission-driven organizations shouldn&apos;t have to choose between progress and privacy.
         </Heading>
-        <a href="mailto:sean@sympathetic.technology" className="ci-cta" style={{ fontFamily: MANROPE }}>
+        <a href="mailto:sean@sympathetictechnology.com" className="ci-cta" style={{ fontFamily: MANROPE }}>
           Let&apos;s Talk →
         </a>
       </section>
