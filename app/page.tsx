@@ -278,14 +278,6 @@ export default function Home() {
         </div>
       </footer>
 
-      {/* ── PROCESS TICKER ── */}
-      <section className="ticker-row" style={{ borderTop: RULE, borderBottom: RULE }}>
-        <div className="ticker-track">
-          <span className="ticker-item" style={{ fontFamily: CONDENSED }}>RESEARCH. CREATIVITY. STRATEGY. COLLABORATION. ITERATION. REPEAT.&nbsp;</span>
-          <span className="ticker-item" style={{ fontFamily: CONDENSED }} aria-hidden="true">RESEARCH. CREATIVITY. STRATEGY. COLLABORATION. ITERATION. REPEAT.&nbsp;</span>
-        </div>
-      </section>
-
       {/* ── SECTION INDEX ── */}
       <section style={{ position: "relative" }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -366,6 +358,14 @@ export default function Home() {
             </p>
           </div>
         ))}
+      </section>
+
+      {/* ── PROCESS TICKER ── */}
+      <section className="ticker-row" style={{ borderTop: RULE, borderBottom: RULE }}>
+        <div className="ticker-track">
+          <span className="ticker-item" style={{ fontFamily: CONDENSED }}>RESEARCH. CREATIVITY. STRATEGY. COLLABORATION. ITERATION. REPEAT.&nbsp;</span>
+          <span className="ticker-item" style={{ fontFamily: CONDENSED }} aria-hidden="true">RESEARCH. CREATIVITY. STRATEGY. COLLABORATION. ITERATION. REPEAT.&nbsp;</span>
+        </div>
       </section>
 
       {/* ── RESONANCE FOOTER TEASER ── */}
