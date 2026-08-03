@@ -129,17 +129,56 @@ body {
   gap: 1rem;
 }
 
-/* Bottom Resonance teaser */
-.resonance-teaser-grid {
+/* Featured architecture cards */
+.framework-card-grid {
   border-top: 1px solid #0A0A0A;
   display: grid;
-  grid-template-columns: 0.45fr 0.55fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
-.resonance-teaser-copy {
+.framework-card {
   border-left: 1px solid #0A0A0A;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  color: inherit;
+  text-decoration: none;
+  transition: background-color 0.15s ease;
+}
+.framework-card:first-child {
+  border-left: none;
+}
+.framework-card:hover {
+  background-color: #E8E4DC;
+}
+.framework-card-title {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-barlow-condensed), sans-serif;
+  font-size: clamp(2.25rem, 4vw, 4.5rem);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  margin: 0;
+  min-height: 1.8em;
+  justify-content: flex-end;
+  text-transform: uppercase;
+}
+.framework-card-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+.framework-card-copy {
+  font-family: var(--font-barlow), sans-serif;
+  font-size: clamp(15px, 1.15vw, 18px);
+  font-weight: 300;
+  line-height: 1.55;
+  margin: 0;
+  max-width: 46ch;
 }
 
 /* Legal bar */
@@ -229,17 +268,20 @@ body {
     padding: 1.25rem 1rem;
   }
 
-  /* Resonance teaser: stack vertically */
-  .resonance-teaser-grid {
+  /* Featured architecture cards: stack vertically */
+  .framework-card-grid {
     grid-template-columns: 1fr;
   }
-  .resonance-teaser-img {
-    min-height: 14rem;
-    width: 100%;
-  }
-  .resonance-teaser-copy {
+  .framework-card {
     border-left: none;
     border-top: 1px solid #0A0A0A;
+    padding: 1rem;
+  }
+  .framework-card:first-child {
+    border-top: none;
+  }
+  .framework-card-title {
+    min-height: 0;
   }
 
   /* Legal bar: stack */

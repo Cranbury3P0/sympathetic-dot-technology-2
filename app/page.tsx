@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { Nav, LegalBar } from "sympathetic-ds";
 
 /* ── GEOLOCATION + CLOCK ── */
@@ -265,6 +266,33 @@ const SECTIONS = [
   { label: "H", title: "ABOUT", descriptor: "Background, philosophy, and the studio behind the work." },
 ];
 
+const FEATURE_CARDS = [
+  {
+    title: "CONTROLLED INTELLIGENCE",
+    href: "/controlled-intelligence",
+    image: "/controlled-intelligence-architecture.png",
+    alt: "Architectural diagram of a governed intelligence environment.",
+    description:
+      "Controlled Intelligence gives organizations a governed environment for working with AI on their own terms. Institutional knowledge remains inside infrastructure they control, guided by policies they write and boundaries they can audit. Staff can investigate, draft, compare, and learn safely without surrendering sensitive information or organizational accountability to consumer platforms.",
+  },
+  {
+    title: "MERIDIAN FRAMEWORK",
+    href: "/meridian",
+    image: "/meridian-architecture.png",
+    alt: "Architectural diagram of organizational knowledge, judgment, and voice in alignment.",
+    description:
+      "Meridian aligns an organization’s knowledge, experienced judgment, and public voice into one coherent conversational resource. It connects authoritative documents with the reasoning people use in practice, preserving provenance and context. The result helps teams answer questions consistently, explain decisions clearly, and learn from recurring needs across the entire organization today.",
+  },
+  {
+    title: "RESONANCE ENGINE",
+    href: "/resonance",
+    image: "/resonance-architecture.png",
+    alt: "Architectural diagram of a continuous creative process supported by memory and revision.",
+    description:
+      "Resonance preserves continuity across the full lifecycle of creative work. Observations, conversations, revisions, decisions, and memory remain connected between meetings and across time. Teams can return to a project without reconstructing its context, supporting deliberate refinement, stronger collaboration, and a process that naturally retains its shape as the work evolves.",
+  },
+];
+
 /* ── SHARED STYLE TOKENS ── */
 
 const RULE = "1px solid #0A0A0A";
@@ -508,25 +536,25 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── RESONANCE FOOTER TEASER ── */}
-      <div className="resonance-teaser-grid">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img className="resonance-teaser-img" src="/resonance-architecture.png" alt="" aria-hidden style={{ width: "100%", height: "100%", minHeight: "18rem", objectFit: "cover", objectPosition: "center center", display: "block" }} />
-        <div className="resonance-teaser-copy" style={{ padding: "2.5rem" }}>
-          <div style={{ fontFamily: BARLOW, fontWeight: 500, fontSize: "11px", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "0.75rem" }}>
-            RESONANCE
-          </div>
-          <h2 style={{ fontFamily: CONDENSED, fontWeight: 900, fontSize: "clamp(2.25rem, 5vw, 4rem)", lineHeight: 1.02, letterSpacing: "-0.01em", textTransform: "uppercase", margin: "0 0 1rem" }}>
-            Experience Resonance
-          </h2>
-          <p style={{ fontFamily: BARLOW, fontWeight: 300, fontSize: "clamp(15px, 1.4vw, 19px)", lineHeight: 1.55, margin: "0 0 1.5rem", maxWidth: "40ch" }}>
-            The customizable platform for distraction-free creative process.
-          </p>
-          <a href="/resonance" style={{ ...NAV_STYLE, display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
-            ENTER RESONANCE →
+      {/* ── FEATURED ARCHITECTURES ── */}
+      <section className="framework-card-grid" aria-label="Featured architectures">
+        {FEATURE_CARDS.map((card) => (
+          <a key={card.title} href={card.href} className="framework-card">
+            <h2 className="framework-card-title" aria-label={card.title}>
+              {card.title.split(" ").map((word) => <span key={word}>{word} </span>)}
+            </h2>
+            <Image
+              src={card.image}
+              alt={card.alt}
+              width={1254}
+              height={1254}
+              sizes="(max-width: 1024px) 100vw, 33vw"
+              className="framework-card-image"
+            />
+            <p className="framework-card-copy">{card.description}</p>
           </a>
-        </div>
-      </div>
+        ))}
+      </section>
 
       {/* ── LEGAL BAR ── */}
       <LegalBar />
