@@ -17,12 +17,92 @@ type LocationState = {
   country: string;
 } | null;
 
+type ConditionsState = {
+  temperature: number;
+  weatherCode: number;
+  windSpeed: number;
+  windDirection: number;
+  sunset: string;
+} | null;
+
+type OpenMeteoResponse = {
+  current?: {
+    temperature_2m?: number;
+    weather_code?: number;
+    wind_speed_10m?: number;
+    wind_direction_10m?: number;
+  };
+  daily?: {
+    sunset?: string[];
+  };
+};
+
 const DEFAULT_LAT = 49.2827;
 const DEFAULT_LNG = -123.1207;
 
 function formatCoord(deg: number, pos: string, neg: string): string {
   const dir = deg >= 0 ? pos : neg;
   return `${Math.abs(deg).toFixed(4)}° ${dir}`;
+}
+
+function compassPoint(degrees: number): string {
+  const points = ["N", "NNE", "NE", "ENE", "E", "ESE", "SE", "SSE", "S", "SSW", "SW", "WSW", "W", "WNW", "NW", "NNW"];
+  return points[Math.round(degrees / 22.5) % points.length];
+}
+
+function weatherLabel(code: number): string {
+  if (code === 0) return "CLEAR";
+  if (code === 1) return "MAINLY CLEAR";
+  if (code === 2) return "PARTLY CLOUDY";
+  if (code === 3) return "OVERCAST";
+  if (code === 45 || code === 48) return "FOG";
+  if (code >= 51 && code <= 57) return "DRIZZLE";
+  if (code >= 61 && code <= 67) return "RAIN";
+  if (code >= 71 && code <= 77) return "SNOW";
+  if (code >= 80 && code <= 82) return "SHOWERS";
+  if (code === 85 || code === 86) return "SNOW SHOWERS";
+  if (code >= 95) return "THUNDERSTORM";
+  return "VARIABLE";
+}
+
+function formatLocalTime(isoLocalTime: string): string {
+  const time = isoLocalTime.split("T")[1];
+  if (!time) return "/";
+  const [hours, minutes] = time.split(":").map(Number);
+  if (!Number.isFinite(hours) || !Number.isFinite(minutes)) return "/";
+  return new Date(2000, 0, 1, hours, minutes).toLocaleTimeString("en-CA", {
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: true,
+  });
+}
+
+function orientationFrom(lat: number, lng: number) {
+  const toRadians = (value: number) => (value * Math.PI) / 180;
+  const studioLat = toRadians(DEFAULT_LAT);
+  const studioLng = toRadians(DEFAULT_LNG);
+  const visitorLat = toRadians(lat);
+  const visitorLng = toRadians(lng);
+  const deltaLat = studioLat - visitorLat;
+  const deltaLng = studioLng - visitorLng;
+
+  const haversine =
+    Math.sin(deltaLat / 2) ** 2 +
+    Math.cos(visitorLat) * Math.cos(studioLat) * Math.sin(deltaLng / 2) ** 2;
+  const distance = 6371 * 2 * Math.atan2(Math.sqrt(haversine), Math.sqrt(1 - haversine));
+
+  const y = Math.sin(deltaLng) * Math.cos(studioLat);
+  const x =
+    Math.cos(visitorLat) * Math.sin(studioLat) -
+    Math.sin(visitorLat) * Math.cos(studioLat) * Math.cos(deltaLng);
+  const bearing = (Math.atan2(y, x) * 180) / Math.PI;
+  const normalizedBearing = (bearing + 360) % 360;
+
+  return {
+    bearing: Math.round(normalizedBearing),
+    compass: compassPoint(normalizedBearing),
+    distance: Math.round(distance),
+  };
 }
 
 function useGeoAndTime() {
@@ -33,6 +113,7 @@ function useGeoAndTime() {
     ready: false,
   });
   const [location, setLocation] = useState<LocationState>(null);
+  const [conditions, setConditions] = useState<ConditionsState>(null);
   const [time, setTime] = useState("");
 
   useEffect(() => {
@@ -88,7 +169,50 @@ function useGeoAndTime() {
     return () => clearInterval(id);
   }, [geo.ready, geo.timezone]);
 
-  return { geo, time, location };
+  useEffect(() => {
+    if (!geo.ready) return;
+    const controller = new AbortController();
+    const params = new URLSearchParams({
+      latitude: String(geo.lat),
+      longitude: String(geo.lng),
+      current: "temperature_2m,weather_code,wind_speed_10m,wind_direction_10m",
+      daily: "sunset",
+      timezone: "auto",
+      forecast_days: "1",
+    });
+
+    fetch(`https://api.open-meteo.com/v1/forecast?${params}`, { signal: controller.signal })
+      .then((res) => {
+        if (!res.ok) throw new Error("Weather request failed");
+        return res.json() as Promise<OpenMeteoResponse>;
+      })
+      .then((data) => {
+        const current = data.current;
+        const sunset = data.daily?.sunset?.[0];
+        if (
+          typeof current?.temperature_2m === "number" &&
+          typeof current.weather_code === "number" &&
+          typeof current.wind_speed_10m === "number" &&
+          typeof current.wind_direction_10m === "number" &&
+          sunset
+        ) {
+          setConditions({
+            temperature: current.temperature_2m,
+            weatherCode: current.weather_code,
+            windSpeed: current.wind_speed_10m,
+            windDirection: current.wind_direction_10m,
+            sunset,
+          });
+        }
+      })
+      .catch((error: unknown) => {
+        if (!(error instanceof DOMException && error.name === "AbortError")) setConditions(null);
+      });
+
+    return () => controller.abort();
+  }, [geo.lat, geo.lng, geo.ready]);
+
+  return { geo, time, location, conditions };
 }
 
 /* ── FIT TEXT ── */
@@ -177,7 +301,9 @@ const META_VALUE: React.CSSProperties = {
 /* ── COMPONENT ── */
 
 export default function Home() {
-  const { geo, time, location } = useGeoAndTime();
+  const { geo, time, location, conditions } = useGeoAndTime();
+
+  const orientation = geo.ready ? orientationFrom(geo.lat, geo.lng) : null;
 
   const tzLabel = geo.ready
     ? new Intl.DateTimeFormat("en", { timeZoneName: "short", timeZone: geo.timezone })
@@ -238,11 +364,6 @@ export default function Home() {
         </div>
 
         <div>
-          <div style={META_LABEL}>BEARING</div>
-          <div style={META_VALUE}>312°</div>
-        </div>
-
-        <div>
           <div style={META_LABEL}>DESTINATION</div>
           <div style={META_VALUE}>CLEAR</div>
         </div>
@@ -252,17 +373,35 @@ export default function Home() {
           <div style={{ ...META_VALUE, lineHeight: 1.4 }}>
             {location ? <>{location.city.toUpperCase()},<br />{location.country.toUpperCase()}</> : "/"}
           </div>
-          <div style={{ fontWeight: 300, fontSize: "0.75rem", marginTop: "0.25rem" }}>/</div>
+          {geo.ready && (
+            <div style={{ fontFamily: BARLOW, fontWeight: 300, fontSize: "11px", lineHeight: 1.45, letterSpacing: "0.04em", marginTop: "0.35rem", textTransform: "uppercase", fontVariantNumeric: "tabular-nums" }}>
+              {formatCoord(geo.lat, "N", "S")}<br />{formatCoord(geo.lng, "E", "W")}
+            </div>
+          )}
         </div>
 
         <div>
-          <div style={META_LABEL}>COORDINATES</div>
-          <div style={{ ...META_VALUE, lineHeight: 1.4, fontVariantNumeric: "tabular-nums" }}>
-            {geo.ready ? (
-              <>{formatCoord(geo.lat, "N", "S")}<br />{formatCoord(geo.lng, "E", "W")}</>
-            ) : "/"}
+          <div style={META_LABEL}>CONDITIONS</div>
+          <div style={{ ...META_VALUE, lineHeight: 1.4 }}>
+            {conditions ? <>{Math.round(conditions.temperature)}°C<br />{weatherLabel(conditions.weatherCode)}</> : "/"}
           </div>
-          <div style={{ fontWeight: 300, fontSize: "0.75rem", marginTop: "0.25rem" }}>/</div>
+          {conditions && (
+            <div style={{ fontFamily: BARLOW, fontWeight: 300, fontSize: "11px", letterSpacing: "0.06em", marginTop: "0.35rem", textTransform: "uppercase" }}>
+              WIND {compassPoint(conditions.windDirection)} {Math.round(conditions.windSpeed)} KM/H
+            </div>
+          )}
+        </div>
+
+        <div>
+          <div style={META_LABEL}>BEARING</div>
+          <div style={{ ...META_VALUE, lineHeight: 1.4, fontVariantNumeric: "tabular-nums" }}>
+            {orientation ? <>{orientation.bearing}°<br />{orientation.compass}</> : "/"}
+          </div>
+          {orientation && (
+            <div style={{ fontFamily: BARLOW, fontWeight: 300, fontSize: "11px", letterSpacing: "0.04em", marginTop: "0.35rem", textTransform: "uppercase", fontVariantNumeric: "tabular-nums" }}>
+              {orientation.distance.toLocaleString("en-CA")} KM TO VANCOUVER
+            </div>
+          )}
         </div>
 
         <div>
@@ -271,8 +410,9 @@ export default function Home() {
             {time || "/"}
           </div>
           {geo.ready && (
-            <div style={{ fontFamily: BARLOW, fontWeight: 300, fontSize: "11px", letterSpacing: "0.08em", marginTop: "0.35rem", textTransform: "uppercase" }}>
+            <div style={{ fontFamily: BARLOW, fontWeight: 300, fontSize: "11px", lineHeight: 1.45, letterSpacing: "0.06em", marginTop: "0.35rem", textTransform: "uppercase" }}>
               {tzLabel}
+              {conditions && <><br />SUNSET {formatLocalTime(conditions.sunset)}</>}
             </div>
           )}
         </div>
@@ -371,7 +511,7 @@ export default function Home() {
       {/* ── RESONANCE FOOTER TEASER ── */}
       <div className="resonance-teaser-grid">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img className="resonance-teaser-img" src="/RESONANCE_QUARTZ_LENS.jpg" alt="" aria-hidden style={{ width: "100%", height: "100%", minHeight: "18rem", objectFit: "cover", objectPosition: "center center", display: "block" }} />
+        <img className="resonance-teaser-img" src="/resonance-architecture.png" alt="" aria-hidden style={{ width: "100%", height: "100%", minHeight: "18rem", objectFit: "cover", objectPosition: "center center", display: "block" }} />
         <div className="resonance-teaser-copy" style={{ padding: "2.5rem" }}>
           <div style={{ fontFamily: BARLOW, fontWeight: 500, fontSize: "11px", letterSpacing: "0.12em", textTransform: "uppercase", marginBottom: "0.75rem" }}>
             RESONANCE

@@ -1148,7 +1148,7 @@ body {
 .meridian-hero-image {
   position: relative;
   width: 100%;
-  aspect-ratio: 944 / 1024;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
 }
 
@@ -1285,8 +1285,6 @@ body {
   width: min(100%, 52rem);
   height: auto;
   mix-blend-mode: multiply;
-  -webkit-mask-image: radial-gradient(ellipse 68% 64% at 50% 47%, #000 50%, rgba(0, 0, 0, 0.82) 61%, transparent 94%);
-  mask-image: radial-gradient(ellipse 68% 64% at 50% 47%, #000 50%, rgba(0, 0, 0, 0.82) 61%, transparent 94%);
 }
 .ci-statement {
   padding: 5.5rem 1.5rem;

@@ -43,13 +43,13 @@ export const metadata: Metadata = {
     title,
     description: "Continuity is the condition of excellence.",
     type: "website",
-    images: [{ url: "/RESONANCE_QUARTZ_LENS.jpg", width: 1024, height: 1024, alt: title }],
+    images: [{ url: "/resonance-architecture.png", width: 1254, height: 1254, alt: title }],
   },
   twitter: {
     card: "summary_large_image",
     title,
     description: "Continuity is the condition of excellence.",
-    images: ["/RESONANCE_QUARTZ_LENS.jpg"],
+    images: ["/resonance-architecture.png"],
   },
 };
 
@@ -128,10 +128,10 @@ export default function ResonancePage() {
 
         <div className="resonance-hero-image">
           <Image
-            src="/RESONANCE_QUARTZ_LENS.jpg"
-            alt="A monumental slab of flawless optical quartz standing on a stone plinth in an alpine valley. The quartz introduces no distortion, so the landscape behind it is visible exactly as it is."
-            width={1024}
-            height={1024}
+            src="/resonance-architecture.png"
+            alt="An architectural process diagram showing observation, clarification, refinement, preservation, and continuation connected through persistent memory and revision paths."
+            width={1254}
+            height={1254}
             priority
             sizes="(max-width: 1024px) 100vw, 58vw"
             style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}

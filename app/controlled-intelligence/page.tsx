@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { Prata, Manrope, Inter, IBM_Plex_Mono } from "next/font/google";
 import { Nav, LegalBar, Heading, Label, PAPER, INK, RULE } from "sympathetic-ds";
-import controlledIntelligenceTree from "../../public/controlled-intelligence-tree.jpg";
+import controlledIntelligenceArchitecture from "../../public/controlled-intelligence-architecture.png";
 
 const prata = Prata({ variable: "--font-prata", subsets: ["latin"], weight: "400" });
 const manrope = Manrope({ variable: "--font-manrope", subsets: ["latin"], weight: ["500", "600"] });
@@ -154,8 +154,8 @@ export default function ControlledIntelligencePage() {
 
         <div className="ci-hero-visual">
           <Image
-            src={controlledIntelligenceTree}
-            alt="A mature tree rooted within a carefully tended, bounded garden."
+            src={controlledIntelligenceArchitecture}
+            alt="An architectural systems diagram showing governed access to a protected intelligence environment."
             className="ci-hero-image"
             sizes="(max-width: 1024px) 100vw, 58vw"
             priority

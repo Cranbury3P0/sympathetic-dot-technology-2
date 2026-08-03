@@ -42,9 +42,9 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/MERIDIAN_OBSERVATORY.png",
-        width: 944,
-        height: 1024,
+        url: "/meridian-architecture.png",
+        width: 1254,
+        height: 1254,
         alt: title,
       },
     ],
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description: "Architecture for Organizational Intelligence.",
-    images: ["/MERIDIAN_OBSERVATORY.png"],
+    images: ["/meridian-architecture.png"],
   },
 };
 
@@ -239,10 +239,10 @@ export default function MeridianPage() {
 
         <div className="meridian-hero-image">
           <Image
-            src="/MERIDIAN_OBSERVATORY.png"
-            alt="The Observatory: an illustrated structure for the Meridian Framework. Its Armillary — three glass rings for knowledge, judgment, and voice — circles a spiral stair, rooted on an island with its dock and roots visible, rising toward the North Star."
-            width={944}
-            height={1024}
+            src="/meridian-architecture.png"
+            alt="An architectural alignment diagram showing knowledge, expertise and judgment, and voice calibrated against a shared axis and converging into conversation."
+            width={1254}
+            height={1254}
             priority
             sizes="(max-width: 1024px) 100vw, 55vw"
             style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
