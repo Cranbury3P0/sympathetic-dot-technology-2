@@ -484,7 +484,7 @@ export default function Home() {
       <section style={{
         borderTop: RULE,
         borderBottom: RULE,
-        padding: "1rem 1.5rem 0.75rem",
+        padding: "0.875rem 1.5rem",
         backgroundColor: "#0A0A0A",
         color: "#F0EDE6",
       }}>
@@ -496,6 +496,7 @@ export default function Home() {
           letterSpacing: "-0.02em",
           textTransform: "uppercase",
           margin: 0,
+          transform: "translateY(-0.07em)",
         }}>
           Our Approach
         </h2>
@@ -542,12 +543,26 @@ export default function Home() {
         ))}
       </section>
 
-      {/* ── PROCESS TICKER ── */}
-      <section className="ticker-row" style={{ borderTop: RULE, borderBottom: RULE }}>
-        <div className="ticker-track">
-          <span className="ticker-item" style={{ fontFamily: CONDENSED }}>RESEARCH. CREATIVITY. STRATEGY. COLLABORATION. ITERATION. REPEAT.&nbsp;</span>
-          <span className="ticker-item" style={{ fontFamily: CONDENSED }} aria-hidden="true">RESEARCH. CREATIVITY. STRATEGY. COLLABORATION. ITERATION. REPEAT.&nbsp;</span>
-        </div>
+      {/* ── SIGNATURE PLATFORMS HEADING ── */}
+      <section style={{
+        borderTop: RULE,
+        borderBottom: RULE,
+        padding: "0.875rem 1.5rem",
+        backgroundColor: "#0A0A0A",
+        color: "#F0EDE6",
+      }}>
+        <h2 style={{
+          fontFamily: CONDENSED,
+          fontWeight: 900,
+          fontSize: "clamp(3rem, 7vw, 8.5rem)",
+          lineHeight: 0.9,
+          letterSpacing: "-0.02em",
+          textTransform: "uppercase",
+          margin: 0,
+          transform: "translateY(-0.07em)",
+        }}>
+          Our Signature Platforms
+        </h2>
       </section>
 
       {/* ── FEATURED ARCHITECTURES ── */}
@@ -568,6 +583,14 @@ export default function Home() {
             <p className="framework-card-copy">{card.description}</p>
           </a>
         ))}
+      </section>
+
+      {/* ── PROCESS TICKER ── */}
+      <section className="ticker-row" style={{ borderTop: RULE, borderBottom: RULE }}>
+        <div className="ticker-track">
+          <span className="ticker-item" style={{ fontFamily: CONDENSED }}>RESEARCH. CREATIVITY. STRATEGY. COLLABORATION. ITERATION. REPEAT.&nbsp;</span>
+          <span className="ticker-item" style={{ fontFamily: CONDENSED }} aria-hidden="true">RESEARCH. CREATIVITY. STRATEGY. COLLABORATION. ITERATION. REPEAT.&nbsp;</span>
+        </div>
       </section>
 
       {/* ── LEGAL BAR ── */}
