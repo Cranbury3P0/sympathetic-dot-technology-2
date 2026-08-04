@@ -71,6 +71,7 @@ body {
   font-size: clamp(2rem, 6vw, 5rem);
   line-height: 1;
   letter-spacing: -0.01em;
+  transform: translateY(-0.07em);
   text-transform: uppercase;
   white-space: nowrap;
 }
