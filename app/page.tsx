@@ -481,7 +481,13 @@ export default function Home() {
       </section>
 
       {/* ── APPROACH HEADING ── */}
-      <section style={{ borderTop: RULE, borderBottom: RULE, padding: "1rem 1.5rem 0.75rem" }}>
+      <section style={{
+        borderTop: RULE,
+        borderBottom: RULE,
+        padding: "1rem 1.5rem 0.75rem",
+        backgroundColor: "#0A0A0A",
+        color: "#F0EDE6",
+      }}>
         <h2 style={{
           fontFamily: CONDENSED,
           fontWeight: 900,
