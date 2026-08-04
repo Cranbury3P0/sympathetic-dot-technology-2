@@ -586,7 +586,12 @@ export default function Home() {
       </section>
 
       {/* ── PROCESS TICKER ── */}
-      <section className="ticker-row" style={{ borderTop: RULE, borderBottom: RULE }}>
+      <section className="ticker-row" style={{
+        borderTop: RULE,
+        borderBottom: RULE,
+        backgroundColor: "#0A0A0A",
+        color: "#F0EDE6",
+      }}>
         <div className="ticker-track">
           <span className="ticker-item" style={{ fontFamily: CONDENSED }}>RESEARCH. CREATIVITY. STRATEGY. COLLABORATION. ITERATION. REPEAT.&nbsp;</span>
           <span className="ticker-item" style={{ fontFamily: CONDENSED }} aria-hidden="true">RESEARCH. CREATIVITY. STRATEGY. COLLABORATION. ITERATION. REPEAT.&nbsp;</span>
