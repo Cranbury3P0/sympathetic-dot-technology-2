@@ -23,6 +23,7 @@ export const metadata: Metadata = {
   title: "Field Notes — Sympathetic Technology",
   description:
     "Observations on AI, governance, infrastructure, publishing, and cultural change.",
+  alternates: { canonical: "/field-notes" },
 };
 
 const ENTRIES = [

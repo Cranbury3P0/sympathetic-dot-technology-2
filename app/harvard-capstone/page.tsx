@@ -23,6 +23,7 @@ const description =
 export const metadata: Metadata = {
   title,
   description,
+  alternates: { canonical: "/harvard-capstone" },
   openGraph: {
     title,
     description,

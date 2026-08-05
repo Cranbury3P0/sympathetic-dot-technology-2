@@ -8,6 +8,7 @@ const description =
 export const metadata: Metadata = {
   title,
   description,
+  alternates: { canonical: "/field-notes/time-for-vancouver-to-come-clean-about-ai" },
   openGraph: {
     title,
     description,

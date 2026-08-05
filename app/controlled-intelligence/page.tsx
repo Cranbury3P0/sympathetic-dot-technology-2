@@ -24,6 +24,7 @@ const description =
 export const metadata: Metadata = {
   title,
   description,
+  alternates: { canonical: "/controlled-intelligence" },
   openGraph: { title, description, type: "website" },
   twitter: { card: "summary", title, description },
 };

@@ -7,6 +7,7 @@ const description = "The adoption is already over. It just didn't go through gov
 export const metadata: Metadata = {
   title,
   description,
+  alternates: { canonical: "/field-notes/the-ai-frontier-is-inside-your-office" },
   openGraph: {
     title,
     description,

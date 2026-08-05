@@ -20,6 +20,7 @@ export const metadata: Metadata = {
   title: "Sympathetic Technology",
   description:
     "Vancouver-based research, systems, and publishing practice working at the intersection of infrastructure, governance, and culture.",
+  alternates: { canonical: "/" },
   openGraph: {
     siteName: "Sympathetic Technology",
     locale: "en_CA",

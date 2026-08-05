@@ -27,6 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${product.name.replace("\n", " ")} — VERBATIM / Sympathetic Technology`,
     description: product.deck,
+    alternates: { canonical: `/verbatim/${slug}` },
   };
 }
 

@@ -39,6 +39,7 @@ const description =
 export const metadata: Metadata = {
   title,
   description,
+  alternates: { canonical: "/resonance" },
   openGraph: {
     title,
     description: "Continuity is the condition of excellence.",

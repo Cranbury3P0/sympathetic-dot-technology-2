@@ -567,10 +567,12 @@ export default function Home() {
             />
             <p style={{
               fontFamily: BARLOW,
-              fontWeight: 300,
-              fontSize: "clamp(17px, 2.1vw, 27px)",
-              lineHeight: 1.4,
+              fontWeight: 400,
+              fontSize: "15px",
+              letterSpacing: "0.04em",
+              lineHeight: 1.55,
               margin: 0,
+              textTransform: "none",
               whiteSpace: "pre-line",
             }}>
               {col.body}

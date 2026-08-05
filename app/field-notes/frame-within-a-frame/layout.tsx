@@ -8,6 +8,7 @@ const description =
 export const metadata: Metadata = {
   title,
   description,
+  alternates: { canonical: "/field-notes/frame-within-a-frame" },
   openGraph: {
     title,
     description,
