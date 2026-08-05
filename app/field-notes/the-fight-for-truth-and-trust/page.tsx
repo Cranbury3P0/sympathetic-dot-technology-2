@@ -119,14 +119,14 @@ const article = {
           "\"Journalism is the antidote to tyranny,\" she told the BBC after her acquittal",
         ],
       },
-      "Not to be lost in the wave of sordid details about Ressa and her case is that Mr Duterte stepped down in June 2022 and faces an investigation by the International Criminal Court in The Hague for \"crimes against humanity\" over thousands of deaths linked to his anti-narcotics campaign.",
+      "The irony is that Duterte is the one facing consequences now. He stepped down in June 2022 and is under investigation at The Hague for crimes against humanity, over the deaths tied to his drug war.",
       {
         quote: [
           "\"This is a victory not just for Rappler but for everyone who has kept the faith that a free and responsible press empowers communities and strengthens democracy,\" Rappler said in a statement on Ms Ressa's acquittal last Monday.",
         ],
         source: "Rappler",
       },
-      "She's since pointed out some operational similarities at Washington.",
+      "She's since pointed out some operational similarities in Washington.",
       "Her firm's report on the first hundred days of Trump's second term used a harrowing phrase, narrative warfare, and in the interviews that followed, Ressa said what she's watching now is more insidious than anything Duterte managed against her directly.",
       "They are the same tactics being deployed and amplified by individuals and organizations at a scale that Duterte could only have imagined.",
       "It's forgivable to feel helpless reading any of that, up against AI, corporate monopoly, and political alliances that simply do not have the public good in mind.",
