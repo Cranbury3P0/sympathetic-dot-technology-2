@@ -347,7 +347,7 @@ export default function Home() {
 
       {/* ── PRE-HERO METADATA ── */}
       <div className="pre-hero" style={{ padding: "1.5rem 1.5rem 0" }}>
-        <div style={{ fontFamily: BARLOW, fontWeight: 500, fontSize: "15px", letterSpacing: "0.04em", textTransform: "uppercase", lineHeight: 1.55 }}>
+        <div style={{ fontFamily: BARLOW, fontWeight: 400, fontSize: "15px", letterSpacing: "0.04em", textTransform: "uppercase", lineHeight: 1.55 }}>
           Sean Cranbury, Principal
           <br />
           Vancouver, Canada
