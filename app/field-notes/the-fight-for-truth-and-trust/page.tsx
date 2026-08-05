@@ -92,7 +92,10 @@ const article = {
           /
         </p>
       ) as ReactNode,
+      "AI is a pernicious multi-valent threat wrapped in a cozy soft enclosure of utility and convenience. It is owned and controlled by a highly localized group of companies that operate without regulation or accountability.",
+      "It has 'breeched containment, like those dinosaurs in Jurassic Park, and is roaming across the internet devouring seemingly everything in its path.",
       "Evidence is abundant and it's everywhere we look. We see it with our own eyes in our social feeds every single day. We see it in the news, we talk about it with our friends and family.",
+      "Some of us even argue about it with strangers in the endless comment threads of the internet.",
       "Anyone can be forgiven for thinking that we all suffer from information overload, that certain politicians and corporations 'flood the zone' with so much data and news, so much of it in conflict with what exists around it, that you're left with a sense of helplessness to even begin to make sense of it all.",
       "The sheer overwhelming quantity of information is only part of the problem. The increasing danger comes from information that can't be trusted at the point of use. The type of information that is potentially manufactured and shared with confidence by proprietary tools designed to deceive.",
     ],
