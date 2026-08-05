@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Barlow_Condensed, Barlow } from "next/font/google";
+import { OrganizationJsonLd } from "@/components/JsonLd";
 import "./globals.css";
 
 const barlowCondensed = Barlow_Condensed({
@@ -39,7 +40,10 @@ export default function RootLayout({
       lang="en"
       className={`${barlowCondensed.variable} ${barlow.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        <OrganizationJsonLd />
+        {children}
+      </body>
     </html>
   );
 }

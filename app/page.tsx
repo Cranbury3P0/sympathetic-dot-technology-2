@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { Nav, LegalBar } from "sympathetic-ds";
+import { BRAND_AVATARS, SOCIAL_LINKS } from "@/lib/brand";
 
 /* ── GEOLOCATION + CLOCK ── */
 
@@ -253,17 +254,16 @@ function FitText({ text, style }: { text: string; style: React.CSSProperties }) 
 
 /* ── DATA ── */
 
-const NAV_ITEMS = ["SYSTEMS", "FIELD NOTES", "WORK", "VERBATIM", "ABOUT", "CONTACT"];
+const NAV_ITEMS = ["FIELD NOTES", "WORK", "VERBATIM", "ABOUT", "CONTACT"];
 
 const SECTIONS = [
-  { label: "A", title: "WORK", descriptor: "Selected projects in research, strategy, infrastructure, and design." },
-  { label: "B", title: "FIELD NOTES", descriptor: "Essays and observations on technology, governance, publishing, and cultural change." },
-  { label: "C", title: "CONTROLLED INTELLIGENCE", descriptor: "Governed AI infrastructure under organizational control." },
-  { label: "D", title: "MERIDIAN FRAMEWORK", descriptor: "Architecture for Organizational Intelligence" },
-  { label: "E", title: "RESONANCE ENGINE", descriptor: "Process architecture for continuity in creative work." },
-  { label: "F", title: "HARVARD CAPSTONE", descriptor: "Capstone project from Harvard Medical School's Executive Education program." },
-  { label: "G", title: "VERBATIM LEARNING", descriptor: "Speaking and workshops on AI, organizations, and creative work." },
-  { label: "H", title: "ABOUT", descriptor: "Background, philosophy, and the studio behind the work." },
+  { label: "A", title: "WORK", href: "#", descriptor: "Selected projects in research, strategy, infrastructure, and design." },
+  { label: "B", title: "FIELD NOTES", href: "/field-notes", descriptor: "Essays and observations on technology, governance, publishing, and cultural change." },
+  { label: "C", title: "OUR APPROACH", href: "#our-approach", descriptor: "How we orient organizations before adaptation, and build shared language for the work ahead." },
+  { label: "D", title: "SIGNATURE PLATFORMS", href: "#signature-platforms", descriptor: "Controlled Intelligence, Meridian Framework, and Resonance Engine. Systems you can enter below." },
+  { label: "E", title: "HARVARD CAPSTONE", href: "/harvard-capstone", descriptor: "Capstone project from Harvard Medical School's Executive Education program." },
+  { label: "F", title: "VERBATIM LEARNING", href: "/verbatim", descriptor: "Speaking and workshops on AI, organizations, and creative work." },
+  { label: "G", title: "ABOUT", href: "#", descriptor: "Background, philosophy, and the studio behind the work." },
 ];
 
 const FEATURE_CARDS = [
@@ -355,9 +355,47 @@ export default function Home() {
           ORGANIZATIONAL DEVELOPMENT / KNOWLEDGE ARCHITECTURE / COMMUNICATIONS / BOOKS & PUBLISHING
           <br />
           EST. 2009
-          <br />
-          <span style={{ display: "block", marginTop: "0.4rem" }}>/</span>
         </div>
+        <a
+          href={SOCIAL_LINKS.instagram}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Sympathetic Technology on Instagram"
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "0.65rem",
+            marginTop: "0.85rem",
+            textDecoration: "none",
+            color: "inherit",
+          }}
+        >
+          <span
+            aria-hidden
+            style={{
+              display: "block",
+              width: 36,
+              height: 36,
+              borderRadius: "50%",
+              overflow: "hidden",
+              flexShrink: 0,
+            }}
+          >
+            <Image
+              src={BRAND_AVATARS.whiteOnBlack}
+              alt=""
+              width={36}
+              height={36}
+              style={{ display: "block", width: "100%", height: "100%", objectFit: "cover" }}
+            />
+          </span>
+          <span style={{ fontFamily: BARLOW, fontWeight: 400, fontSize: "13px", letterSpacing: "0.06em", textTransform: "uppercase", lineHeight: 1.35 }}>
+            Instagram
+            <br />
+            @sympathetictechnology
+          </span>
+        </a>
+        <span style={{ display: "block", marginTop: "0.85rem", fontFamily: BARLOW, fontWeight: 400, fontSize: "15px", letterSpacing: "0.04em", lineHeight: 1.55 }}>/</span>
       </div>
 
       {/* ── HERO ── */}
@@ -454,14 +492,7 @@ export default function Home() {
         <div style={{ position: "absolute", inset: 0, backgroundColor: "#FFFFFF", opacity: 0.4, mixBlendMode: "screen", zIndex: 1 }} />
         <div style={{ position: "relative", zIndex: 2 }}>
           {SECTIONS.map((sec) => (
-            <a key={sec.label} className="section-row" href={
-              sec.title === "FIELD NOTES" ? "/field-notes" :
-              sec.title === "CONTROLLED INTELLIGENCE" ? "/controlled-intelligence" :
-              sec.title === "MERIDIAN FRAMEWORK" ? "/meridian" :
-              sec.title === "RESONANCE ENGINE" ? "/resonance" :
-              sec.title === "HARVARD CAPSTONE" ? "/harvard-capstone" :
-              sec.title === "VERBATIM LEARNING" ? "/verbatim" : "#"
-            } style={{ textDecoration: "none", color: "inherit", display: "grid" }}>
+            <a key={sec.label} className="section-row" href={sec.href} style={{ textDecoration: "none", color: "inherit", display: "grid" }}>
               <div>
                 <div style={{ fontFamily: BARLOW, fontWeight: 300, fontSize: "0.75rem", letterSpacing: "0.06em", paddingTop: "0.75rem" }}>
                   ({sec.label})
@@ -482,13 +513,17 @@ export default function Home() {
       </section>
 
       {/* ── APPROACH HEADING ── */}
-      <section style={{
-        borderTop: RULE,
-        borderBottom: RULE,
-        padding: "0.875rem 1.5rem",
-        backgroundColor: "#0A0A0A",
-        color: "#F0EDE6",
-      }}>
+      <section
+        id="our-approach"
+        style={{
+          borderTop: RULE,
+          borderBottom: RULE,
+          padding: "0.875rem 1.5rem",
+          backgroundColor: "#0A0A0A",
+          color: "#F0EDE6",
+          scrollMarginTop: "1.5rem",
+        }}
+      >
         <h2 style={{
           fontFamily: CONDENSED,
           fontWeight: 900,
@@ -546,13 +581,17 @@ export default function Home() {
       </section>
 
       {/* ── SIGNATURE PLATFORMS HEADING ── */}
-      <section style={{
-        borderTop: RULE,
-        borderBottom: RULE,
-        padding: "0.875rem 1.5rem",
-        backgroundColor: "#0A0A0A",
-        color: "#F0EDE6",
-      }}>
+      <section
+        id="signature-platforms"
+        style={{
+          borderTop: RULE,
+          borderBottom: RULE,
+          padding: "0.875rem 1.5rem",
+          backgroundColor: "#0A0A0A",
+          color: "#F0EDE6",
+          scrollMarginTop: "1.5rem",
+        }}
+      >
         <h2 style={{
           fontFamily: CONDENSED,
           fontWeight: 900,

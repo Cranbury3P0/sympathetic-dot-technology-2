@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ArticleJsonLd } from "@/components/JsonLd";
 
 const title = "Time for Vancouver to Come Clean About AI";
 const description =
@@ -33,5 +34,16 @@ export const metadata: Metadata = {
 export default function ComeCleanLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  return children;
+  return (
+    <>
+      <ArticleJsonLd
+        title={title}
+        description={description}
+        slug="time-for-vancouver-to-come-clean-about-ai"
+        datePublished="2026-05-24"
+        image="/Come-Clean-vancouver-ai-data-centers-cover.png"
+      />
+      {children}
+    </>
+  );
 }

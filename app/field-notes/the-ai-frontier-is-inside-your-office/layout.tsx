@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ArticleJsonLd } from "@/components/JsonLd";
 
 const title = "The AI Frontier Is Inside Your Office";
 const description = "The adoption is already over. It just didn't go through governance.";
@@ -32,5 +33,16 @@ export const metadata: Metadata = {
 export default function AIFrontierLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  return children;
+  return (
+    <>
+      <ArticleJsonLd
+        title={title}
+        description={description}
+        slug="the-ai-frontier-is-inside-your-office"
+        datePublished="2026-05-05"
+        image="/omer-haktan-bulut-xXUDcznITWA-unsplash.jpg"
+      />
+      {children}
+    </>
+  );
 }

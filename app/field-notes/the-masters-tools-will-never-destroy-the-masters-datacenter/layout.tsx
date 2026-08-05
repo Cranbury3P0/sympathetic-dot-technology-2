@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ArticleJsonLd } from "@/components/JsonLd";
 
 const title = "The Master's Tools Will Never Dismantle the Master's Datacenter";
 const description =
@@ -33,5 +34,16 @@ export const metadata: Metadata = {
 export default function MastersDatacenterLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  return children;
+  return (
+    <>
+      <ArticleJsonLd
+        title={title}
+        description={description}
+        slug="the-masters-tools-will-never-destroy-the-masters-datacenter"
+        datePublished="2026-07-13"
+        image="/meta-alberta-datacenter-render.png"
+      />
+      {children}
+    </>
+  );
 }

@@ -36,7 +36,7 @@ const PAPER = "#f2ecdc";
 const INK = "#2b261c";
 const INK_SOFT = "#3a3327";
 
-const NAV_ITEMS = ["SYSTEMS", "FIELD NOTES", "WORK", "VERBATIM", "ABOUT", "CONTACT"];
+const NAV_ITEMS = ["FIELD NOTES", "WORK", "VERBATIM", "ABOUT", "CONTACT"];
 
 const NAV_STYLE: React.CSSProperties = {
   fontFamily: BARLOW,

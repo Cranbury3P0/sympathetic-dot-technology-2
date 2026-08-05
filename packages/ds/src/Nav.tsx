@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { RULE, SANS, INK, PAPER } from "./tokens";
 
 export const DEFAULT_NAV_ITEMS = [
-  "SYSTEMS",
   "FIELD NOTES",
   "WORK",
   "MERIDIAN",
@@ -15,8 +14,6 @@ export const DEFAULT_NAV_ITEMS = [
 /** Canonical route mapping used across the site's nav instances. */
 export function defaultHrefFor(item: string): string {
   switch (item) {
-    case "SYSTEMS":
-      return "/systems";
     case "FIELD NOTES":
       return "/field-notes";
     case "MERIDIAN":

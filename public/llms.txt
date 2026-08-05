@@ -1,0 +1,32 @@
+# Sympathetic Technology
+
+> Sympathetic Technology is a Vancouver-based research, systems, and publishing practice working at the intersection of infrastructure, governance, and culture. Led by Sean Cranbury, it helps nonprofits, healthcare associations, and arts organizations adopt AI without surrendering institutional control — through organizational development, governed AI infrastructure, and long-form writing on AI, governance, and cultural change.
+
+Sympathetic Technology is not affiliated with sympathetictechnology.com (a prior domain now redirecting here) or with any other organization using a similar name.
+
+## Practice
+
+- [Controlled Intelligence](https://sympathetic.technology/controlled-intelligence): A governance-first framework for deploying AI without surrendering institutional control.
+- [Meridian](https://sympathetic.technology/meridian): The Meridian Framework — architecture for organizational intelligence.
+- [Resonance](https://sympathetic.technology/resonance): Framework for resonance and organizational alignment.
+
+## Field Notes
+
+Essays on AI, governance, infrastructure, publishing, and cultural change. Full archive at [/field-notes](https://sympathetic.technology/field-notes).
+
+- [The Fight for Truth and Trust](https://sympathetic.technology/field-notes/the-fight-for-truth-and-trust) (2026-08-05)
+- [The Master's Tools Will Never Dismantle the Master's Datacenter](https://sympathetic.technology/field-notes/the-masters-tools-will-never-destroy-the-masters-datacenter) (2026-07-13)
+- [Canada's AI Strategy 01: Frame After Frame](https://sympathetic.technology/field-notes/frame-within-a-frame) (2026-06-04)
+- [The Pope Has Entered the Chat](https://sympathetic.technology/field-notes/the-pope-has-entered-the-chat) (2026-05-26)
+- [A New Cultural Embassy](https://sympathetic.technology/field-notes/a-new-cultural-embassy) (2026-05-25)
+- [Time for Vancouver to Come Clean About AI](https://sympathetic.technology/field-notes/time-for-vancouver-to-come-clean-about-ai) (2026-05-24)
+- [Introducing Controlled Intelligence](https://sympathetic.technology/field-notes/introducing-controlled-intelligence) (2026-05-10)
+- [The AI Frontier Is Inside Your Office](https://sympathetic.technology/field-notes/the-ai-frontier-is-inside-your-office) (2026-05-05)
+
+## Verbatim
+
+[Verbatim](https://sympathetic.technology/verbatim) is a fictional product catalogue of typewriters used as a creative and analytical device, including [Amanuensis](https://sympathetic.technology/verbatim/amanuensis).
+
+## Optional
+
+- [Harvard Capstone](https://sympathetic.technology/harvard-capstone): Transforming Advocacy and Access — case study.

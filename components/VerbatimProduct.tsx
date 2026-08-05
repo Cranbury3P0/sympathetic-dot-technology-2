@@ -27,7 +27,6 @@ const CONDENSED = "var(--font-barlow-condensed), sans-serif";
 const SANS      = "var(--font-barlow), sans-serif";
 
 const NAV_ITEMS = [
-  { label: "SYSTEMS",      href: "/systems" },
   { label: "FIELD NOTES",  href: "/field-notes" },
   { label: "WORK",         href: "#" },
   { label: "VERBATIM LEARNING", href: "/verbatim" },

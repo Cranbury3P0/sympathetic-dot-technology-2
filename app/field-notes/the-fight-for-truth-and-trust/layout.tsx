@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ArticleJsonLd } from "@/components/JsonLd";
 
 const title = "The Fight for Truth and Trust";
 const description =
@@ -33,5 +34,16 @@ export const metadata: Metadata = {
 export default function FightForTruthAndTrustLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  return children;
+  return (
+    <>
+      <ArticleJsonLd
+        title={title}
+        description={description}
+        slug="the-fight-for-truth-and-trust"
+        datePublished="2026-08-05"
+        image="/the-fight-for-truth-and-trust-og.png"
+      />
+      {children}
+    </>
+  );
 }

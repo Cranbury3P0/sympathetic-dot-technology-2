@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ArticleJsonLd } from "@/components/JsonLd";
 
 const title = "The Pope Has Entered the Chat";
 const description =
@@ -33,5 +34,16 @@ export const metadata: Metadata = {
 export default function PopeHasEnteredTheChatLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  return children;
+  return (
+    <>
+      <ArticleJsonLd
+        title={title}
+        description={description}
+        slug="the-pope-has-entered-the-chat"
+        datePublished="2026-05-26"
+        image="/260407-pope-leo-es.webp"
+      />
+      {children}
+    </>
+  );
 }

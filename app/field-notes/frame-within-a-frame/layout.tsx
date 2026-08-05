@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ArticleJsonLd } from "@/components/JsonLd";
 
 const title = "Canada's AI Strategy 01 Frame after Frame";
 const description =
@@ -33,5 +34,16 @@ export const metadata: Metadata = {
 export default function FrameWithinAFrameLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  return children;
+  return (
+    <>
+      <ArticleJsonLd
+        title={title}
+        description={description}
+        slug="frame-within-a-frame"
+        datePublished="2026-06-04"
+        image="/frame-within-a-frame-cover.png"
+      />
+      {children}
+    </>
+  );
 }

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ArticleJsonLd } from "@/components/JsonLd";
 
 const title = "Introducing Controlled Intelligence";
 const description =
@@ -33,5 +34,16 @@ export const metadata: Metadata = {
 export default function ControlledIntelligenceLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  return children;
+  return (
+    <>
+      <ArticleJsonLd
+        title={title}
+        description={description}
+        slug="introducing-controlled-intelligence"
+        datePublished="2026-05-10"
+        image="/VH.png"
+      />
+      {children}
+    </>
+  );
 }

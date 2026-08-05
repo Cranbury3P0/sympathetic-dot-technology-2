@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ArticleJsonLd } from "@/components/JsonLd";
 
 const title = "A New Cultural Embassy: Rethinking Vancouver's Proposed AI Data Centres";
 const description =
@@ -33,5 +34,16 @@ export const metadata: Metadata = {
 export default function CulturalEmbassyLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
-  return children;
+  return (
+    <>
+      <ArticleJsonLd
+        title={title}
+        description={description}
+        slug="a-new-cultural-embassy"
+        datePublished="2026-05-25"
+        image="/cultural-embassy-vancouver-ai-cover.png"
+      />
+      {children}
+    </>
+  );
 }
