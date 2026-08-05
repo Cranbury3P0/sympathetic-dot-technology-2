@@ -376,6 +376,7 @@ export default function Home() {
           <p>
             An integrated West Coast studio for technology, organizational development, and project strategy. We help nonprofit organizations, businesses, and individuals understand where they are, clarify where they want to be, and chart a confident course toward a sustainable and prosperous future.
           </p>
+          <span style={{ display: "block", marginTop: "0.4rem", fontFamily: BARLOW, fontWeight: 400, fontSize: "15px", letterSpacing: "0.04em", lineHeight: 1.55 }}>/</span>
         </div>
       </section>
 
@@ -539,6 +540,7 @@ export default function Home() {
             }}>
               {col.body}
             </p>
+            <span style={{ display: "block", marginTop: "0.4rem", fontFamily: BARLOW, fontWeight: 400, fontSize: "15px", letterSpacing: "0.04em", lineHeight: 1.55 }}>/</span>
           </div>
         ))}
       </section>
