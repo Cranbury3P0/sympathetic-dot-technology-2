@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Prata } from "next/font/google";
 import { Nav, PrevNext } from "sympathetic-ds";
+import { InstagramEmbed } from "./instagram-embed";
 import styles from "./editorial-article.module.css";
 
 const prata = Prata({
@@ -19,6 +20,9 @@ type SupportingImage = {
   alt?: string;
   caption?: string;
   wide?: boolean;
+  /** Fill the frame edge-to-edge (material plate); default is contain with letterboxing. */
+  cover?: boolean;
+  objectPosition?: string;
 };
 type QuoteBlock = { quote: ReactNode[]; source?: string };
 type BodyItem = ReactNode | QuoteBlock;
@@ -36,9 +40,13 @@ export type EditorialArticleData = {
   featuredImagePosition?: string;
   featuredImageCredit?: string;
   deck: string;
+  /** Longer opening deck copy; uses readable lead size instead of display headline scale. */
+  deckAsLead?: boolean;
   definition?: string;
   epigraph?: { text: string; source: string };
-  body: BodyItem[];
+  body?: BodyItem[];
+  /** When set, overrides automatic three-way split of `body`. */
+  bodyChapters?: BodyItem[][];
   pullQuote?: string;
   pullQuoteSource?: string;
   supportingImages?: SupportingImage[];
@@ -47,6 +55,8 @@ export type EditorialArticleData = {
   relatedObservations?: RelatedObservation[];
   previousObservation?: { title: string; href: string };
   nextObservation?: { title: string; href: string };
+  /** Instagram reel or post URL to embed before prev/next navigation. */
+  instagramEmbed?: string;
 };
 
 const ACCENTS: Record<
@@ -100,16 +110,23 @@ function CompleteImage({
   image: SupportingImage;
   priority?: boolean;
 }) {
+  const frameClass = image.cover
+    ? `${styles.completeImage} ${styles.completeImageCover}`
+    : styles.completeImage;
+
   return (
     <figure className={styles.figure}>
-      <div className={styles.completeImage}>
+      <div className={frameClass}>
         <Image
           src={image.src}
           alt={image.alt ?? ""}
           fill
           priority={priority}
           sizes="(max-width: 760px) 92vw, 46vw"
-          style={{ objectFit: "contain" }}
+          style={{
+            objectFit: image.cover ? "cover" : "contain",
+            objectPosition: image.objectPosition ?? "center",
+          }}
         />
       </div>
       {image.caption && <figcaption>{image.caption}</figcaption>}
@@ -126,12 +143,15 @@ export function EditorialArticle({
 }) {
   const palette = ACCENTS[accent];
   const supporting = article.supportingImages ?? [];
-  const chunkSize = Math.max(1, Math.ceil(article.body.length / 3));
-  const chapters = [
-    article.body.slice(0, chunkSize),
-    article.body.slice(chunkSize, chunkSize * 2),
-    article.body.slice(chunkSize * 2),
-  ].filter((chapter) => chapter.length > 0);
+  const chapters = article.bodyChapters ?? (() => {
+    const body = article.body ?? [];
+    const chunkSize = Math.max(1, Math.ceil(body.length / 3));
+    return [
+      body.slice(0, chunkSize),
+      body.slice(chunkSize, chunkSize * 2),
+      body.slice(chunkSize * 2),
+    ].filter((chapter) => chapter.length > 0);
+  })();
   const plateImage = supporting[0] ?? {
     src: article.featuredImage,
     alt: article.title,
@@ -187,7 +207,13 @@ export function EditorialArticle({
         </div>
       </header>
 
-      <section className={styles.thesis}>
+      <section
+        className={
+          article.deckAsLead
+            ? `${styles.thesis} ${styles.thesisLead}`
+            : styles.thesis
+        }
+      >
         <span>
           Field note {article.observationNumber} / {palette.name}
         </span>
@@ -281,7 +307,13 @@ export function EditorialArticle({
       )}
 
       {article.pullQuote && (
-        <section className={styles.closingQuote}>
+        <section
+          className={
+            article.deckAsLead
+              ? `${styles.closingQuote} ${styles.closingQuoteLead}`
+              : styles.closingQuote
+          }
+        >
           <span>Editorial note / {palette.name}</span>
           <blockquote>“{article.pullQuote}”</blockquote>
           {article.pullQuoteSource && (
@@ -310,6 +342,10 @@ export function EditorialArticle({
             ))}
           </div>
         </section>
+      )}
+
+      {article.instagramEmbed && (
+        <InstagramEmbed permalink={article.instagramEmbed} />
       )}
 
       <PrevNext

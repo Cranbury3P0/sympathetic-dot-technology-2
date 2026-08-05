@@ -139,6 +139,10 @@ const article: ArticleData = {
     { id: "039", title: "Time for Vancouver to Come Clean About AI", href: "/field-notes/time-for-vancouver-to-come-clean-about-ai" },
   ],
   previousObservation: { title: "Canada's AI Strategy 01 Frame after Frame", href: "/field-notes/frame-within-a-frame" },
+  nextObservation: {
+    title: "The Fight for Truth and Trust",
+    href: "/field-notes/the-fight-for-truth-and-trust",
+  },
 };
 
 /* ── ARTICLE RENDERING ── */

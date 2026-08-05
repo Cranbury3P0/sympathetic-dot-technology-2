@@ -1,0 +1,37 @@
+import type { Metadata } from "next";
+
+const title = "The Fight for Truth and Trust";
+const description =
+  "The first of three essays on the Independent International Scientific Panel on Artificial Intelligence, and why verified fact is the ground everything else stands on.";
+
+export const metadata: Metadata = {
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    type: "article",
+    publishedTime: "2026-08-05",
+    authors: ["Sean Cranbury"],
+    images: [
+      {
+        url: "/the-fight-for-truth-and-trust-og.png",
+        width: 1024,
+        height: 507,
+        alt: "The Fight for Truth and Trust — Field Note 045",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/the-fight-for-truth-and-trust-og.png"],
+  },
+};
+
+export default function FightForTruthAndTrustLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
+  return children;
+}

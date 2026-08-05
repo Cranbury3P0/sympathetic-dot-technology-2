@@ -27,6 +27,19 @@ export const metadata: Metadata = {
 
 const ENTRIES = [
   {
+    id: "045",
+    title: "The Fight for Truth and Trust",
+    shortTitle: "Truth and Trust",
+    excerpt:
+      "The first of three essays on the UN scientific panel co-chaired by Yoshua Bengio and Maria Ressa, and information nobody can verify at the point of use.",
+    category: "Truth & Trust",
+    date: "05 August 2026",
+    image: "/jason-mitrione-remington-noiseless-typewriter.jpg",
+    imagePosition: "center 40%",
+    href: "/field-notes/the-fight-for-truth-and-trust",
+    accent: "haida",
+  },
+  {
     id: "044",
     title: "The Master’s Tools Will Never Dismantle the Master’s Datacenter",
     shortTitle: "The Master’s Datacenter",
@@ -144,7 +157,7 @@ export default function FieldNotesPage() {
         >
           <Image
             src={latest.image}
-            alt="Rendering of Meta’s proposed Alberta data centre"
+            alt="Remington Noiseless typewriter"
             fill
             priority
             sizes="(max-width: 760px) 100vw, 48vw"
@@ -193,9 +206,9 @@ export default function FieldNotesPage() {
               Observation {latest.id} / {latest.category}
             </span>
             <h1 id="latest-heading">
-              The Master’s
+              The Fight for
               <br />
-              Datacenter
+              Truth and Trust
             </h1>
             <p>{latest.excerpt}</p>
             <Link href={latest.href} className={styles.readLink}>
@@ -212,8 +225,8 @@ export default function FieldNotesPage() {
               style={{ objectFit: "cover", objectPosition: latest.imagePosition }}
             />
             <span>
-              “A communications environment that has learned to reproduce
-              itself.”
+              “Information nobody can any longer verify, deployed by tools built
+              specifically to make sure they can&apos;t.”
             </span>
           </div>
         </article>

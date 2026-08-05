@@ -137,6 +137,18 @@
   letter-spacing: -0.05em;
 }
 
+.thesisLead {
+  min-height: auto;
+  padding: 56px 6vw 72px;
+}
+
+.thesisLead > p {
+  max-width: 54ch;
+  font-size: clamp(1.55rem, 2.15vw, 2.15rem);
+  line-height: 1.42;
+  letter-spacing: -0.015em;
+}
+
 .definition {
   display: grid;
   grid-template-columns: 220px minmax(0, 760px);
@@ -215,6 +227,11 @@
 .copy a {
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
+}
+
+.copy strong,
+.richBody strong {
+  font-weight: 700;
 }
 
 .copy ul {
@@ -305,6 +322,15 @@
   box-shadow: 0 28px 55px rgba(0, 0, 0, 0.32);
 }
 
+.completeImageCover {
+  background: var(--charcoal);
+  box-shadow: none;
+}
+
+.completeImageCover img {
+  filter: saturate(0.92) contrast(1.04);
+}
+
 .figure figcaption {
   margin-top: 14px;
   font-size: 9px;
@@ -381,6 +407,35 @@
   margin-left: auto;
 }
 
+.closingQuoteLead {
+  min-height: auto;
+  padding: 56px 6vw 72px;
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 60px;
+  align-items: end;
+}
+
+.closingQuoteLead > span {
+  align-self: start;
+}
+
+.closingQuoteLead blockquote {
+  max-width: 54ch;
+  margin: 0;
+  font-size: clamp(1.55rem, 2.15vw, 2.15rem);
+  line-height: 1.42;
+  letter-spacing: -0.015em;
+}
+
+.closingQuoteLead footer {
+  grid-column: 2;
+  max-width: none;
+  margin: 20px 0 0;
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  letter-spacing: 0.1em;
+}
+
 .sources {
   display: grid;
   grid-template-columns: 220px minmax(0, 1fr);
@@ -402,6 +457,31 @@
   margin: 0 0 12px;
   font-size: 0.82rem;
   line-height: 1.5;
+}
+
+.embedSection {
+  padding: 72px 38px 88px;
+  border-top: 1px solid var(--ink);
+  background: var(--paper);
+}
+
+.embedSection > span {
+  display: block;
+  max-width: 540px;
+  margin: 0 auto 28px;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.instagramEmbed {
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.instagramEmbed :global(.instagram-media) {
+  margin: 0 auto !important;
 }
 
 @media (max-width: 900px) {
@@ -460,6 +540,13 @@
   .thesis > p {
     margin-top: 120px;
     font-size: clamp(3.4rem, 15vw, 5.2rem);
+  }
+
+  .thesisLead > p {
+    margin-top: 48px;
+    max-width: none;
+    font-size: clamp(1.35rem, 5.2vw, 1.75rem);
+    line-height: 1.45;
   }
 
   .definition {
@@ -547,6 +634,23 @@
   .closingQuote blockquote {
     margin-top: 120px;
     font-size: clamp(3.2rem, 14vw, 4.8rem);
+  }
+
+  .closingQuoteLead {
+    display: block;
+    padding: 45px 16px 55px;
+  }
+
+  .closingQuoteLead blockquote {
+    margin-top: 48px;
+    max-width: none;
+    font-size: clamp(1.35rem, 5.2vw, 1.75rem);
+    line-height: 1.45;
+  }
+
+  .closingQuoteLead footer {
+    margin-top: 24px;
+    font-size: clamp(0.95rem, 4vw, 1.1rem);
   }
 
   .sources {
