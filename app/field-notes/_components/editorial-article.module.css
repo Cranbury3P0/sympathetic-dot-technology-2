@@ -309,6 +309,48 @@
   line-height: 1.5;
 }
 
+.interludePlate {
+  display: grid;
+  grid-template-columns: 35% 65%;
+  min-height: 780px;
+  padding: 72px 6vw;
+  background: var(--accent);
+  color: var(--accent-ink);
+  align-items: center;
+}
+
+.interludeIntro {
+  display: flex;
+  min-height: 620px;
+  flex-direction: column;
+  padding-right: 4vw;
+}
+
+.interludeIntro > span {
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.interludeIntro > p {
+  max-width: 54ch;
+  margin: auto 0 0;
+  font-family: var(--font-field-serif), Georgia, serif;
+  font-size: clamp(1.55rem, 2.15vw, 2.15rem);
+  line-height: 1.42;
+  letter-spacing: -0.015em;
+}
+
+.interludePlate .completeImageCover {
+  background: #17140d;
+}
+
+.interludePlate figcaption {
+  color: inherit;
+  opacity: 0.85;
+}
+
 .figure {
   min-width: 0;
   margin: 0;
@@ -593,6 +635,25 @@
   .materialIntro {
     min-height: 500px;
     padding: 0;
+  }
+
+  .interludePlate {
+    display: block;
+    min-height: auto;
+    padding: 48px 16px 70px;
+  }
+
+  .interludeIntro {
+    min-height: 0;
+    padding: 0;
+    margin-bottom: 48px;
+  }
+
+  .interludeIntro > p {
+    margin-top: 48px;
+    max-width: none;
+    font-size: clamp(1.35rem, 5.2vw, 1.75rem);
+    line-height: 1.45;
   }
 
   .completeImage {

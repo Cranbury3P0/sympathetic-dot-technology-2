@@ -57,6 +57,12 @@ export type EditorialArticleData = {
   nextObservation?: { title: string; href: string };
   /** Instagram reel or post URL to embed before prev/next navigation. */
   instagramEmbed?: string;
+  /** Full-width break between reading sections: accent band, pull quote, and image. */
+  interludePlate?: {
+    kicker: string;
+    quote: string;
+    image: SupportingImage;
+  };
 };
 
 const ACCENTS: Record<
@@ -273,6 +279,16 @@ export function EditorialArticle({
           <article className={styles.copy}>
             <BodyCopy items={chapters[1]} />
           </article>
+        </section>
+      )}
+
+      {article.interludePlate && (
+        <section className={styles.interludePlate}>
+          <div className={styles.interludeIntro}>
+            <span>{article.interludePlate.kicker}</span>
+            <p>{article.interludePlate.quote}</p>
+          </div>
+          <CompleteImage image={article.interludePlate.image} />
         </section>
       )}
 
