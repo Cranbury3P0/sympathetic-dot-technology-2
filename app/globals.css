@@ -189,13 +189,11 @@ body {
 }
 .framework-card-copy {
   font-family: var(--font-barlow), sans-serif;
-  font-size: 15px;
-  font-weight: 400;
-  letter-spacing: 0.04em;
+  font-size: clamp(17px, 1.35vw, 20px);
+  font-weight: 300;
   line-height: 1.55;
   margin: 0;
   max-width: 46ch;
-  text-transform: none;
 }
 
 /* Legal bar */

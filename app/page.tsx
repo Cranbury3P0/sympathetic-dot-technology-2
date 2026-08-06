@@ -565,16 +565,7 @@ export default function Home() {
               height={1254}
               sizes="(max-width: 768px) 100vw, 33vw"
             />
-            <p style={{
-              fontFamily: BARLOW,
-              fontWeight: 400,
-              fontSize: "15px",
-              letterSpacing: "0.04em",
-              lineHeight: 1.55,
-              margin: 0,
-              textTransform: "none",
-              whiteSpace: "pre-line",
-            }}>
+            <p className="framework-card-copy" style={{ maxWidth: "none", whiteSpace: "pre-line" }}>
               {col.body}
             </p>
             <span style={{ display: "block", marginTop: "0.4rem", fontFamily: BARLOW, fontWeight: 400, fontSize: "15px", letterSpacing: "0.04em", lineHeight: 1.55 }}>/</span>

@@ -25,8 +25,25 @@ export const metadata: Metadata = {
   title,
   description,
   alternates: { canonical: "/controlled-intelligence" },
-  openGraph: { title, description, type: "website" },
-  twitter: { card: "summary", title, description },
+  openGraph: {
+    title,
+    description,
+    type: "website",
+    images: [
+      {
+        url: "/controlled-intelligence-architecture.png",
+        width: 1254,
+        height: 1254,
+        alt: title,
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/controlled-intelligence-architecture.png"],
+  },
 };
 
 const ARCHITECTURE = [

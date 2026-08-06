@@ -24,6 +24,27 @@ export const metadata: Metadata = {
   description:
     "Observations on AI, governance, infrastructure, publishing, and cultural change.",
   alternates: { canonical: "/field-notes" },
+  openGraph: {
+    title: "Field Notes — Sympathetic Technology",
+    description:
+      "Observations on AI, governance, infrastructure, publishing, and cultural change.",
+    type: "website",
+    images: [
+      {
+        url: "/the-fight-for-truth-and-trust-og.png",
+        width: 1024,
+        height: 507,
+        alt: "Field Notes — Sympathetic Technology",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Field Notes — Sympathetic Technology",
+    description:
+      "Observations on AI, governance, infrastructure, publishing, and cultural change.",
+    images: ["/the-fight-for-truth-and-trust-og.png"],
+  },
 };
 
 const ENTRIES = [

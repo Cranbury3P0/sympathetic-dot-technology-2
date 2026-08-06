@@ -9,6 +9,7 @@ export const metadata: Metadata = {
     description:
       "Vision, Instinct, and Aesthetics — an evocative intake for new web design clients.",
   },
+  alternates: { canonical: "/web-design-intake" },
   robots: { index: false, follow: false },
 };
 

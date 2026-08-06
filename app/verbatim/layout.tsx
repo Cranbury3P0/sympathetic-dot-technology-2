@@ -12,11 +12,18 @@ export const metadata: Metadata = {
     title,
     description,
     type: "website",
+    images: [
+      {
+        url: "/brand/st-avatar-white-on-black.png",
+        alt: "Sympathetic Technology",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
+    images: ["/brand/st-avatar-white-on-black.png"],
   },
 };
 
